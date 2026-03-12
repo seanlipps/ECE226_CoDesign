@@ -1,0 +1,96 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "2 4 3 1 6",
+    "file": "myproject.cpp",
+    "fileloc": 7,
+    "instructions": 4141,
+    "name": "myproject",
+    "total_instructions": 32816
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_dense_latency.h",
+    "fileloc": 13,
+    "instructions": 425,
+    "loads": {
+      "L": 16
+    },
+    "name": "dense_latency<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, config6>",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 425
+  },
+  "2": {
+    "basicblocks": 264,
+    "calls": "",
+    "file": "nnet_conv1d.h",
+    "fileloc": 36,
+    "instructions": 7621,
+    "loads": {
+      "L": 1
+    },
+    "name": "conv_1d_cl<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, config2>",
+    "stores": {
+      "L": 2048
+    },
+    "total_instructions": 7621
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5",
+    "file": "nnet_pooling.h",
+    "fileloc": 121,
+    "instructions": 2082,
+    "loads": {
+      "L": 2048
+    },
+    "name": "global_pooling1d_cl<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, config5>",
+    "stores": {
+      "L": 16
+    },
+    "total_instructions": 6162
+  },
+  "4": {
+    "basicblocks": 6145,
+    "calls": "",
+    "file": "nnet_activation.h",
+    "fileloc": 39,
+    "instructions": 14338,
+    "loads": {
+      "L": 2048
+    },
+    "name": "relu<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, relu_config4>",
+    "stores": {
+      "L": 4096
+    },
+    "total_instructions": 14338
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_pooling.h",
+    "fileloc": 11,
+    "instructions": 255,
+    "name": "max<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 128, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0> >",
+    "total_instructions": 255
+  },
+  "6": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_activation.h",
+    "fileloc": 220,
+    "instructions": 129,
+    "loads": {
+      "G": 7,
+      "L": 6
+    },
+    "name": "softmax_stable<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, softmax_config7>",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 129
+  }
+}

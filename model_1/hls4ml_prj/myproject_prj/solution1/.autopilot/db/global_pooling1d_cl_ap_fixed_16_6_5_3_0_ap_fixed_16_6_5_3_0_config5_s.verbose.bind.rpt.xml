@@ -1,0 +1,61 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'global_pooling1d_cl_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config5_s'" level="0">
+<item name = "Date">Wed Mar 11 15:01:52 2026
+</item>
+<item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
+<item name = "Project">myproject_prj</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcu250-figd2104-2L-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 3.202 ns, 1.35 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">44, 44, 0.220 us, 0.220 us, 1, 1, yes</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_16398">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_16530">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_16662">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_16794">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_16926">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_17058">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_17190">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_17322">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_17454">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_17586">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_17718">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_17850">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_17982">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_18114">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_18246">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+<column name="grp_max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s_fu_18378">max_ap_fixed_16_6_5_3_0_128_ap_fixed_16_6_5_3_0_s, 42, 42, 0.210 us, 0.210 us, 1, 1, yes</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>
