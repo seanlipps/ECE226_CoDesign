@@ -1,0 +1,99 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "6 4 3 5 2",
+    "file": "myproject.cpp",
+    "fileloc": 7,
+    "instructions": 4131,
+    "name": "myproject",
+    "total_instructions": 43548
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_pooling.h",
+    "fileloc": 11,
+    "instructions": 511,
+    "loads": {
+      "L": 128
+    },
+    "name": "max<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 128, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0> >",
+    "total_instructions": 511
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_activation.h",
+    "fileloc": 220,
+    "instructions": 128,
+    "loads": {
+      "G": 7,
+      "L": 6
+    },
+    "name": "softmax_stable<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, softmax_config7>",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 128
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1",
+    "file": "nnet_pooling.h",
+    "fileloc": 121,
+    "instructions": 8609,
+    "loads": {
+      "L": 2048
+    },
+    "name": "global_pooling1d_cl<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, config5>",
+    "stores": {
+      "L": 2064
+    },
+    "total_instructions": 16785
+  },
+  "4": {
+    "basicblocks": 6145,
+    "calls": "",
+    "file": "nnet_activation.h",
+    "fileloc": 39,
+    "instructions": 14337,
+    "loads": {
+      "L": 2048
+    },
+    "name": "relu<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, relu_config4>",
+    "stores": {
+      "L": 4096
+    },
+    "total_instructions": 14337
+  },
+  "5": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_dense_latency.h",
+    "fileloc": 13,
+    "instructions": 424,
+    "loads": {
+      "L": 16
+    },
+    "name": "dense_latency<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, config6>",
+    "stores": {
+      "L": 6
+    },
+    "total_instructions": 424
+  },
+  "6": {
+    "basicblocks": 263,
+    "calls": "",
+    "file": "nnet_conv1d.h",
+    "fileloc": 36,
+    "instructions": 7743,
+    "loads": {
+      "L": 128
+    },
+    "name": "conv_1d_cl<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, config2>",
+    "stores": {
+      "L": 2048
+    },
+    "total_instructions": 7743
+  }
+}

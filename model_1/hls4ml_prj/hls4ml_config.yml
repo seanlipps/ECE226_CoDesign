@@ -1,0 +1,34 @@
+Backend: Vitis
+ClockPeriod: 5
+ClockUncertainty: 27%
+HLSConfig:
+  Model:
+    BitExact: null
+    BramFactor: 1000000000
+    Precision:
+      default: fixed<16,6>
+    ReuseFactor: 1
+    Strategy: Latency
+    TraceOutput: false
+IOType: io_parallel
+InputData: null
+InputShapes:
+  input_1:
+  - 128
+  - 9
+KerasModel: !keras_model 'model_1/hls4ml_prj/keras_model.keras'
+OutputDir: model_1/hls4ml_prj
+OutputPredictions: null
+OutputShapes:
+  layer7_out:
+  - 6
+Part: xcu250-figd2104-2L-e
+ProjectName: myproject
+Stamp: 9f4eb510
+Version: 1.0.0
+WriterConfig:
+  Namespace: null
+  TBOutputStream: both
+  WriteEmulationConstants: false
+  WriteTar: false
+  WriteWeightsTxt: true

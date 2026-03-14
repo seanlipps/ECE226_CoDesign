@@ -1,0 +1,5 @@
+7 warnings and 3 errors generated.
+Error while processing /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp.
+clang-tidy applied 107 of 107 suggested fixes.
+Suppressed 255 warnings (248 in non-user code, 7 with check filters).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

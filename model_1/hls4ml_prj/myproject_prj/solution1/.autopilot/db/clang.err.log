@@ -1,0 +1,28 @@
+In file included from firmware/myproject.cpp:4:
+In file included from firmware/parameters.h:10:
+firmware/nnet_utils/nnet_activation.h:402:36: warning: unexpected pragma argument 'softmax', expects function/operation [-Winvalid-hls-pragmas]
+#pragma HLS allocation instances = softmax<CONFIG_T> limit = CONFIG_T::parallelization_factor function
+                                   ^
+In file included from firmware/myproject.cpp:4:
+In file included from firmware/parameters.h:12:
+In file included from firmware/nnet_utils/nnet_conv1d.h:6:
+In file included from firmware/nnet_utils/nnet_conv1d_resource.h:5:
+In file included from firmware/nnet_utils/nnet_dense.h:7:
+firmware/nnet_utils/nnet_dense_resource.h:33:9: warning: 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead [-Wignored-hls-pragmas]
+#pragma HLS RESOURCE variable=weights core=ROM_nP_BRAM
+        ^
+firmware/nnet_utils/nnet_dense_resource.h:107:9: warning: 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead [-Wignored-hls-pragmas]
+#pragma HLS RESOURCE variable=weights core=ROM_nP_BRAM
+        ^
+firmware/nnet_utils/nnet_dense_resource.h:189:9: warning: 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead [-Wignored-hls-pragmas]
+#pragma HLS RESOURCE variable=weights core=ROM_nP_BRAM
+        ^
+In file included from firmware/myproject.cpp:4:
+In file included from firmware/parameters.h:17:
+firmware/nnet_utils/nnet_pooling.h:129:43: warning: ALLOCATION pragma is ignored, because Instances value is not valid function pointer expression  [-Winvalid-hls-pragmas]
+#pragma HLS ALLOCATION function instances=pool_op<data_T, CONFIG_T::pool_width, CONFIG_T::pool_op, typename CONFIG_T::accum_t> limit=limit
+                                          ^
+firmware/myproject.cpp:50:11: note: in instantiation of function template specialization 'nnet::global_pooling1d_cl<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, config5>' requested here
+    nnet::global_pooling1d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out);
+          ^
+5 warnings generated.

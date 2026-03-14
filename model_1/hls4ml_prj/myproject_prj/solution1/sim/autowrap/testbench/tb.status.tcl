@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/./sim/autowrap/testbench/myproject.cpp_pre.cpp.tb.cpp
