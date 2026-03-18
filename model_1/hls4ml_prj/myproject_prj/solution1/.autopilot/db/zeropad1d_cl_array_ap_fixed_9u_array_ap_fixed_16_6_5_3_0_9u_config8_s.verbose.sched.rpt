@@ -1,0 +1,137 @@
+
+
+================================================================
+== Vitis HLS Report for 'zeropad1d_cl_array_ap_fixed_9u_array_ap_fixed_16_6_5_3_0_9u_config8_s'
+================================================================
+* Date:           Wed Mar 18 13:57:57 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        myproject_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu250-figd2104-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  1.480 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      132|      132|  0.660 us|  0.660 us|  132|  132|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.22>
+ST_1 : Operation 5 [1/1] (1.22ns)   --->   "%write_ln15 = write void @_ssdm_op_Write.ap_fifo.volatile.i144P0A, i144 %layer8_out, i144 0" [firmware/nnet_utils/nnet_padding_stream.h:15->firmware/nnet_utils/nnet_padding_stream.h:33]   --->   Operation 5 'write' 'write_ln15' <Predicate = true> <Delay = 1.22> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 1.22> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 144> <Depth = 130> <FIFO>
+
+State 2 <SV = 1> <Delay = 1.30>
+ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%empty = wait i32 @_ssdm_op_Wait"   --->   Operation 6 'wait' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 7 [2/2] (1.30ns)   --->   "%call_ln0 = call void @zeropad1d_cl<array,array<ap_fixed<16,6,5,3,0>,9u>,config8>_Pipeline_CopyMain, i144 %input_5, i144 %layer8_out"   --->   Operation 7 'call' 'call_ln0' <Predicate = true> <Delay = 1.30> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 1.47>
+ST_3 : Operation 8 [1/2] (1.47ns)   --->   "%call_ln0 = call void @zeropad1d_cl<array,array<ap_fixed<16,6,5,3,0>,9u>,config8>_Pipeline_CopyMain, i144 %input_5, i144 %layer8_out"   --->   Operation 8 'call' 'call_ln0' <Predicate = true> <Delay = 1.47> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 1.22>
+ST_4 : Operation 9 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i144 %layer8_out, void @empty_15, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 9 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 10 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i144 %input_5, void @empty_9, i32 1, i32 1, void @empty_13, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0, i32 0"   --->   Operation 10 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 11 [1/1] (0.00ns)   --->   "%empty_51 = wait i32 @_ssdm_op_Wait"   --->   Operation 11 'wait' 'empty_51' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 12 [1/1] (1.22ns)   --->   "%write_ln15 = write void @_ssdm_op_Write.ap_fifo.volatile.i144P0A, i144 %layer8_out, i144 0" [firmware/nnet_utils/nnet_padding_stream.h:15->firmware/nnet_utils/nnet_padding_stream.h:43]   --->   Operation 12 'write' 'write_ln15' <Predicate = true> <Delay = 1.22> <CoreInst = "FIFO">   --->   Core 77 'FIFO' <Latency = 0> <II = 1> <Delay = 1.22> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 144> <Depth = 130> <FIFO>
+ST_4 : Operation 13 [1/1] (0.00ns)   --->   "%ret_ln45 = ret" [firmware/nnet_utils/nnet_padding_stream.h:45]   --->   Operation 13 'ret' 'ret_ln45' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5.000ns, clock uncertainty: 1.350ns.
+
+ <State 1>: 1.228ns
+The critical path consists of the following:
+	fifo write operation ('write_ln15', firmware/nnet_utils/nnet_padding_stream.h:15->firmware/nnet_utils/nnet_padding_stream.h:33) on port 'layer8_out' (firmware/nnet_utils/nnet_padding_stream.h:15->firmware/nnet_utils/nnet_padding_stream.h:33) [5]  (1.228 ns)
+
+ <State 2>: 1.306ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln0') to 'zeropad1d_cl<array,array<ap_fixed<16,6,5,3,0>,9u>,config8>_Pipeline_CopyMain' [7]  (1.306 ns)
+
+ <State 3>: 1.480ns
+The critical path consists of the following:
+	'call' operation 0 bit ('call_ln0') to 'zeropad1d_cl<array,array<ap_fixed<16,6,5,3,0>,9u>,config8>_Pipeline_CopyMain' [7]  (1.480 ns)
+
+ <State 4>: 1.228ns
+The critical path consists of the following:
+	fifo write operation ('write_ln15', firmware/nnet_utils/nnet_padding_stream.h:15->firmware/nnet_utils/nnet_padding_stream.h:43) on port 'layer8_out' (firmware/nnet_utils/nnet_padding_stream.h:15->firmware/nnet_utils/nnet_padding_stream.h:43) [9]  (1.228 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

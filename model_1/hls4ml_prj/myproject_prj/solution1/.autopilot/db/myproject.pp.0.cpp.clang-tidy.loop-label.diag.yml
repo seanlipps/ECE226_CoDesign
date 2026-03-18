@@ -79,7 +79,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2356744
+        Offset:          2356934
         Length:          0
         ReplacementText: 'VITIS_LOOP_265_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -88,7 +88,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2357131
+        Offset:          2357321
         Length:          0
         ReplacementText: 'VITIS_LOOP_275_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -97,7 +97,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2357466
+        Offset:          2357656
         Length:          0
         ReplacementText: 'VITIS_LOOP_286_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -106,7 +106,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2357689
+        Offset:          2357879
         Length:          0
         ReplacementText: 'VITIS_LOOP_293_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -115,7 +115,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2357784
+        Offset:          2357974
         Length:          0
         ReplacementText: 'VITIS_LOOP_295_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -124,7 +124,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2358148
+        Offset:          2358338
         Length:          0
         ReplacementText: 'VITIS_LOOP_307_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -133,7 +133,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2358230
+        Offset:          2358420
         Length:          0
         ReplacementText: 'VITIS_LOOP_309_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -142,7 +142,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2358573
+        Offset:          2358763
         Length:          0
         ReplacementText: 'VITIS_LOOP_324_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -151,7 +151,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2359026
+        Offset:          2359216
         Length:          0
         ReplacementText: 'VITIS_LOOP_344_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -160,7 +160,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2359071
+        Offset:          2359261
         Length:          0
         ReplacementText: 'VITIS_LOOP_345_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -169,7 +169,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2359480
+        Offset:          2359670
         Length:          0
         ReplacementText: 'VITIS_LOOP_360_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -178,7 +178,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2359693
+        Offset:          2359883
         Length:          0
         ReplacementText: 'VITIS_LOOP_367_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -187,7 +187,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_conv1d_latency.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2369245
+        Offset:          2369435
         Length:          0
         ReplacementText: 'VITIS_LOOP_136_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -196,7 +196,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_conv1d_latency.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2369329
+        Offset:          2369519
         Length:          0
         ReplacementText: 'VITIS_LOOP_137_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -205,7 +205,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_conv1d_latency.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2369871
+        Offset:          2370061
         Length:          0
         ReplacementText: 'VITIS_LOOP_158_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -214,7 +214,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_conv1d_latency.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2369955
+        Offset:          2370145
         Length:          0
         ReplacementText: 'VITIS_LOOP_159_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -223,7 +223,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2473436
+        Offset:          2374324
         Length:          0
         ReplacementText: 'VITIS_LOOP_31_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -232,7 +232,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2473689
+        Offset:          2374577
         Length:          0
         ReplacementText: 'VITIS_LOOP_43_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -241,7 +241,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2474050
+        Offset:          2374938
         Length:          0
         ReplacementText: 'VITIS_LOOP_57_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -250,7 +250,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2474866
+        Offset:          2375754
         Length:          0
         ReplacementText: 'VITIS_LOOP_84_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -259,7 +259,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2475527
+        Offset:          2376415
         Length:          0
         ReplacementText: 'VITIS_LOOP_114_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -268,7 +268,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2476672
+        Offset:          2377560
         Length:          0
         ReplacementText: 'VITIS_LOOP_151_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -277,7 +277,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2477136
+        Offset:          2378024
         Length:          0
         ReplacementText: 'VITIS_LOOP_167_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -286,7 +286,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2478068
+        Offset:          2378956
         Length:          0
         ReplacementText: 'VITIS_LOOP_200_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -295,7 +295,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2478603
+        Offset:          2379491
         Length:          0
         ReplacementText: 'VITIS_LOOP_213_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -304,7 +304,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2479466
+        Offset:          2380354
         Length:          0
         ReplacementText: 'VITIS_LOOP_246_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -313,7 +313,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2479736
+        Offset:          2380624
         Length:          0
         ReplacementText: 'VITIS_LOOP_255_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -322,7 +322,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2480299
+        Offset:          2381187
         Length:          0
         ReplacementText: 'VITIS_LOOP_268_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -331,7 +331,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2480536
+        Offset:          2381424
         Length:          0
         ReplacementText: 'VITIS_LOOP_275_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -340,7 +340,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2480896
+        Offset:          2381784
         Length:          0
         ReplacementText: 'VITIS_LOOP_288_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -349,7 +349,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2481853
+        Offset:          2382741
         Length:          0
         ReplacementText: 'VITIS_LOOP_325_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -358,7 +358,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2481973
+        Offset:          2382861
         Length:          0
         ReplacementText: 'VITIS_LOOP_330_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -367,7 +367,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2482030
+        Offset:          2382918
         Length:          0
         ReplacementText: 'VITIS_LOOP_331_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -376,7 +376,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2482630
+        Offset:          2383518
         Length:          0
         ReplacementText: 'VITIS_LOOP_348_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -385,7 +385,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2483138
+        Offset:          2384026
         Length:          0
         ReplacementText: 'VITIS_LOOP_361_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -394,7 +394,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2483282
+        Offset:          2384170
         Length:          0
         ReplacementText: 'VITIS_LOOP_369_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -403,7 +403,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2484477
+        Offset:          2385365
         Length:          0
         ReplacementText: 'VITIS_LOOP_405_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -412,7 +412,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2484546
+        Offset:          2385434
         Length:          0
         ReplacementText: 'VITIS_LOOP_407_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -421,7 +421,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2484615
+        Offset:          2385503
         Length:          0
         ReplacementText: 'VITIS_LOOP_409_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -430,7 +430,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2484871
+        Offset:          2385759
         Length:          0
         ReplacementText: 'VITIS_LOOP_414_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -439,7 +439,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2485185
+        Offset:          2386073
         Length:          0
         ReplacementText: 'VITIS_LOOP_427_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -448,7 +448,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2485822
+        Offset:          2386710
         Length:          0
         ReplacementText: 'VITIS_LOOP_457_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -457,7 +457,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2486658
+        Offset:          2387546
         Length:          0
         ReplacementText: 'VITIS_LOOP_484_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -466,7 +466,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2487000
+        Offset:          2387888
         Length:          0
         ReplacementText: 'VITIS_LOOP_498_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -475,7 +475,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2487458
+        Offset:          2388346
         Length:          0
         ReplacementText: 'VITIS_LOOP_514_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -484,7 +484,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2487928
+        Offset:          2388816
         Length:          0
         ReplacementText: 'VITIS_LOOP_532_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -493,7 +493,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2488331
+        Offset:          2389219
         Length:          0
         ReplacementText: 'VITIS_LOOP_549_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -502,7 +502,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2488726
+        Offset:          2389614
         Length:          0
         ReplacementText: 'VITIS_LOOP_566_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -511,7 +511,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2489392
+        Offset:          2390280
         Length:          0
         ReplacementText: 'VITIS_LOOP_596_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -520,7 +520,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2489966
+        Offset:          2390854
         Length:          0
         ReplacementText: 'VITIS_LOOP_615_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -529,7 +529,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2490632
+        Offset:          2391520
         Length:          0
         ReplacementText: 'VITIS_LOOP_645_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -538,7 +538,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2491186
+        Offset:          2392074
         Length:          0
         ReplacementText: 'VITIS_LOOP_664_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -547,7 +547,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2491835
+        Offset:          2392723
         Length:          0
         ReplacementText: 'VITIS_LOOP_694_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -556,7 +556,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2492673
+        Offset:          2393561
         Length:          0
         ReplacementText: 'VITIS_LOOP_721_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -565,7 +565,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2493357
+        Offset:          2394245
         Length:          0
         ReplacementText: 'VITIS_LOOP_749_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -574,7 +574,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2494042
+        Offset:          2394930
         Length:          0
         ReplacementText: 'VITIS_LOOP_779_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -583,7 +583,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2494882
+        Offset:          2395770
         Length:          0
         ReplacementText: 'VITIS_LOOP_808_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -592,7 +592,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2495301
+        Offset:          2396189
         Length:          0
         ReplacementText: 'VITIS_LOOP_828_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -601,7 +601,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2501355
+        Offset:          2402243
         Length:          0
         ReplacementText: 'VITIS_LOOP_229_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -610,7 +610,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2501495
+        Offset:          2402383
         Length:          0
         ReplacementText: 'VITIS_LOOP_236_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -619,7 +619,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2501760
+        Offset:          2402648
         Length:          0
         ReplacementText: 'VITIS_LOOP_245_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -628,7 +628,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2501954
+        Offset:          2402842
         Length:          0
         ReplacementText: 'VITIS_LOOP_254_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -637,7 +637,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2502047
+        Offset:          2402935
         Length:          0
         ReplacementText: 'VITIS_LOOP_258_5: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -646,7 +646,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2502373
+        Offset:          2403261
         Length:          0
         ReplacementText: 'VITIS_LOOP_269_6: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -655,7 +655,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2502483
+        Offset:          2403371
         Length:          0
         ReplacementText: 'VITIS_LOOP_273_7: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -664,7 +664,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2503449
+        Offset:          2404337
         Length:          0
         ReplacementText: 'VITIS_LOOP_297_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -673,7 +673,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2503535
+        Offset:          2404423
         Length:          0
         ReplacementText: 'VITIS_LOOP_301_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -682,7 +682,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2504211
+        Offset:          2405099
         Length:          0
         ReplacementText: 'VITIS_LOOP_320_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -691,7 +691,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2510513
+        Offset:          2411401
         Length:          0
         ReplacementText: 'VITIS_LOOP_211_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -700,7 +700,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2510791
+        Offset:          2411679
         Length:          0
         ReplacementText: 'VITIS_LOOP_220_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -709,7 +709,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2514012
+        Offset:          2414900
         Length:          0
         ReplacementText: 'VITIS_LOOP_325_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -718,7 +718,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2514154
+        Offset:          2415042
         Length:          0
         ReplacementText: 'VITIS_LOOP_330_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -727,7 +727,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2514358
+        Offset:          2415246
         Length:          0
         ReplacementText: 'VITIS_LOOP_338_3: '
   - DiagnosticName:  clang-diagnostic-error
@@ -751,7 +751,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_conv1d.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2548028
+        Offset:          2448916
         Length:          0
         ReplacementText: 'VITIS_LOOP_105_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -760,7 +760,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_conv1d.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2548102
+        Offset:          2448990
         Length:          0
         ReplacementText: 'VITIS_LOOP_107_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -769,7 +769,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_conv1d.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2548351
+        Offset:          2449239
         Length:          0
         ReplacementText: 'VITIS_LOOP_116_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -778,7 +778,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_conv1d.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2548541
+        Offset:          2449429
         Length:          0
         ReplacementText: 'VITIS_LOOP_120_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -787,7 +787,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_conv1d.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2548615
+        Offset:          2449503
         Length:          0
         ReplacementText: 'VITIS_LOOP_122_5: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -796,7 +796,7 @@ Diagnostics:
     FilePath:        /tools/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/ap_shift_reg.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2549790
+        Offset:          2450678
         Length:          0
         ReplacementText: 'VITIS_LOOP_64_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -805,7 +805,7 @@ Diagnostics:
     FilePath:        /tools/Xilinx/Vitis_HLS/2024.1/common/technology/autopilot/ap_shift_reg.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2549994
+        Offset:          2450882
         Length:          0
         ReplacementText: 'VITIS_LOOP_71_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -814,7 +814,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_dense_compressed.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2564703
+        Offset:          2465591
         Length:          0
         ReplacementText: 'VITIS_LOOP_14_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -823,16 +823,322 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_dense_compressed.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2566574
+        Offset:          2467462
         Length:          0
         ReplacementText: 'VITIS_LOOP_74_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_20_1:  '
+    FileOffset:      20
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2472270
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_20_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_21_2:  '
+    FileOffset:      21
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2472323
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_21_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_25_3:  '
+    FileOffset:      25
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2472415
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_25_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_29_4:  '
+    FileOffset:      29
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2472524
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_29_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_39_1:  '
+    FileOffset:      39
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2472819
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_39_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_40_2:  '
+    FileOffset:      40
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2472874
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_40_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_45_3:  '
+    FileOffset:      45
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2472966
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_45_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_46_4:  '
+    FileOffset:      46
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2473021
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_46_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_51_5:  '
+    FileOffset:      51
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2473130
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_51_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_52_6:  '
+    FileOffset:      52
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2473186
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_52_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_75_1:  '
+    FileOffset:      75
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2473941
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_75_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_77_2:  '
+    FileOffset:      77
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2473995
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_77_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_78_3:  '
+    FileOffset:      78
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2474053
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_78_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_83_4:  '
+    FileOffset:      83
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2474164
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_83_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_84_5:  '
+    FileOffset:      84
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2474224
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_84_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_87_6:  '
+    FileOffset:      87
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2474327
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_87_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_90_7:  '
+    FileOffset:      90
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2474447
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_90_7: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_95_8:  '
+    FileOffset:      95
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2474558
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_95_8: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_96_9:  '
+    FileOffset:      96
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2474619
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_96_9: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_108_1:  '
+    FileOffset:      108
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2474995
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_108_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_109_2:  '
+    FileOffset:      109
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475049
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_109_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_110_3:  '
+    FileOffset:      110
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475109
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_110_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_116_4:  '
+    FileOffset:      116
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475219
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_116_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_117_5:  '
+    FileOffset:      117
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475275
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_117_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_118_6:  '
+    FileOffset:      118
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475334
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_118_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_122_7:  '
+    FileOffset:      122
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475441
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_122_7: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_123_8:  '
+    FileOffset:      123
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475500
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_123_8: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_127_9:  '
+    FileOffset:      127
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475624
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_127_9: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_128_10:  '
+    FileOffset:      128
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475684
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_128_10: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_134_11:  '
+    FileOffset:      134
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475794
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_134_11: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_135_12:  '
+    FileOffset:      135
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475851
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_135_12: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_136_13:  '
+    FileOffset:      136
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2475911
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_136_13: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_11_1:  '
+    FileOffset:      11
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding_stream.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2476430
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_11_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_22_1:  '
+    FileOffset:      22
+    FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_padding_stream.h
+    Replacements:    
+      - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
+        Offset:          2476747
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_22_1: '
   - DiagnosticName:  xilinx-label-all-loops
     Message:         'Added loop label VITIS_LOOP_13_1:  '
     FileOffset:      13
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2570864
+        Offset:          2478516
         Length:          0
         ReplacementText: 'VITIS_LOOP_13_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -841,7 +1147,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2571063
+        Offset:          2478715
         Length:          0
         ReplacementText: 'VITIS_LOOP_22_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -850,7 +1156,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2572991
+        Offset:          2480643
         Length:          0
         ReplacementText: 'VITIS_LOOP_97_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -859,7 +1165,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2573048
+        Offset:          2480700
         Length:          0
         ReplacementText: 'VITIS_LOOP_99_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -868,7 +1174,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2573273
+        Offset:          2480925
         Length:          0
         ReplacementText: 'VITIS_LOOP_104_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -877,7 +1183,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2574590
+        Offset:          2482242
         Length:          0
         ReplacementText: 'VITIS_LOOP_132_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -886,7 +1192,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2574733
+        Offset:          2482385
         Length:          0
         ReplacementText: 'VITIS_LOOP_135_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -895,7 +1201,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2577010
+        Offset:          2484662
         Length:          0
         ReplacementText: 'VITIS_LOOP_190_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -904,7 +1210,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2577067
+        Offset:          2484719
         Length:          0
         ReplacementText: 'VITIS_LOOP_192_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -913,7 +1219,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2577161
+        Offset:          2484813
         Length:          0
         ReplacementText: 'VITIS_LOOP_194_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -922,7 +1228,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2577420
+        Offset:          2485072
         Length:          0
         ReplacementText: 'VITIS_LOOP_201_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -931,7 +1237,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2577494
+        Offset:          2485146
         Length:          0
         ReplacementText: 'VITIS_LOOP_203_5: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -940,7 +1246,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2579859
+        Offset:          2487511
         Length:          0
         ReplacementText: 'VITIS_LOOP_244_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -949,7 +1255,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2579916
+        Offset:          2487568
         Length:          0
         ReplacementText: 'VITIS_LOOP_246_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -958,7 +1264,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2580010
+        Offset:          2487662
         Length:          0
         ReplacementText: 'VITIS_LOOP_248_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -967,7 +1273,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2580266
+        Offset:          2487918
         Length:          0
         ReplacementText: 'VITIS_LOOP_254_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -976,7 +1282,7 @@ Diagnostics:
     FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1/.autopilot/db/myproject.pp.0.cpp
-        Offset:          2580342
+        Offset:          2487994
         Length:          0
         ReplacementText: 'VITIS_LOOP_256_5: '
 ...

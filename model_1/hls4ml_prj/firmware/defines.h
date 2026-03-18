@@ -14,19 +14,20 @@
 // hls-fpga-machine-learning insert numbers
 
 // hls-fpga-machine-learning insert layer-precision
-typedef ap_fixed<16,6> input_t;
+typedef nnet::array<ap_fixed<16,6>, 9*1> input_t;
+typedef nnet::array<ap_fixed<16,6>, 9*1> layer8_t;
 typedef ap_fixed<16,6> model_default_t;
-typedef ap_fixed<16,6> layer2_t;
-typedef ap_fixed<16,6> layer4_t;
-typedef ap_fixed<18,8> activation_table_t;
-typedef ap_fixed<16,6> layer5_t;
-typedef ap_fixed<16,6> layer6_t;
+typedef nnet::array<ap_fixed<16,6>, 16*1> layer2_t;
+typedef nnet::array<ap_fixed<16,6>, 16*1> layer4_t;
+typedef ap_fixed<18,8> activation_4_table_t;
+typedef nnet::array<ap_fixed<16,6>, 16*1> layer5_t;
+typedef nnet::array<ap_fixed<16,6>, 6*1> layer6_t;
 typedef ap_uint<1> layer6_index;
-typedef ap_fixed<16,6> result_t;
-typedef ap_fixed<18,8> dense_softmax_table_t;
-typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_softmax_exp_table_t;
-typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_softmax_inv_table_t;
-typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_softmax_inv_inp_t;
+typedef nnet::array<ap_fixed<16,6>, 6*1> result_t;
+typedef ap_fixed<18,8> dense_4_softmax_table_t;
+typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_4_softmax_exp_table_t;
+typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_4_softmax_inv_table_t;
+typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_4_softmax_inv_inp_t;
 
 // hls-fpga-machine-learning insert emulator-defines
 

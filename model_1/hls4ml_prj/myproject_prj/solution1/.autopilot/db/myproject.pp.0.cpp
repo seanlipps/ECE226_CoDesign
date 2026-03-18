@@ -35316,26 +35316,27 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
 
-typedef ap_fixed<16,6> input_t;
+typedef nnet::array<ap_fixed<16,6>, 9*1> input_t;
+typedef nnet::array<ap_fixed<16,6>, 9*1> layer8_t;
 typedef ap_fixed<16,6> model_default_t;
-typedef ap_fixed<16,6> layer2_t;
-typedef ap_fixed<16,6> layer4_t;
-typedef ap_fixed<18,8> activation_table_t;
-typedef ap_fixed<16,6> layer5_t;
-typedef ap_fixed<16,6> layer6_t;
+typedef nnet::array<ap_fixed<16,6>, 16*1> layer2_t;
+typedef nnet::array<ap_fixed<16,6>, 16*1> layer4_t;
+typedef ap_fixed<18,8> activation_4_table_t;
+typedef nnet::array<ap_fixed<16,6>, 16*1> layer5_t;
+typedef nnet::array<ap_fixed<16,6>, 6*1> layer6_t;
 typedef ap_uint<1> layer6_index;
-typedef ap_fixed<16,6> result_t;
-typedef ap_fixed<18,8> dense_softmax_table_t;
-typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_softmax_exp_table_t;
-typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_softmax_inv_table_t;
-typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_softmax_inv_inp_t;
+typedef nnet::array<ap_fixed<16,6>, 6*1> result_t;
+typedef ap_fixed<18,8> dense_4_softmax_table_t;
+typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_4_softmax_exp_table_t;
+typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_4_softmax_inv_table_t;
+typedef ap_fixed<18,8,AP_RND,AP_SAT,0> dense_4_softmax_inv_inp_t;
 # 9 "firmware/myproject.h" 2
 
 
 
 __attribute__((sdx_kernel("myproject", 0))) void myproject(
-    input_t input_1[128*9],
-    result_t layer7_out[6]
+    hls::stream<input_t> &input_5,
+    hls::stream<result_t> &layer7_out
 );
 # 4 "firmware/myproject.cpp" 2
 # 1 "firmware/parameters.h" 1
@@ -56734,528 +56735,6 @@ template <class data_T, class res_T, typename CONFIG_T> class PointwiseConv1D {
 };
 
 
-template<class data_T, typename CONFIG_T>
-class fill_buffer_2 : public nnet::FillConv1DBuffer<data_T, CONFIG_T> {
-    public:
-    static void fill_buffer(
-        data_T data[CONFIG_T::in_width * CONFIG_T::n_chan],
-        data_T buffer[CONFIG_T::n_pixels][CONFIG_T::filt_width * CONFIG_T::n_chan],
-        const unsigned partition
-    ) {
-        if (partition == 0) {
-            buffer[0][0] = 0; buffer[0][1] = 0; buffer[0][2] = 0; buffer[0][3] = 0; buffer[0][4] = 0; buffer[0][5] = 0; buffer[0][6] = 0; buffer[0][7] = 0; buffer[0][8] = 0; buffer[0][9] = data[0]; buffer[0][10] = data[1]; buffer[0][11] = data[2]; buffer[0][12] = data[3]; buffer[0][13] = data[4]; buffer[0][14] = data[5]; buffer[0][15] = data[6]; buffer[0][16] = data[7]; buffer[0][17] = data[8]; buffer[0][18] = data[9]; buffer[0][19] = data[10]; buffer[0][20] = data[11]; buffer[0][21] = data[12]; buffer[0][22] = data[13]; buffer[0][23] = data[14]; buffer[0][24] = data[15]; buffer[0][25] = data[16]; buffer[0][26] = data[17];
-
-        }
-        if (partition == 1) {
-            buffer[0][0] = data[0]; buffer[0][1] = data[1]; buffer[0][2] = data[2]; buffer[0][3] = data[3]; buffer[0][4] = data[4]; buffer[0][5] = data[5]; buffer[0][6] = data[6]; buffer[0][7] = data[7]; buffer[0][8] = data[8]; buffer[0][9] = data[9]; buffer[0][10] = data[10]; buffer[0][11] = data[11]; buffer[0][12] = data[12]; buffer[0][13] = data[13]; buffer[0][14] = data[14]; buffer[0][15] = data[15]; buffer[0][16] = data[16]; buffer[0][17] = data[17]; buffer[0][18] = data[18]; buffer[0][19] = data[19]; buffer[0][20] = data[20]; buffer[0][21] = data[21]; buffer[0][22] = data[22]; buffer[0][23] = data[23]; buffer[0][24] = data[24]; buffer[0][25] = data[25]; buffer[0][26] = data[26];
-
-        }
-        if (partition == 2) {
-            buffer[0][0] = data[9]; buffer[0][1] = data[10]; buffer[0][2] = data[11]; buffer[0][3] = data[12]; buffer[0][4] = data[13]; buffer[0][5] = data[14]; buffer[0][6] = data[15]; buffer[0][7] = data[16]; buffer[0][8] = data[17]; buffer[0][9] = data[18]; buffer[0][10] = data[19]; buffer[0][11] = data[20]; buffer[0][12] = data[21]; buffer[0][13] = data[22]; buffer[0][14] = data[23]; buffer[0][15] = data[24]; buffer[0][16] = data[25]; buffer[0][17] = data[26]; buffer[0][18] = data[27]; buffer[0][19] = data[28]; buffer[0][20] = data[29]; buffer[0][21] = data[30]; buffer[0][22] = data[31]; buffer[0][23] = data[32]; buffer[0][24] = data[33]; buffer[0][25] = data[34]; buffer[0][26] = data[35];
-
-        }
-        if (partition == 3) {
-            buffer[0][0] = data[18]; buffer[0][1] = data[19]; buffer[0][2] = data[20]; buffer[0][3] = data[21]; buffer[0][4] = data[22]; buffer[0][5] = data[23]; buffer[0][6] = data[24]; buffer[0][7] = data[25]; buffer[0][8] = data[26]; buffer[0][9] = data[27]; buffer[0][10] = data[28]; buffer[0][11] = data[29]; buffer[0][12] = data[30]; buffer[0][13] = data[31]; buffer[0][14] = data[32]; buffer[0][15] = data[33]; buffer[0][16] = data[34]; buffer[0][17] = data[35]; buffer[0][18] = data[36]; buffer[0][19] = data[37]; buffer[0][20] = data[38]; buffer[0][21] = data[39]; buffer[0][22] = data[40]; buffer[0][23] = data[41]; buffer[0][24] = data[42]; buffer[0][25] = data[43]; buffer[0][26] = data[44];
-
-        }
-        if (partition == 4) {
-            buffer[0][0] = data[27]; buffer[0][1] = data[28]; buffer[0][2] = data[29]; buffer[0][3] = data[30]; buffer[0][4] = data[31]; buffer[0][5] = data[32]; buffer[0][6] = data[33]; buffer[0][7] = data[34]; buffer[0][8] = data[35]; buffer[0][9] = data[36]; buffer[0][10] = data[37]; buffer[0][11] = data[38]; buffer[0][12] = data[39]; buffer[0][13] = data[40]; buffer[0][14] = data[41]; buffer[0][15] = data[42]; buffer[0][16] = data[43]; buffer[0][17] = data[44]; buffer[0][18] = data[45]; buffer[0][19] = data[46]; buffer[0][20] = data[47]; buffer[0][21] = data[48]; buffer[0][22] = data[49]; buffer[0][23] = data[50]; buffer[0][24] = data[51]; buffer[0][25] = data[52]; buffer[0][26] = data[53];
-
-        }
-        if (partition == 5) {
-            buffer[0][0] = data[36]; buffer[0][1] = data[37]; buffer[0][2] = data[38]; buffer[0][3] = data[39]; buffer[0][4] = data[40]; buffer[0][5] = data[41]; buffer[0][6] = data[42]; buffer[0][7] = data[43]; buffer[0][8] = data[44]; buffer[0][9] = data[45]; buffer[0][10] = data[46]; buffer[0][11] = data[47]; buffer[0][12] = data[48]; buffer[0][13] = data[49]; buffer[0][14] = data[50]; buffer[0][15] = data[51]; buffer[0][16] = data[52]; buffer[0][17] = data[53]; buffer[0][18] = data[54]; buffer[0][19] = data[55]; buffer[0][20] = data[56]; buffer[0][21] = data[57]; buffer[0][22] = data[58]; buffer[0][23] = data[59]; buffer[0][24] = data[60]; buffer[0][25] = data[61]; buffer[0][26] = data[62];
-
-        }
-        if (partition == 6) {
-            buffer[0][0] = data[45]; buffer[0][1] = data[46]; buffer[0][2] = data[47]; buffer[0][3] = data[48]; buffer[0][4] = data[49]; buffer[0][5] = data[50]; buffer[0][6] = data[51]; buffer[0][7] = data[52]; buffer[0][8] = data[53]; buffer[0][9] = data[54]; buffer[0][10] = data[55]; buffer[0][11] = data[56]; buffer[0][12] = data[57]; buffer[0][13] = data[58]; buffer[0][14] = data[59]; buffer[0][15] = data[60]; buffer[0][16] = data[61]; buffer[0][17] = data[62]; buffer[0][18] = data[63]; buffer[0][19] = data[64]; buffer[0][20] = data[65]; buffer[0][21] = data[66]; buffer[0][22] = data[67]; buffer[0][23] = data[68]; buffer[0][24] = data[69]; buffer[0][25] = data[70]; buffer[0][26] = data[71];
-
-        }
-        if (partition == 7) {
-            buffer[0][0] = data[54]; buffer[0][1] = data[55]; buffer[0][2] = data[56]; buffer[0][3] = data[57]; buffer[0][4] = data[58]; buffer[0][5] = data[59]; buffer[0][6] = data[60]; buffer[0][7] = data[61]; buffer[0][8] = data[62]; buffer[0][9] = data[63]; buffer[0][10] = data[64]; buffer[0][11] = data[65]; buffer[0][12] = data[66]; buffer[0][13] = data[67]; buffer[0][14] = data[68]; buffer[0][15] = data[69]; buffer[0][16] = data[70]; buffer[0][17] = data[71]; buffer[0][18] = data[72]; buffer[0][19] = data[73]; buffer[0][20] = data[74]; buffer[0][21] = data[75]; buffer[0][22] = data[76]; buffer[0][23] = data[77]; buffer[0][24] = data[78]; buffer[0][25] = data[79]; buffer[0][26] = data[80];
-
-        }
-        if (partition == 8) {
-            buffer[0][0] = data[63]; buffer[0][1] = data[64]; buffer[0][2] = data[65]; buffer[0][3] = data[66]; buffer[0][4] = data[67]; buffer[0][5] = data[68]; buffer[0][6] = data[69]; buffer[0][7] = data[70]; buffer[0][8] = data[71]; buffer[0][9] = data[72]; buffer[0][10] = data[73]; buffer[0][11] = data[74]; buffer[0][12] = data[75]; buffer[0][13] = data[76]; buffer[0][14] = data[77]; buffer[0][15] = data[78]; buffer[0][16] = data[79]; buffer[0][17] = data[80]; buffer[0][18] = data[81]; buffer[0][19] = data[82]; buffer[0][20] = data[83]; buffer[0][21] = data[84]; buffer[0][22] = data[85]; buffer[0][23] = data[86]; buffer[0][24] = data[87]; buffer[0][25] = data[88]; buffer[0][26] = data[89];
-
-        }
-        if (partition == 9) {
-            buffer[0][0] = data[72]; buffer[0][1] = data[73]; buffer[0][2] = data[74]; buffer[0][3] = data[75]; buffer[0][4] = data[76]; buffer[0][5] = data[77]; buffer[0][6] = data[78]; buffer[0][7] = data[79]; buffer[0][8] = data[80]; buffer[0][9] = data[81]; buffer[0][10] = data[82]; buffer[0][11] = data[83]; buffer[0][12] = data[84]; buffer[0][13] = data[85]; buffer[0][14] = data[86]; buffer[0][15] = data[87]; buffer[0][16] = data[88]; buffer[0][17] = data[89]; buffer[0][18] = data[90]; buffer[0][19] = data[91]; buffer[0][20] = data[92]; buffer[0][21] = data[93]; buffer[0][22] = data[94]; buffer[0][23] = data[95]; buffer[0][24] = data[96]; buffer[0][25] = data[97]; buffer[0][26] = data[98];
-
-        }
-        if (partition == 10) {
-            buffer[0][0] = data[81]; buffer[0][1] = data[82]; buffer[0][2] = data[83]; buffer[0][3] = data[84]; buffer[0][4] = data[85]; buffer[0][5] = data[86]; buffer[0][6] = data[87]; buffer[0][7] = data[88]; buffer[0][8] = data[89]; buffer[0][9] = data[90]; buffer[0][10] = data[91]; buffer[0][11] = data[92]; buffer[0][12] = data[93]; buffer[0][13] = data[94]; buffer[0][14] = data[95]; buffer[0][15] = data[96]; buffer[0][16] = data[97]; buffer[0][17] = data[98]; buffer[0][18] = data[99]; buffer[0][19] = data[100]; buffer[0][20] = data[101]; buffer[0][21] = data[102]; buffer[0][22] = data[103]; buffer[0][23] = data[104]; buffer[0][24] = data[105]; buffer[0][25] = data[106]; buffer[0][26] = data[107];
-
-        }
-        if (partition == 11) {
-            buffer[0][0] = data[90]; buffer[0][1] = data[91]; buffer[0][2] = data[92]; buffer[0][3] = data[93]; buffer[0][4] = data[94]; buffer[0][5] = data[95]; buffer[0][6] = data[96]; buffer[0][7] = data[97]; buffer[0][8] = data[98]; buffer[0][9] = data[99]; buffer[0][10] = data[100]; buffer[0][11] = data[101]; buffer[0][12] = data[102]; buffer[0][13] = data[103]; buffer[0][14] = data[104]; buffer[0][15] = data[105]; buffer[0][16] = data[106]; buffer[0][17] = data[107]; buffer[0][18] = data[108]; buffer[0][19] = data[109]; buffer[0][20] = data[110]; buffer[0][21] = data[111]; buffer[0][22] = data[112]; buffer[0][23] = data[113]; buffer[0][24] = data[114]; buffer[0][25] = data[115]; buffer[0][26] = data[116];
-
-        }
-        if (partition == 12) {
-            buffer[0][0] = data[99]; buffer[0][1] = data[100]; buffer[0][2] = data[101]; buffer[0][3] = data[102]; buffer[0][4] = data[103]; buffer[0][5] = data[104]; buffer[0][6] = data[105]; buffer[0][7] = data[106]; buffer[0][8] = data[107]; buffer[0][9] = data[108]; buffer[0][10] = data[109]; buffer[0][11] = data[110]; buffer[0][12] = data[111]; buffer[0][13] = data[112]; buffer[0][14] = data[113]; buffer[0][15] = data[114]; buffer[0][16] = data[115]; buffer[0][17] = data[116]; buffer[0][18] = data[117]; buffer[0][19] = data[118]; buffer[0][20] = data[119]; buffer[0][21] = data[120]; buffer[0][22] = data[121]; buffer[0][23] = data[122]; buffer[0][24] = data[123]; buffer[0][25] = data[124]; buffer[0][26] = data[125];
-
-        }
-        if (partition == 13) {
-            buffer[0][0] = data[108]; buffer[0][1] = data[109]; buffer[0][2] = data[110]; buffer[0][3] = data[111]; buffer[0][4] = data[112]; buffer[0][5] = data[113]; buffer[0][6] = data[114]; buffer[0][7] = data[115]; buffer[0][8] = data[116]; buffer[0][9] = data[117]; buffer[0][10] = data[118]; buffer[0][11] = data[119]; buffer[0][12] = data[120]; buffer[0][13] = data[121]; buffer[0][14] = data[122]; buffer[0][15] = data[123]; buffer[0][16] = data[124]; buffer[0][17] = data[125]; buffer[0][18] = data[126]; buffer[0][19] = data[127]; buffer[0][20] = data[128]; buffer[0][21] = data[129]; buffer[0][22] = data[130]; buffer[0][23] = data[131]; buffer[0][24] = data[132]; buffer[0][25] = data[133]; buffer[0][26] = data[134];
-
-        }
-        if (partition == 14) {
-            buffer[0][0] = data[117]; buffer[0][1] = data[118]; buffer[0][2] = data[119]; buffer[0][3] = data[120]; buffer[0][4] = data[121]; buffer[0][5] = data[122]; buffer[0][6] = data[123]; buffer[0][7] = data[124]; buffer[0][8] = data[125]; buffer[0][9] = data[126]; buffer[0][10] = data[127]; buffer[0][11] = data[128]; buffer[0][12] = data[129]; buffer[0][13] = data[130]; buffer[0][14] = data[131]; buffer[0][15] = data[132]; buffer[0][16] = data[133]; buffer[0][17] = data[134]; buffer[0][18] = data[135]; buffer[0][19] = data[136]; buffer[0][20] = data[137]; buffer[0][21] = data[138]; buffer[0][22] = data[139]; buffer[0][23] = data[140]; buffer[0][24] = data[141]; buffer[0][25] = data[142]; buffer[0][26] = data[143];
-
-        }
-        if (partition == 15) {
-            buffer[0][0] = data[126]; buffer[0][1] = data[127]; buffer[0][2] = data[128]; buffer[0][3] = data[129]; buffer[0][4] = data[130]; buffer[0][5] = data[131]; buffer[0][6] = data[132]; buffer[0][7] = data[133]; buffer[0][8] = data[134]; buffer[0][9] = data[135]; buffer[0][10] = data[136]; buffer[0][11] = data[137]; buffer[0][12] = data[138]; buffer[0][13] = data[139]; buffer[0][14] = data[140]; buffer[0][15] = data[141]; buffer[0][16] = data[142]; buffer[0][17] = data[143]; buffer[0][18] = data[144]; buffer[0][19] = data[145]; buffer[0][20] = data[146]; buffer[0][21] = data[147]; buffer[0][22] = data[148]; buffer[0][23] = data[149]; buffer[0][24] = data[150]; buffer[0][25] = data[151]; buffer[0][26] = data[152];
-
-        }
-        if (partition == 16) {
-            buffer[0][0] = data[135]; buffer[0][1] = data[136]; buffer[0][2] = data[137]; buffer[0][3] = data[138]; buffer[0][4] = data[139]; buffer[0][5] = data[140]; buffer[0][6] = data[141]; buffer[0][7] = data[142]; buffer[0][8] = data[143]; buffer[0][9] = data[144]; buffer[0][10] = data[145]; buffer[0][11] = data[146]; buffer[0][12] = data[147]; buffer[0][13] = data[148]; buffer[0][14] = data[149]; buffer[0][15] = data[150]; buffer[0][16] = data[151]; buffer[0][17] = data[152]; buffer[0][18] = data[153]; buffer[0][19] = data[154]; buffer[0][20] = data[155]; buffer[0][21] = data[156]; buffer[0][22] = data[157]; buffer[0][23] = data[158]; buffer[0][24] = data[159]; buffer[0][25] = data[160]; buffer[0][26] = data[161];
-
-        }
-        if (partition == 17) {
-            buffer[0][0] = data[144]; buffer[0][1] = data[145]; buffer[0][2] = data[146]; buffer[0][3] = data[147]; buffer[0][4] = data[148]; buffer[0][5] = data[149]; buffer[0][6] = data[150]; buffer[0][7] = data[151]; buffer[0][8] = data[152]; buffer[0][9] = data[153]; buffer[0][10] = data[154]; buffer[0][11] = data[155]; buffer[0][12] = data[156]; buffer[0][13] = data[157]; buffer[0][14] = data[158]; buffer[0][15] = data[159]; buffer[0][16] = data[160]; buffer[0][17] = data[161]; buffer[0][18] = data[162]; buffer[0][19] = data[163]; buffer[0][20] = data[164]; buffer[0][21] = data[165]; buffer[0][22] = data[166]; buffer[0][23] = data[167]; buffer[0][24] = data[168]; buffer[0][25] = data[169]; buffer[0][26] = data[170];
-
-        }
-        if (partition == 18) {
-            buffer[0][0] = data[153]; buffer[0][1] = data[154]; buffer[0][2] = data[155]; buffer[0][3] = data[156]; buffer[0][4] = data[157]; buffer[0][5] = data[158]; buffer[0][6] = data[159]; buffer[0][7] = data[160]; buffer[0][8] = data[161]; buffer[0][9] = data[162]; buffer[0][10] = data[163]; buffer[0][11] = data[164]; buffer[0][12] = data[165]; buffer[0][13] = data[166]; buffer[0][14] = data[167]; buffer[0][15] = data[168]; buffer[0][16] = data[169]; buffer[0][17] = data[170]; buffer[0][18] = data[171]; buffer[0][19] = data[172]; buffer[0][20] = data[173]; buffer[0][21] = data[174]; buffer[0][22] = data[175]; buffer[0][23] = data[176]; buffer[0][24] = data[177]; buffer[0][25] = data[178]; buffer[0][26] = data[179];
-
-        }
-        if (partition == 19) {
-            buffer[0][0] = data[162]; buffer[0][1] = data[163]; buffer[0][2] = data[164]; buffer[0][3] = data[165]; buffer[0][4] = data[166]; buffer[0][5] = data[167]; buffer[0][6] = data[168]; buffer[0][7] = data[169]; buffer[0][8] = data[170]; buffer[0][9] = data[171]; buffer[0][10] = data[172]; buffer[0][11] = data[173]; buffer[0][12] = data[174]; buffer[0][13] = data[175]; buffer[0][14] = data[176]; buffer[0][15] = data[177]; buffer[0][16] = data[178]; buffer[0][17] = data[179]; buffer[0][18] = data[180]; buffer[0][19] = data[181]; buffer[0][20] = data[182]; buffer[0][21] = data[183]; buffer[0][22] = data[184]; buffer[0][23] = data[185]; buffer[0][24] = data[186]; buffer[0][25] = data[187]; buffer[0][26] = data[188];
-
-        }
-        if (partition == 20) {
-            buffer[0][0] = data[171]; buffer[0][1] = data[172]; buffer[0][2] = data[173]; buffer[0][3] = data[174]; buffer[0][4] = data[175]; buffer[0][5] = data[176]; buffer[0][6] = data[177]; buffer[0][7] = data[178]; buffer[0][8] = data[179]; buffer[0][9] = data[180]; buffer[0][10] = data[181]; buffer[0][11] = data[182]; buffer[0][12] = data[183]; buffer[0][13] = data[184]; buffer[0][14] = data[185]; buffer[0][15] = data[186]; buffer[0][16] = data[187]; buffer[0][17] = data[188]; buffer[0][18] = data[189]; buffer[0][19] = data[190]; buffer[0][20] = data[191]; buffer[0][21] = data[192]; buffer[0][22] = data[193]; buffer[0][23] = data[194]; buffer[0][24] = data[195]; buffer[0][25] = data[196]; buffer[0][26] = data[197];
-
-        }
-        if (partition == 21) {
-            buffer[0][0] = data[180]; buffer[0][1] = data[181]; buffer[0][2] = data[182]; buffer[0][3] = data[183]; buffer[0][4] = data[184]; buffer[0][5] = data[185]; buffer[0][6] = data[186]; buffer[0][7] = data[187]; buffer[0][8] = data[188]; buffer[0][9] = data[189]; buffer[0][10] = data[190]; buffer[0][11] = data[191]; buffer[0][12] = data[192]; buffer[0][13] = data[193]; buffer[0][14] = data[194]; buffer[0][15] = data[195]; buffer[0][16] = data[196]; buffer[0][17] = data[197]; buffer[0][18] = data[198]; buffer[0][19] = data[199]; buffer[0][20] = data[200]; buffer[0][21] = data[201]; buffer[0][22] = data[202]; buffer[0][23] = data[203]; buffer[0][24] = data[204]; buffer[0][25] = data[205]; buffer[0][26] = data[206];
-
-        }
-        if (partition == 22) {
-            buffer[0][0] = data[189]; buffer[0][1] = data[190]; buffer[0][2] = data[191]; buffer[0][3] = data[192]; buffer[0][4] = data[193]; buffer[0][5] = data[194]; buffer[0][6] = data[195]; buffer[0][7] = data[196]; buffer[0][8] = data[197]; buffer[0][9] = data[198]; buffer[0][10] = data[199]; buffer[0][11] = data[200]; buffer[0][12] = data[201]; buffer[0][13] = data[202]; buffer[0][14] = data[203]; buffer[0][15] = data[204]; buffer[0][16] = data[205]; buffer[0][17] = data[206]; buffer[0][18] = data[207]; buffer[0][19] = data[208]; buffer[0][20] = data[209]; buffer[0][21] = data[210]; buffer[0][22] = data[211]; buffer[0][23] = data[212]; buffer[0][24] = data[213]; buffer[0][25] = data[214]; buffer[0][26] = data[215];
-
-        }
-        if (partition == 23) {
-            buffer[0][0] = data[198]; buffer[0][1] = data[199]; buffer[0][2] = data[200]; buffer[0][3] = data[201]; buffer[0][4] = data[202]; buffer[0][5] = data[203]; buffer[0][6] = data[204]; buffer[0][7] = data[205]; buffer[0][8] = data[206]; buffer[0][9] = data[207]; buffer[0][10] = data[208]; buffer[0][11] = data[209]; buffer[0][12] = data[210]; buffer[0][13] = data[211]; buffer[0][14] = data[212]; buffer[0][15] = data[213]; buffer[0][16] = data[214]; buffer[0][17] = data[215]; buffer[0][18] = data[216]; buffer[0][19] = data[217]; buffer[0][20] = data[218]; buffer[0][21] = data[219]; buffer[0][22] = data[220]; buffer[0][23] = data[221]; buffer[0][24] = data[222]; buffer[0][25] = data[223]; buffer[0][26] = data[224];
-
-        }
-        if (partition == 24) {
-            buffer[0][0] = data[207]; buffer[0][1] = data[208]; buffer[0][2] = data[209]; buffer[0][3] = data[210]; buffer[0][4] = data[211]; buffer[0][5] = data[212]; buffer[0][6] = data[213]; buffer[0][7] = data[214]; buffer[0][8] = data[215]; buffer[0][9] = data[216]; buffer[0][10] = data[217]; buffer[0][11] = data[218]; buffer[0][12] = data[219]; buffer[0][13] = data[220]; buffer[0][14] = data[221]; buffer[0][15] = data[222]; buffer[0][16] = data[223]; buffer[0][17] = data[224]; buffer[0][18] = data[225]; buffer[0][19] = data[226]; buffer[0][20] = data[227]; buffer[0][21] = data[228]; buffer[0][22] = data[229]; buffer[0][23] = data[230]; buffer[0][24] = data[231]; buffer[0][25] = data[232]; buffer[0][26] = data[233];
-
-        }
-        if (partition == 25) {
-            buffer[0][0] = data[216]; buffer[0][1] = data[217]; buffer[0][2] = data[218]; buffer[0][3] = data[219]; buffer[0][4] = data[220]; buffer[0][5] = data[221]; buffer[0][6] = data[222]; buffer[0][7] = data[223]; buffer[0][8] = data[224]; buffer[0][9] = data[225]; buffer[0][10] = data[226]; buffer[0][11] = data[227]; buffer[0][12] = data[228]; buffer[0][13] = data[229]; buffer[0][14] = data[230]; buffer[0][15] = data[231]; buffer[0][16] = data[232]; buffer[0][17] = data[233]; buffer[0][18] = data[234]; buffer[0][19] = data[235]; buffer[0][20] = data[236]; buffer[0][21] = data[237]; buffer[0][22] = data[238]; buffer[0][23] = data[239]; buffer[0][24] = data[240]; buffer[0][25] = data[241]; buffer[0][26] = data[242];
-
-        }
-        if (partition == 26) {
-            buffer[0][0] = data[225]; buffer[0][1] = data[226]; buffer[0][2] = data[227]; buffer[0][3] = data[228]; buffer[0][4] = data[229]; buffer[0][5] = data[230]; buffer[0][6] = data[231]; buffer[0][7] = data[232]; buffer[0][8] = data[233]; buffer[0][9] = data[234]; buffer[0][10] = data[235]; buffer[0][11] = data[236]; buffer[0][12] = data[237]; buffer[0][13] = data[238]; buffer[0][14] = data[239]; buffer[0][15] = data[240]; buffer[0][16] = data[241]; buffer[0][17] = data[242]; buffer[0][18] = data[243]; buffer[0][19] = data[244]; buffer[0][20] = data[245]; buffer[0][21] = data[246]; buffer[0][22] = data[247]; buffer[0][23] = data[248]; buffer[0][24] = data[249]; buffer[0][25] = data[250]; buffer[0][26] = data[251];
-
-        }
-        if (partition == 27) {
-            buffer[0][0] = data[234]; buffer[0][1] = data[235]; buffer[0][2] = data[236]; buffer[0][3] = data[237]; buffer[0][4] = data[238]; buffer[0][5] = data[239]; buffer[0][6] = data[240]; buffer[0][7] = data[241]; buffer[0][8] = data[242]; buffer[0][9] = data[243]; buffer[0][10] = data[244]; buffer[0][11] = data[245]; buffer[0][12] = data[246]; buffer[0][13] = data[247]; buffer[0][14] = data[248]; buffer[0][15] = data[249]; buffer[0][16] = data[250]; buffer[0][17] = data[251]; buffer[0][18] = data[252]; buffer[0][19] = data[253]; buffer[0][20] = data[254]; buffer[0][21] = data[255]; buffer[0][22] = data[256]; buffer[0][23] = data[257]; buffer[0][24] = data[258]; buffer[0][25] = data[259]; buffer[0][26] = data[260];
-
-        }
-        if (partition == 28) {
-            buffer[0][0] = data[243]; buffer[0][1] = data[244]; buffer[0][2] = data[245]; buffer[0][3] = data[246]; buffer[0][4] = data[247]; buffer[0][5] = data[248]; buffer[0][6] = data[249]; buffer[0][7] = data[250]; buffer[0][8] = data[251]; buffer[0][9] = data[252]; buffer[0][10] = data[253]; buffer[0][11] = data[254]; buffer[0][12] = data[255]; buffer[0][13] = data[256]; buffer[0][14] = data[257]; buffer[0][15] = data[258]; buffer[0][16] = data[259]; buffer[0][17] = data[260]; buffer[0][18] = data[261]; buffer[0][19] = data[262]; buffer[0][20] = data[263]; buffer[0][21] = data[264]; buffer[0][22] = data[265]; buffer[0][23] = data[266]; buffer[0][24] = data[267]; buffer[0][25] = data[268]; buffer[0][26] = data[269];
-
-        }
-        if (partition == 29) {
-            buffer[0][0] = data[252]; buffer[0][1] = data[253]; buffer[0][2] = data[254]; buffer[0][3] = data[255]; buffer[0][4] = data[256]; buffer[0][5] = data[257]; buffer[0][6] = data[258]; buffer[0][7] = data[259]; buffer[0][8] = data[260]; buffer[0][9] = data[261]; buffer[0][10] = data[262]; buffer[0][11] = data[263]; buffer[0][12] = data[264]; buffer[0][13] = data[265]; buffer[0][14] = data[266]; buffer[0][15] = data[267]; buffer[0][16] = data[268]; buffer[0][17] = data[269]; buffer[0][18] = data[270]; buffer[0][19] = data[271]; buffer[0][20] = data[272]; buffer[0][21] = data[273]; buffer[0][22] = data[274]; buffer[0][23] = data[275]; buffer[0][24] = data[276]; buffer[0][25] = data[277]; buffer[0][26] = data[278];
-
-        }
-        if (partition == 30) {
-            buffer[0][0] = data[261]; buffer[0][1] = data[262]; buffer[0][2] = data[263]; buffer[0][3] = data[264]; buffer[0][4] = data[265]; buffer[0][5] = data[266]; buffer[0][6] = data[267]; buffer[0][7] = data[268]; buffer[0][8] = data[269]; buffer[0][9] = data[270]; buffer[0][10] = data[271]; buffer[0][11] = data[272]; buffer[0][12] = data[273]; buffer[0][13] = data[274]; buffer[0][14] = data[275]; buffer[0][15] = data[276]; buffer[0][16] = data[277]; buffer[0][17] = data[278]; buffer[0][18] = data[279]; buffer[0][19] = data[280]; buffer[0][20] = data[281]; buffer[0][21] = data[282]; buffer[0][22] = data[283]; buffer[0][23] = data[284]; buffer[0][24] = data[285]; buffer[0][25] = data[286]; buffer[0][26] = data[287];
-
-        }
-        if (partition == 31) {
-            buffer[0][0] = data[270]; buffer[0][1] = data[271]; buffer[0][2] = data[272]; buffer[0][3] = data[273]; buffer[0][4] = data[274]; buffer[0][5] = data[275]; buffer[0][6] = data[276]; buffer[0][7] = data[277]; buffer[0][8] = data[278]; buffer[0][9] = data[279]; buffer[0][10] = data[280]; buffer[0][11] = data[281]; buffer[0][12] = data[282]; buffer[0][13] = data[283]; buffer[0][14] = data[284]; buffer[0][15] = data[285]; buffer[0][16] = data[286]; buffer[0][17] = data[287]; buffer[0][18] = data[288]; buffer[0][19] = data[289]; buffer[0][20] = data[290]; buffer[0][21] = data[291]; buffer[0][22] = data[292]; buffer[0][23] = data[293]; buffer[0][24] = data[294]; buffer[0][25] = data[295]; buffer[0][26] = data[296];
-
-        }
-        if (partition == 32) {
-            buffer[0][0] = data[279]; buffer[0][1] = data[280]; buffer[0][2] = data[281]; buffer[0][3] = data[282]; buffer[0][4] = data[283]; buffer[0][5] = data[284]; buffer[0][6] = data[285]; buffer[0][7] = data[286]; buffer[0][8] = data[287]; buffer[0][9] = data[288]; buffer[0][10] = data[289]; buffer[0][11] = data[290]; buffer[0][12] = data[291]; buffer[0][13] = data[292]; buffer[0][14] = data[293]; buffer[0][15] = data[294]; buffer[0][16] = data[295]; buffer[0][17] = data[296]; buffer[0][18] = data[297]; buffer[0][19] = data[298]; buffer[0][20] = data[299]; buffer[0][21] = data[300]; buffer[0][22] = data[301]; buffer[0][23] = data[302]; buffer[0][24] = data[303]; buffer[0][25] = data[304]; buffer[0][26] = data[305];
-
-        }
-        if (partition == 33) {
-            buffer[0][0] = data[288]; buffer[0][1] = data[289]; buffer[0][2] = data[290]; buffer[0][3] = data[291]; buffer[0][4] = data[292]; buffer[0][5] = data[293]; buffer[0][6] = data[294]; buffer[0][7] = data[295]; buffer[0][8] = data[296]; buffer[0][9] = data[297]; buffer[0][10] = data[298]; buffer[0][11] = data[299]; buffer[0][12] = data[300]; buffer[0][13] = data[301]; buffer[0][14] = data[302]; buffer[0][15] = data[303]; buffer[0][16] = data[304]; buffer[0][17] = data[305]; buffer[0][18] = data[306]; buffer[0][19] = data[307]; buffer[0][20] = data[308]; buffer[0][21] = data[309]; buffer[0][22] = data[310]; buffer[0][23] = data[311]; buffer[0][24] = data[312]; buffer[0][25] = data[313]; buffer[0][26] = data[314];
-
-        }
-        if (partition == 34) {
-            buffer[0][0] = data[297]; buffer[0][1] = data[298]; buffer[0][2] = data[299]; buffer[0][3] = data[300]; buffer[0][4] = data[301]; buffer[0][5] = data[302]; buffer[0][6] = data[303]; buffer[0][7] = data[304]; buffer[0][8] = data[305]; buffer[0][9] = data[306]; buffer[0][10] = data[307]; buffer[0][11] = data[308]; buffer[0][12] = data[309]; buffer[0][13] = data[310]; buffer[0][14] = data[311]; buffer[0][15] = data[312]; buffer[0][16] = data[313]; buffer[0][17] = data[314]; buffer[0][18] = data[315]; buffer[0][19] = data[316]; buffer[0][20] = data[317]; buffer[0][21] = data[318]; buffer[0][22] = data[319]; buffer[0][23] = data[320]; buffer[0][24] = data[321]; buffer[0][25] = data[322]; buffer[0][26] = data[323];
-
-        }
-        if (partition == 35) {
-            buffer[0][0] = data[306]; buffer[0][1] = data[307]; buffer[0][2] = data[308]; buffer[0][3] = data[309]; buffer[0][4] = data[310]; buffer[0][5] = data[311]; buffer[0][6] = data[312]; buffer[0][7] = data[313]; buffer[0][8] = data[314]; buffer[0][9] = data[315]; buffer[0][10] = data[316]; buffer[0][11] = data[317]; buffer[0][12] = data[318]; buffer[0][13] = data[319]; buffer[0][14] = data[320]; buffer[0][15] = data[321]; buffer[0][16] = data[322]; buffer[0][17] = data[323]; buffer[0][18] = data[324]; buffer[0][19] = data[325]; buffer[0][20] = data[326]; buffer[0][21] = data[327]; buffer[0][22] = data[328]; buffer[0][23] = data[329]; buffer[0][24] = data[330]; buffer[0][25] = data[331]; buffer[0][26] = data[332];
-
-        }
-        if (partition == 36) {
-            buffer[0][0] = data[315]; buffer[0][1] = data[316]; buffer[0][2] = data[317]; buffer[0][3] = data[318]; buffer[0][4] = data[319]; buffer[0][5] = data[320]; buffer[0][6] = data[321]; buffer[0][7] = data[322]; buffer[0][8] = data[323]; buffer[0][9] = data[324]; buffer[0][10] = data[325]; buffer[0][11] = data[326]; buffer[0][12] = data[327]; buffer[0][13] = data[328]; buffer[0][14] = data[329]; buffer[0][15] = data[330]; buffer[0][16] = data[331]; buffer[0][17] = data[332]; buffer[0][18] = data[333]; buffer[0][19] = data[334]; buffer[0][20] = data[335]; buffer[0][21] = data[336]; buffer[0][22] = data[337]; buffer[0][23] = data[338]; buffer[0][24] = data[339]; buffer[0][25] = data[340]; buffer[0][26] = data[341];
-
-        }
-        if (partition == 37) {
-            buffer[0][0] = data[324]; buffer[0][1] = data[325]; buffer[0][2] = data[326]; buffer[0][3] = data[327]; buffer[0][4] = data[328]; buffer[0][5] = data[329]; buffer[0][6] = data[330]; buffer[0][7] = data[331]; buffer[0][8] = data[332]; buffer[0][9] = data[333]; buffer[0][10] = data[334]; buffer[0][11] = data[335]; buffer[0][12] = data[336]; buffer[0][13] = data[337]; buffer[0][14] = data[338]; buffer[0][15] = data[339]; buffer[0][16] = data[340]; buffer[0][17] = data[341]; buffer[0][18] = data[342]; buffer[0][19] = data[343]; buffer[0][20] = data[344]; buffer[0][21] = data[345]; buffer[0][22] = data[346]; buffer[0][23] = data[347]; buffer[0][24] = data[348]; buffer[0][25] = data[349]; buffer[0][26] = data[350];
-
-        }
-        if (partition == 38) {
-            buffer[0][0] = data[333]; buffer[0][1] = data[334]; buffer[0][2] = data[335]; buffer[0][3] = data[336]; buffer[0][4] = data[337]; buffer[0][5] = data[338]; buffer[0][6] = data[339]; buffer[0][7] = data[340]; buffer[0][8] = data[341]; buffer[0][9] = data[342]; buffer[0][10] = data[343]; buffer[0][11] = data[344]; buffer[0][12] = data[345]; buffer[0][13] = data[346]; buffer[0][14] = data[347]; buffer[0][15] = data[348]; buffer[0][16] = data[349]; buffer[0][17] = data[350]; buffer[0][18] = data[351]; buffer[0][19] = data[352]; buffer[0][20] = data[353]; buffer[0][21] = data[354]; buffer[0][22] = data[355]; buffer[0][23] = data[356]; buffer[0][24] = data[357]; buffer[0][25] = data[358]; buffer[0][26] = data[359];
-
-        }
-        if (partition == 39) {
-            buffer[0][0] = data[342]; buffer[0][1] = data[343]; buffer[0][2] = data[344]; buffer[0][3] = data[345]; buffer[0][4] = data[346]; buffer[0][5] = data[347]; buffer[0][6] = data[348]; buffer[0][7] = data[349]; buffer[0][8] = data[350]; buffer[0][9] = data[351]; buffer[0][10] = data[352]; buffer[0][11] = data[353]; buffer[0][12] = data[354]; buffer[0][13] = data[355]; buffer[0][14] = data[356]; buffer[0][15] = data[357]; buffer[0][16] = data[358]; buffer[0][17] = data[359]; buffer[0][18] = data[360]; buffer[0][19] = data[361]; buffer[0][20] = data[362]; buffer[0][21] = data[363]; buffer[0][22] = data[364]; buffer[0][23] = data[365]; buffer[0][24] = data[366]; buffer[0][25] = data[367]; buffer[0][26] = data[368];
-
-        }
-        if (partition == 40) {
-            buffer[0][0] = data[351]; buffer[0][1] = data[352]; buffer[0][2] = data[353]; buffer[0][3] = data[354]; buffer[0][4] = data[355]; buffer[0][5] = data[356]; buffer[0][6] = data[357]; buffer[0][7] = data[358]; buffer[0][8] = data[359]; buffer[0][9] = data[360]; buffer[0][10] = data[361]; buffer[0][11] = data[362]; buffer[0][12] = data[363]; buffer[0][13] = data[364]; buffer[0][14] = data[365]; buffer[0][15] = data[366]; buffer[0][16] = data[367]; buffer[0][17] = data[368]; buffer[0][18] = data[369]; buffer[0][19] = data[370]; buffer[0][20] = data[371]; buffer[0][21] = data[372]; buffer[0][22] = data[373]; buffer[0][23] = data[374]; buffer[0][24] = data[375]; buffer[0][25] = data[376]; buffer[0][26] = data[377];
-
-        }
-        if (partition == 41) {
-            buffer[0][0] = data[360]; buffer[0][1] = data[361]; buffer[0][2] = data[362]; buffer[0][3] = data[363]; buffer[0][4] = data[364]; buffer[0][5] = data[365]; buffer[0][6] = data[366]; buffer[0][7] = data[367]; buffer[0][8] = data[368]; buffer[0][9] = data[369]; buffer[0][10] = data[370]; buffer[0][11] = data[371]; buffer[0][12] = data[372]; buffer[0][13] = data[373]; buffer[0][14] = data[374]; buffer[0][15] = data[375]; buffer[0][16] = data[376]; buffer[0][17] = data[377]; buffer[0][18] = data[378]; buffer[0][19] = data[379]; buffer[0][20] = data[380]; buffer[0][21] = data[381]; buffer[0][22] = data[382]; buffer[0][23] = data[383]; buffer[0][24] = data[384]; buffer[0][25] = data[385]; buffer[0][26] = data[386];
-
-        }
-        if (partition == 42) {
-            buffer[0][0] = data[369]; buffer[0][1] = data[370]; buffer[0][2] = data[371]; buffer[0][3] = data[372]; buffer[0][4] = data[373]; buffer[0][5] = data[374]; buffer[0][6] = data[375]; buffer[0][7] = data[376]; buffer[0][8] = data[377]; buffer[0][9] = data[378]; buffer[0][10] = data[379]; buffer[0][11] = data[380]; buffer[0][12] = data[381]; buffer[0][13] = data[382]; buffer[0][14] = data[383]; buffer[0][15] = data[384]; buffer[0][16] = data[385]; buffer[0][17] = data[386]; buffer[0][18] = data[387]; buffer[0][19] = data[388]; buffer[0][20] = data[389]; buffer[0][21] = data[390]; buffer[0][22] = data[391]; buffer[0][23] = data[392]; buffer[0][24] = data[393]; buffer[0][25] = data[394]; buffer[0][26] = data[395];
-
-        }
-        if (partition == 43) {
-            buffer[0][0] = data[378]; buffer[0][1] = data[379]; buffer[0][2] = data[380]; buffer[0][3] = data[381]; buffer[0][4] = data[382]; buffer[0][5] = data[383]; buffer[0][6] = data[384]; buffer[0][7] = data[385]; buffer[0][8] = data[386]; buffer[0][9] = data[387]; buffer[0][10] = data[388]; buffer[0][11] = data[389]; buffer[0][12] = data[390]; buffer[0][13] = data[391]; buffer[0][14] = data[392]; buffer[0][15] = data[393]; buffer[0][16] = data[394]; buffer[0][17] = data[395]; buffer[0][18] = data[396]; buffer[0][19] = data[397]; buffer[0][20] = data[398]; buffer[0][21] = data[399]; buffer[0][22] = data[400]; buffer[0][23] = data[401]; buffer[0][24] = data[402]; buffer[0][25] = data[403]; buffer[0][26] = data[404];
-
-        }
-        if (partition == 44) {
-            buffer[0][0] = data[387]; buffer[0][1] = data[388]; buffer[0][2] = data[389]; buffer[0][3] = data[390]; buffer[0][4] = data[391]; buffer[0][5] = data[392]; buffer[0][6] = data[393]; buffer[0][7] = data[394]; buffer[0][8] = data[395]; buffer[0][9] = data[396]; buffer[0][10] = data[397]; buffer[0][11] = data[398]; buffer[0][12] = data[399]; buffer[0][13] = data[400]; buffer[0][14] = data[401]; buffer[0][15] = data[402]; buffer[0][16] = data[403]; buffer[0][17] = data[404]; buffer[0][18] = data[405]; buffer[0][19] = data[406]; buffer[0][20] = data[407]; buffer[0][21] = data[408]; buffer[0][22] = data[409]; buffer[0][23] = data[410]; buffer[0][24] = data[411]; buffer[0][25] = data[412]; buffer[0][26] = data[413];
-
-        }
-        if (partition == 45) {
-            buffer[0][0] = data[396]; buffer[0][1] = data[397]; buffer[0][2] = data[398]; buffer[0][3] = data[399]; buffer[0][4] = data[400]; buffer[0][5] = data[401]; buffer[0][6] = data[402]; buffer[0][7] = data[403]; buffer[0][8] = data[404]; buffer[0][9] = data[405]; buffer[0][10] = data[406]; buffer[0][11] = data[407]; buffer[0][12] = data[408]; buffer[0][13] = data[409]; buffer[0][14] = data[410]; buffer[0][15] = data[411]; buffer[0][16] = data[412]; buffer[0][17] = data[413]; buffer[0][18] = data[414]; buffer[0][19] = data[415]; buffer[0][20] = data[416]; buffer[0][21] = data[417]; buffer[0][22] = data[418]; buffer[0][23] = data[419]; buffer[0][24] = data[420]; buffer[0][25] = data[421]; buffer[0][26] = data[422];
-
-        }
-        if (partition == 46) {
-            buffer[0][0] = data[405]; buffer[0][1] = data[406]; buffer[0][2] = data[407]; buffer[0][3] = data[408]; buffer[0][4] = data[409]; buffer[0][5] = data[410]; buffer[0][6] = data[411]; buffer[0][7] = data[412]; buffer[0][8] = data[413]; buffer[0][9] = data[414]; buffer[0][10] = data[415]; buffer[0][11] = data[416]; buffer[0][12] = data[417]; buffer[0][13] = data[418]; buffer[0][14] = data[419]; buffer[0][15] = data[420]; buffer[0][16] = data[421]; buffer[0][17] = data[422]; buffer[0][18] = data[423]; buffer[0][19] = data[424]; buffer[0][20] = data[425]; buffer[0][21] = data[426]; buffer[0][22] = data[427]; buffer[0][23] = data[428]; buffer[0][24] = data[429]; buffer[0][25] = data[430]; buffer[0][26] = data[431];
-
-        }
-        if (partition == 47) {
-            buffer[0][0] = data[414]; buffer[0][1] = data[415]; buffer[0][2] = data[416]; buffer[0][3] = data[417]; buffer[0][4] = data[418]; buffer[0][5] = data[419]; buffer[0][6] = data[420]; buffer[0][7] = data[421]; buffer[0][8] = data[422]; buffer[0][9] = data[423]; buffer[0][10] = data[424]; buffer[0][11] = data[425]; buffer[0][12] = data[426]; buffer[0][13] = data[427]; buffer[0][14] = data[428]; buffer[0][15] = data[429]; buffer[0][16] = data[430]; buffer[0][17] = data[431]; buffer[0][18] = data[432]; buffer[0][19] = data[433]; buffer[0][20] = data[434]; buffer[0][21] = data[435]; buffer[0][22] = data[436]; buffer[0][23] = data[437]; buffer[0][24] = data[438]; buffer[0][25] = data[439]; buffer[0][26] = data[440];
-
-        }
-        if (partition == 48) {
-            buffer[0][0] = data[423]; buffer[0][1] = data[424]; buffer[0][2] = data[425]; buffer[0][3] = data[426]; buffer[0][4] = data[427]; buffer[0][5] = data[428]; buffer[0][6] = data[429]; buffer[0][7] = data[430]; buffer[0][8] = data[431]; buffer[0][9] = data[432]; buffer[0][10] = data[433]; buffer[0][11] = data[434]; buffer[0][12] = data[435]; buffer[0][13] = data[436]; buffer[0][14] = data[437]; buffer[0][15] = data[438]; buffer[0][16] = data[439]; buffer[0][17] = data[440]; buffer[0][18] = data[441]; buffer[0][19] = data[442]; buffer[0][20] = data[443]; buffer[0][21] = data[444]; buffer[0][22] = data[445]; buffer[0][23] = data[446]; buffer[0][24] = data[447]; buffer[0][25] = data[448]; buffer[0][26] = data[449];
-
-        }
-        if (partition == 49) {
-            buffer[0][0] = data[432]; buffer[0][1] = data[433]; buffer[0][2] = data[434]; buffer[0][3] = data[435]; buffer[0][4] = data[436]; buffer[0][5] = data[437]; buffer[0][6] = data[438]; buffer[0][7] = data[439]; buffer[0][8] = data[440]; buffer[0][9] = data[441]; buffer[0][10] = data[442]; buffer[0][11] = data[443]; buffer[0][12] = data[444]; buffer[0][13] = data[445]; buffer[0][14] = data[446]; buffer[0][15] = data[447]; buffer[0][16] = data[448]; buffer[0][17] = data[449]; buffer[0][18] = data[450]; buffer[0][19] = data[451]; buffer[0][20] = data[452]; buffer[0][21] = data[453]; buffer[0][22] = data[454]; buffer[0][23] = data[455]; buffer[0][24] = data[456]; buffer[0][25] = data[457]; buffer[0][26] = data[458];
-
-        }
-        if (partition == 50) {
-            buffer[0][0] = data[441]; buffer[0][1] = data[442]; buffer[0][2] = data[443]; buffer[0][3] = data[444]; buffer[0][4] = data[445]; buffer[0][5] = data[446]; buffer[0][6] = data[447]; buffer[0][7] = data[448]; buffer[0][8] = data[449]; buffer[0][9] = data[450]; buffer[0][10] = data[451]; buffer[0][11] = data[452]; buffer[0][12] = data[453]; buffer[0][13] = data[454]; buffer[0][14] = data[455]; buffer[0][15] = data[456]; buffer[0][16] = data[457]; buffer[0][17] = data[458]; buffer[0][18] = data[459]; buffer[0][19] = data[460]; buffer[0][20] = data[461]; buffer[0][21] = data[462]; buffer[0][22] = data[463]; buffer[0][23] = data[464]; buffer[0][24] = data[465]; buffer[0][25] = data[466]; buffer[0][26] = data[467];
-
-        }
-        if (partition == 51) {
-            buffer[0][0] = data[450]; buffer[0][1] = data[451]; buffer[0][2] = data[452]; buffer[0][3] = data[453]; buffer[0][4] = data[454]; buffer[0][5] = data[455]; buffer[0][6] = data[456]; buffer[0][7] = data[457]; buffer[0][8] = data[458]; buffer[0][9] = data[459]; buffer[0][10] = data[460]; buffer[0][11] = data[461]; buffer[0][12] = data[462]; buffer[0][13] = data[463]; buffer[0][14] = data[464]; buffer[0][15] = data[465]; buffer[0][16] = data[466]; buffer[0][17] = data[467]; buffer[0][18] = data[468]; buffer[0][19] = data[469]; buffer[0][20] = data[470]; buffer[0][21] = data[471]; buffer[0][22] = data[472]; buffer[0][23] = data[473]; buffer[0][24] = data[474]; buffer[0][25] = data[475]; buffer[0][26] = data[476];
-
-        }
-        if (partition == 52) {
-            buffer[0][0] = data[459]; buffer[0][1] = data[460]; buffer[0][2] = data[461]; buffer[0][3] = data[462]; buffer[0][4] = data[463]; buffer[0][5] = data[464]; buffer[0][6] = data[465]; buffer[0][7] = data[466]; buffer[0][8] = data[467]; buffer[0][9] = data[468]; buffer[0][10] = data[469]; buffer[0][11] = data[470]; buffer[0][12] = data[471]; buffer[0][13] = data[472]; buffer[0][14] = data[473]; buffer[0][15] = data[474]; buffer[0][16] = data[475]; buffer[0][17] = data[476]; buffer[0][18] = data[477]; buffer[0][19] = data[478]; buffer[0][20] = data[479]; buffer[0][21] = data[480]; buffer[0][22] = data[481]; buffer[0][23] = data[482]; buffer[0][24] = data[483]; buffer[0][25] = data[484]; buffer[0][26] = data[485];
-
-        }
-        if (partition == 53) {
-            buffer[0][0] = data[468]; buffer[0][1] = data[469]; buffer[0][2] = data[470]; buffer[0][3] = data[471]; buffer[0][4] = data[472]; buffer[0][5] = data[473]; buffer[0][6] = data[474]; buffer[0][7] = data[475]; buffer[0][8] = data[476]; buffer[0][9] = data[477]; buffer[0][10] = data[478]; buffer[0][11] = data[479]; buffer[0][12] = data[480]; buffer[0][13] = data[481]; buffer[0][14] = data[482]; buffer[0][15] = data[483]; buffer[0][16] = data[484]; buffer[0][17] = data[485]; buffer[0][18] = data[486]; buffer[0][19] = data[487]; buffer[0][20] = data[488]; buffer[0][21] = data[489]; buffer[0][22] = data[490]; buffer[0][23] = data[491]; buffer[0][24] = data[492]; buffer[0][25] = data[493]; buffer[0][26] = data[494];
-
-        }
-        if (partition == 54) {
-            buffer[0][0] = data[477]; buffer[0][1] = data[478]; buffer[0][2] = data[479]; buffer[0][3] = data[480]; buffer[0][4] = data[481]; buffer[0][5] = data[482]; buffer[0][6] = data[483]; buffer[0][7] = data[484]; buffer[0][8] = data[485]; buffer[0][9] = data[486]; buffer[0][10] = data[487]; buffer[0][11] = data[488]; buffer[0][12] = data[489]; buffer[0][13] = data[490]; buffer[0][14] = data[491]; buffer[0][15] = data[492]; buffer[0][16] = data[493]; buffer[0][17] = data[494]; buffer[0][18] = data[495]; buffer[0][19] = data[496]; buffer[0][20] = data[497]; buffer[0][21] = data[498]; buffer[0][22] = data[499]; buffer[0][23] = data[500]; buffer[0][24] = data[501]; buffer[0][25] = data[502]; buffer[0][26] = data[503];
-
-        }
-        if (partition == 55) {
-            buffer[0][0] = data[486]; buffer[0][1] = data[487]; buffer[0][2] = data[488]; buffer[0][3] = data[489]; buffer[0][4] = data[490]; buffer[0][5] = data[491]; buffer[0][6] = data[492]; buffer[0][7] = data[493]; buffer[0][8] = data[494]; buffer[0][9] = data[495]; buffer[0][10] = data[496]; buffer[0][11] = data[497]; buffer[0][12] = data[498]; buffer[0][13] = data[499]; buffer[0][14] = data[500]; buffer[0][15] = data[501]; buffer[0][16] = data[502]; buffer[0][17] = data[503]; buffer[0][18] = data[504]; buffer[0][19] = data[505]; buffer[0][20] = data[506]; buffer[0][21] = data[507]; buffer[0][22] = data[508]; buffer[0][23] = data[509]; buffer[0][24] = data[510]; buffer[0][25] = data[511]; buffer[0][26] = data[512];
-
-        }
-        if (partition == 56) {
-            buffer[0][0] = data[495]; buffer[0][1] = data[496]; buffer[0][2] = data[497]; buffer[0][3] = data[498]; buffer[0][4] = data[499]; buffer[0][5] = data[500]; buffer[0][6] = data[501]; buffer[0][7] = data[502]; buffer[0][8] = data[503]; buffer[0][9] = data[504]; buffer[0][10] = data[505]; buffer[0][11] = data[506]; buffer[0][12] = data[507]; buffer[0][13] = data[508]; buffer[0][14] = data[509]; buffer[0][15] = data[510]; buffer[0][16] = data[511]; buffer[0][17] = data[512]; buffer[0][18] = data[513]; buffer[0][19] = data[514]; buffer[0][20] = data[515]; buffer[0][21] = data[516]; buffer[0][22] = data[517]; buffer[0][23] = data[518]; buffer[0][24] = data[519]; buffer[0][25] = data[520]; buffer[0][26] = data[521];
-
-        }
-        if (partition == 57) {
-            buffer[0][0] = data[504]; buffer[0][1] = data[505]; buffer[0][2] = data[506]; buffer[0][3] = data[507]; buffer[0][4] = data[508]; buffer[0][5] = data[509]; buffer[0][6] = data[510]; buffer[0][7] = data[511]; buffer[0][8] = data[512]; buffer[0][9] = data[513]; buffer[0][10] = data[514]; buffer[0][11] = data[515]; buffer[0][12] = data[516]; buffer[0][13] = data[517]; buffer[0][14] = data[518]; buffer[0][15] = data[519]; buffer[0][16] = data[520]; buffer[0][17] = data[521]; buffer[0][18] = data[522]; buffer[0][19] = data[523]; buffer[0][20] = data[524]; buffer[0][21] = data[525]; buffer[0][22] = data[526]; buffer[0][23] = data[527]; buffer[0][24] = data[528]; buffer[0][25] = data[529]; buffer[0][26] = data[530];
-
-        }
-        if (partition == 58) {
-            buffer[0][0] = data[513]; buffer[0][1] = data[514]; buffer[0][2] = data[515]; buffer[0][3] = data[516]; buffer[0][4] = data[517]; buffer[0][5] = data[518]; buffer[0][6] = data[519]; buffer[0][7] = data[520]; buffer[0][8] = data[521]; buffer[0][9] = data[522]; buffer[0][10] = data[523]; buffer[0][11] = data[524]; buffer[0][12] = data[525]; buffer[0][13] = data[526]; buffer[0][14] = data[527]; buffer[0][15] = data[528]; buffer[0][16] = data[529]; buffer[0][17] = data[530]; buffer[0][18] = data[531]; buffer[0][19] = data[532]; buffer[0][20] = data[533]; buffer[0][21] = data[534]; buffer[0][22] = data[535]; buffer[0][23] = data[536]; buffer[0][24] = data[537]; buffer[0][25] = data[538]; buffer[0][26] = data[539];
-
-        }
-        if (partition == 59) {
-            buffer[0][0] = data[522]; buffer[0][1] = data[523]; buffer[0][2] = data[524]; buffer[0][3] = data[525]; buffer[0][4] = data[526]; buffer[0][5] = data[527]; buffer[0][6] = data[528]; buffer[0][7] = data[529]; buffer[0][8] = data[530]; buffer[0][9] = data[531]; buffer[0][10] = data[532]; buffer[0][11] = data[533]; buffer[0][12] = data[534]; buffer[0][13] = data[535]; buffer[0][14] = data[536]; buffer[0][15] = data[537]; buffer[0][16] = data[538]; buffer[0][17] = data[539]; buffer[0][18] = data[540]; buffer[0][19] = data[541]; buffer[0][20] = data[542]; buffer[0][21] = data[543]; buffer[0][22] = data[544]; buffer[0][23] = data[545]; buffer[0][24] = data[546]; buffer[0][25] = data[547]; buffer[0][26] = data[548];
-
-        }
-        if (partition == 60) {
-            buffer[0][0] = data[531]; buffer[0][1] = data[532]; buffer[0][2] = data[533]; buffer[0][3] = data[534]; buffer[0][4] = data[535]; buffer[0][5] = data[536]; buffer[0][6] = data[537]; buffer[0][7] = data[538]; buffer[0][8] = data[539]; buffer[0][9] = data[540]; buffer[0][10] = data[541]; buffer[0][11] = data[542]; buffer[0][12] = data[543]; buffer[0][13] = data[544]; buffer[0][14] = data[545]; buffer[0][15] = data[546]; buffer[0][16] = data[547]; buffer[0][17] = data[548]; buffer[0][18] = data[549]; buffer[0][19] = data[550]; buffer[0][20] = data[551]; buffer[0][21] = data[552]; buffer[0][22] = data[553]; buffer[0][23] = data[554]; buffer[0][24] = data[555]; buffer[0][25] = data[556]; buffer[0][26] = data[557];
-
-        }
-        if (partition == 61) {
-            buffer[0][0] = data[540]; buffer[0][1] = data[541]; buffer[0][2] = data[542]; buffer[0][3] = data[543]; buffer[0][4] = data[544]; buffer[0][5] = data[545]; buffer[0][6] = data[546]; buffer[0][7] = data[547]; buffer[0][8] = data[548]; buffer[0][9] = data[549]; buffer[0][10] = data[550]; buffer[0][11] = data[551]; buffer[0][12] = data[552]; buffer[0][13] = data[553]; buffer[0][14] = data[554]; buffer[0][15] = data[555]; buffer[0][16] = data[556]; buffer[0][17] = data[557]; buffer[0][18] = data[558]; buffer[0][19] = data[559]; buffer[0][20] = data[560]; buffer[0][21] = data[561]; buffer[0][22] = data[562]; buffer[0][23] = data[563]; buffer[0][24] = data[564]; buffer[0][25] = data[565]; buffer[0][26] = data[566];
-
-        }
-        if (partition == 62) {
-            buffer[0][0] = data[549]; buffer[0][1] = data[550]; buffer[0][2] = data[551]; buffer[0][3] = data[552]; buffer[0][4] = data[553]; buffer[0][5] = data[554]; buffer[0][6] = data[555]; buffer[0][7] = data[556]; buffer[0][8] = data[557]; buffer[0][9] = data[558]; buffer[0][10] = data[559]; buffer[0][11] = data[560]; buffer[0][12] = data[561]; buffer[0][13] = data[562]; buffer[0][14] = data[563]; buffer[0][15] = data[564]; buffer[0][16] = data[565]; buffer[0][17] = data[566]; buffer[0][18] = data[567]; buffer[0][19] = data[568]; buffer[0][20] = data[569]; buffer[0][21] = data[570]; buffer[0][22] = data[571]; buffer[0][23] = data[572]; buffer[0][24] = data[573]; buffer[0][25] = data[574]; buffer[0][26] = data[575];
-
-        }
-        if (partition == 63) {
-            buffer[0][0] = data[558]; buffer[0][1] = data[559]; buffer[0][2] = data[560]; buffer[0][3] = data[561]; buffer[0][4] = data[562]; buffer[0][5] = data[563]; buffer[0][6] = data[564]; buffer[0][7] = data[565]; buffer[0][8] = data[566]; buffer[0][9] = data[567]; buffer[0][10] = data[568]; buffer[0][11] = data[569]; buffer[0][12] = data[570]; buffer[0][13] = data[571]; buffer[0][14] = data[572]; buffer[0][15] = data[573]; buffer[0][16] = data[574]; buffer[0][17] = data[575]; buffer[0][18] = data[576]; buffer[0][19] = data[577]; buffer[0][20] = data[578]; buffer[0][21] = data[579]; buffer[0][22] = data[580]; buffer[0][23] = data[581]; buffer[0][24] = data[582]; buffer[0][25] = data[583]; buffer[0][26] = data[584];
-
-        }
-        if (partition == 64) {
-            buffer[0][0] = data[567]; buffer[0][1] = data[568]; buffer[0][2] = data[569]; buffer[0][3] = data[570]; buffer[0][4] = data[571]; buffer[0][5] = data[572]; buffer[0][6] = data[573]; buffer[0][7] = data[574]; buffer[0][8] = data[575]; buffer[0][9] = data[576]; buffer[0][10] = data[577]; buffer[0][11] = data[578]; buffer[0][12] = data[579]; buffer[0][13] = data[580]; buffer[0][14] = data[581]; buffer[0][15] = data[582]; buffer[0][16] = data[583]; buffer[0][17] = data[584]; buffer[0][18] = data[585]; buffer[0][19] = data[586]; buffer[0][20] = data[587]; buffer[0][21] = data[588]; buffer[0][22] = data[589]; buffer[0][23] = data[590]; buffer[0][24] = data[591]; buffer[0][25] = data[592]; buffer[0][26] = data[593];
-
-        }
-        if (partition == 65) {
-            buffer[0][0] = data[576]; buffer[0][1] = data[577]; buffer[0][2] = data[578]; buffer[0][3] = data[579]; buffer[0][4] = data[580]; buffer[0][5] = data[581]; buffer[0][6] = data[582]; buffer[0][7] = data[583]; buffer[0][8] = data[584]; buffer[0][9] = data[585]; buffer[0][10] = data[586]; buffer[0][11] = data[587]; buffer[0][12] = data[588]; buffer[0][13] = data[589]; buffer[0][14] = data[590]; buffer[0][15] = data[591]; buffer[0][16] = data[592]; buffer[0][17] = data[593]; buffer[0][18] = data[594]; buffer[0][19] = data[595]; buffer[0][20] = data[596]; buffer[0][21] = data[597]; buffer[0][22] = data[598]; buffer[0][23] = data[599]; buffer[0][24] = data[600]; buffer[0][25] = data[601]; buffer[0][26] = data[602];
-
-        }
-        if (partition == 66) {
-            buffer[0][0] = data[585]; buffer[0][1] = data[586]; buffer[0][2] = data[587]; buffer[0][3] = data[588]; buffer[0][4] = data[589]; buffer[0][5] = data[590]; buffer[0][6] = data[591]; buffer[0][7] = data[592]; buffer[0][8] = data[593]; buffer[0][9] = data[594]; buffer[0][10] = data[595]; buffer[0][11] = data[596]; buffer[0][12] = data[597]; buffer[0][13] = data[598]; buffer[0][14] = data[599]; buffer[0][15] = data[600]; buffer[0][16] = data[601]; buffer[0][17] = data[602]; buffer[0][18] = data[603]; buffer[0][19] = data[604]; buffer[0][20] = data[605]; buffer[0][21] = data[606]; buffer[0][22] = data[607]; buffer[0][23] = data[608]; buffer[0][24] = data[609]; buffer[0][25] = data[610]; buffer[0][26] = data[611];
-
-        }
-        if (partition == 67) {
-            buffer[0][0] = data[594]; buffer[0][1] = data[595]; buffer[0][2] = data[596]; buffer[0][3] = data[597]; buffer[0][4] = data[598]; buffer[0][5] = data[599]; buffer[0][6] = data[600]; buffer[0][7] = data[601]; buffer[0][8] = data[602]; buffer[0][9] = data[603]; buffer[0][10] = data[604]; buffer[0][11] = data[605]; buffer[0][12] = data[606]; buffer[0][13] = data[607]; buffer[0][14] = data[608]; buffer[0][15] = data[609]; buffer[0][16] = data[610]; buffer[0][17] = data[611]; buffer[0][18] = data[612]; buffer[0][19] = data[613]; buffer[0][20] = data[614]; buffer[0][21] = data[615]; buffer[0][22] = data[616]; buffer[0][23] = data[617]; buffer[0][24] = data[618]; buffer[0][25] = data[619]; buffer[0][26] = data[620];
-
-        }
-        if (partition == 68) {
-            buffer[0][0] = data[603]; buffer[0][1] = data[604]; buffer[0][2] = data[605]; buffer[0][3] = data[606]; buffer[0][4] = data[607]; buffer[0][5] = data[608]; buffer[0][6] = data[609]; buffer[0][7] = data[610]; buffer[0][8] = data[611]; buffer[0][9] = data[612]; buffer[0][10] = data[613]; buffer[0][11] = data[614]; buffer[0][12] = data[615]; buffer[0][13] = data[616]; buffer[0][14] = data[617]; buffer[0][15] = data[618]; buffer[0][16] = data[619]; buffer[0][17] = data[620]; buffer[0][18] = data[621]; buffer[0][19] = data[622]; buffer[0][20] = data[623]; buffer[0][21] = data[624]; buffer[0][22] = data[625]; buffer[0][23] = data[626]; buffer[0][24] = data[627]; buffer[0][25] = data[628]; buffer[0][26] = data[629];
-
-        }
-        if (partition == 69) {
-            buffer[0][0] = data[612]; buffer[0][1] = data[613]; buffer[0][2] = data[614]; buffer[0][3] = data[615]; buffer[0][4] = data[616]; buffer[0][5] = data[617]; buffer[0][6] = data[618]; buffer[0][7] = data[619]; buffer[0][8] = data[620]; buffer[0][9] = data[621]; buffer[0][10] = data[622]; buffer[0][11] = data[623]; buffer[0][12] = data[624]; buffer[0][13] = data[625]; buffer[0][14] = data[626]; buffer[0][15] = data[627]; buffer[0][16] = data[628]; buffer[0][17] = data[629]; buffer[0][18] = data[630]; buffer[0][19] = data[631]; buffer[0][20] = data[632]; buffer[0][21] = data[633]; buffer[0][22] = data[634]; buffer[0][23] = data[635]; buffer[0][24] = data[636]; buffer[0][25] = data[637]; buffer[0][26] = data[638];
-
-        }
-        if (partition == 70) {
-            buffer[0][0] = data[621]; buffer[0][1] = data[622]; buffer[0][2] = data[623]; buffer[0][3] = data[624]; buffer[0][4] = data[625]; buffer[0][5] = data[626]; buffer[0][6] = data[627]; buffer[0][7] = data[628]; buffer[0][8] = data[629]; buffer[0][9] = data[630]; buffer[0][10] = data[631]; buffer[0][11] = data[632]; buffer[0][12] = data[633]; buffer[0][13] = data[634]; buffer[0][14] = data[635]; buffer[0][15] = data[636]; buffer[0][16] = data[637]; buffer[0][17] = data[638]; buffer[0][18] = data[639]; buffer[0][19] = data[640]; buffer[0][20] = data[641]; buffer[0][21] = data[642]; buffer[0][22] = data[643]; buffer[0][23] = data[644]; buffer[0][24] = data[645]; buffer[0][25] = data[646]; buffer[0][26] = data[647];
-
-        }
-        if (partition == 71) {
-            buffer[0][0] = data[630]; buffer[0][1] = data[631]; buffer[0][2] = data[632]; buffer[0][3] = data[633]; buffer[0][4] = data[634]; buffer[0][5] = data[635]; buffer[0][6] = data[636]; buffer[0][7] = data[637]; buffer[0][8] = data[638]; buffer[0][9] = data[639]; buffer[0][10] = data[640]; buffer[0][11] = data[641]; buffer[0][12] = data[642]; buffer[0][13] = data[643]; buffer[0][14] = data[644]; buffer[0][15] = data[645]; buffer[0][16] = data[646]; buffer[0][17] = data[647]; buffer[0][18] = data[648]; buffer[0][19] = data[649]; buffer[0][20] = data[650]; buffer[0][21] = data[651]; buffer[0][22] = data[652]; buffer[0][23] = data[653]; buffer[0][24] = data[654]; buffer[0][25] = data[655]; buffer[0][26] = data[656];
-
-        }
-        if (partition == 72) {
-            buffer[0][0] = data[639]; buffer[0][1] = data[640]; buffer[0][2] = data[641]; buffer[0][3] = data[642]; buffer[0][4] = data[643]; buffer[0][5] = data[644]; buffer[0][6] = data[645]; buffer[0][7] = data[646]; buffer[0][8] = data[647]; buffer[0][9] = data[648]; buffer[0][10] = data[649]; buffer[0][11] = data[650]; buffer[0][12] = data[651]; buffer[0][13] = data[652]; buffer[0][14] = data[653]; buffer[0][15] = data[654]; buffer[0][16] = data[655]; buffer[0][17] = data[656]; buffer[0][18] = data[657]; buffer[0][19] = data[658]; buffer[0][20] = data[659]; buffer[0][21] = data[660]; buffer[0][22] = data[661]; buffer[0][23] = data[662]; buffer[0][24] = data[663]; buffer[0][25] = data[664]; buffer[0][26] = data[665];
-
-        }
-        if (partition == 73) {
-            buffer[0][0] = data[648]; buffer[0][1] = data[649]; buffer[0][2] = data[650]; buffer[0][3] = data[651]; buffer[0][4] = data[652]; buffer[0][5] = data[653]; buffer[0][6] = data[654]; buffer[0][7] = data[655]; buffer[0][8] = data[656]; buffer[0][9] = data[657]; buffer[0][10] = data[658]; buffer[0][11] = data[659]; buffer[0][12] = data[660]; buffer[0][13] = data[661]; buffer[0][14] = data[662]; buffer[0][15] = data[663]; buffer[0][16] = data[664]; buffer[0][17] = data[665]; buffer[0][18] = data[666]; buffer[0][19] = data[667]; buffer[0][20] = data[668]; buffer[0][21] = data[669]; buffer[0][22] = data[670]; buffer[0][23] = data[671]; buffer[0][24] = data[672]; buffer[0][25] = data[673]; buffer[0][26] = data[674];
-
-        }
-        if (partition == 74) {
-            buffer[0][0] = data[657]; buffer[0][1] = data[658]; buffer[0][2] = data[659]; buffer[0][3] = data[660]; buffer[0][4] = data[661]; buffer[0][5] = data[662]; buffer[0][6] = data[663]; buffer[0][7] = data[664]; buffer[0][8] = data[665]; buffer[0][9] = data[666]; buffer[0][10] = data[667]; buffer[0][11] = data[668]; buffer[0][12] = data[669]; buffer[0][13] = data[670]; buffer[0][14] = data[671]; buffer[0][15] = data[672]; buffer[0][16] = data[673]; buffer[0][17] = data[674]; buffer[0][18] = data[675]; buffer[0][19] = data[676]; buffer[0][20] = data[677]; buffer[0][21] = data[678]; buffer[0][22] = data[679]; buffer[0][23] = data[680]; buffer[0][24] = data[681]; buffer[0][25] = data[682]; buffer[0][26] = data[683];
-
-        }
-        if (partition == 75) {
-            buffer[0][0] = data[666]; buffer[0][1] = data[667]; buffer[0][2] = data[668]; buffer[0][3] = data[669]; buffer[0][4] = data[670]; buffer[0][5] = data[671]; buffer[0][6] = data[672]; buffer[0][7] = data[673]; buffer[0][8] = data[674]; buffer[0][9] = data[675]; buffer[0][10] = data[676]; buffer[0][11] = data[677]; buffer[0][12] = data[678]; buffer[0][13] = data[679]; buffer[0][14] = data[680]; buffer[0][15] = data[681]; buffer[0][16] = data[682]; buffer[0][17] = data[683]; buffer[0][18] = data[684]; buffer[0][19] = data[685]; buffer[0][20] = data[686]; buffer[0][21] = data[687]; buffer[0][22] = data[688]; buffer[0][23] = data[689]; buffer[0][24] = data[690]; buffer[0][25] = data[691]; buffer[0][26] = data[692];
-
-        }
-        if (partition == 76) {
-            buffer[0][0] = data[675]; buffer[0][1] = data[676]; buffer[0][2] = data[677]; buffer[0][3] = data[678]; buffer[0][4] = data[679]; buffer[0][5] = data[680]; buffer[0][6] = data[681]; buffer[0][7] = data[682]; buffer[0][8] = data[683]; buffer[0][9] = data[684]; buffer[0][10] = data[685]; buffer[0][11] = data[686]; buffer[0][12] = data[687]; buffer[0][13] = data[688]; buffer[0][14] = data[689]; buffer[0][15] = data[690]; buffer[0][16] = data[691]; buffer[0][17] = data[692]; buffer[0][18] = data[693]; buffer[0][19] = data[694]; buffer[0][20] = data[695]; buffer[0][21] = data[696]; buffer[0][22] = data[697]; buffer[0][23] = data[698]; buffer[0][24] = data[699]; buffer[0][25] = data[700]; buffer[0][26] = data[701];
-
-        }
-        if (partition == 77) {
-            buffer[0][0] = data[684]; buffer[0][1] = data[685]; buffer[0][2] = data[686]; buffer[0][3] = data[687]; buffer[0][4] = data[688]; buffer[0][5] = data[689]; buffer[0][6] = data[690]; buffer[0][7] = data[691]; buffer[0][8] = data[692]; buffer[0][9] = data[693]; buffer[0][10] = data[694]; buffer[0][11] = data[695]; buffer[0][12] = data[696]; buffer[0][13] = data[697]; buffer[0][14] = data[698]; buffer[0][15] = data[699]; buffer[0][16] = data[700]; buffer[0][17] = data[701]; buffer[0][18] = data[702]; buffer[0][19] = data[703]; buffer[0][20] = data[704]; buffer[0][21] = data[705]; buffer[0][22] = data[706]; buffer[0][23] = data[707]; buffer[0][24] = data[708]; buffer[0][25] = data[709]; buffer[0][26] = data[710];
-
-        }
-        if (partition == 78) {
-            buffer[0][0] = data[693]; buffer[0][1] = data[694]; buffer[0][2] = data[695]; buffer[0][3] = data[696]; buffer[0][4] = data[697]; buffer[0][5] = data[698]; buffer[0][6] = data[699]; buffer[0][7] = data[700]; buffer[0][8] = data[701]; buffer[0][9] = data[702]; buffer[0][10] = data[703]; buffer[0][11] = data[704]; buffer[0][12] = data[705]; buffer[0][13] = data[706]; buffer[0][14] = data[707]; buffer[0][15] = data[708]; buffer[0][16] = data[709]; buffer[0][17] = data[710]; buffer[0][18] = data[711]; buffer[0][19] = data[712]; buffer[0][20] = data[713]; buffer[0][21] = data[714]; buffer[0][22] = data[715]; buffer[0][23] = data[716]; buffer[0][24] = data[717]; buffer[0][25] = data[718]; buffer[0][26] = data[719];
-
-        }
-        if (partition == 79) {
-            buffer[0][0] = data[702]; buffer[0][1] = data[703]; buffer[0][2] = data[704]; buffer[0][3] = data[705]; buffer[0][4] = data[706]; buffer[0][5] = data[707]; buffer[0][6] = data[708]; buffer[0][7] = data[709]; buffer[0][8] = data[710]; buffer[0][9] = data[711]; buffer[0][10] = data[712]; buffer[0][11] = data[713]; buffer[0][12] = data[714]; buffer[0][13] = data[715]; buffer[0][14] = data[716]; buffer[0][15] = data[717]; buffer[0][16] = data[718]; buffer[0][17] = data[719]; buffer[0][18] = data[720]; buffer[0][19] = data[721]; buffer[0][20] = data[722]; buffer[0][21] = data[723]; buffer[0][22] = data[724]; buffer[0][23] = data[725]; buffer[0][24] = data[726]; buffer[0][25] = data[727]; buffer[0][26] = data[728];
-
-        }
-        if (partition == 80) {
-            buffer[0][0] = data[711]; buffer[0][1] = data[712]; buffer[0][2] = data[713]; buffer[0][3] = data[714]; buffer[0][4] = data[715]; buffer[0][5] = data[716]; buffer[0][6] = data[717]; buffer[0][7] = data[718]; buffer[0][8] = data[719]; buffer[0][9] = data[720]; buffer[0][10] = data[721]; buffer[0][11] = data[722]; buffer[0][12] = data[723]; buffer[0][13] = data[724]; buffer[0][14] = data[725]; buffer[0][15] = data[726]; buffer[0][16] = data[727]; buffer[0][17] = data[728]; buffer[0][18] = data[729]; buffer[0][19] = data[730]; buffer[0][20] = data[731]; buffer[0][21] = data[732]; buffer[0][22] = data[733]; buffer[0][23] = data[734]; buffer[0][24] = data[735]; buffer[0][25] = data[736]; buffer[0][26] = data[737];
-
-        }
-        if (partition == 81) {
-            buffer[0][0] = data[720]; buffer[0][1] = data[721]; buffer[0][2] = data[722]; buffer[0][3] = data[723]; buffer[0][4] = data[724]; buffer[0][5] = data[725]; buffer[0][6] = data[726]; buffer[0][7] = data[727]; buffer[0][8] = data[728]; buffer[0][9] = data[729]; buffer[0][10] = data[730]; buffer[0][11] = data[731]; buffer[0][12] = data[732]; buffer[0][13] = data[733]; buffer[0][14] = data[734]; buffer[0][15] = data[735]; buffer[0][16] = data[736]; buffer[0][17] = data[737]; buffer[0][18] = data[738]; buffer[0][19] = data[739]; buffer[0][20] = data[740]; buffer[0][21] = data[741]; buffer[0][22] = data[742]; buffer[0][23] = data[743]; buffer[0][24] = data[744]; buffer[0][25] = data[745]; buffer[0][26] = data[746];
-
-        }
-        if (partition == 82) {
-            buffer[0][0] = data[729]; buffer[0][1] = data[730]; buffer[0][2] = data[731]; buffer[0][3] = data[732]; buffer[0][4] = data[733]; buffer[0][5] = data[734]; buffer[0][6] = data[735]; buffer[0][7] = data[736]; buffer[0][8] = data[737]; buffer[0][9] = data[738]; buffer[0][10] = data[739]; buffer[0][11] = data[740]; buffer[0][12] = data[741]; buffer[0][13] = data[742]; buffer[0][14] = data[743]; buffer[0][15] = data[744]; buffer[0][16] = data[745]; buffer[0][17] = data[746]; buffer[0][18] = data[747]; buffer[0][19] = data[748]; buffer[0][20] = data[749]; buffer[0][21] = data[750]; buffer[0][22] = data[751]; buffer[0][23] = data[752]; buffer[0][24] = data[753]; buffer[0][25] = data[754]; buffer[0][26] = data[755];
-
-        }
-        if (partition == 83) {
-            buffer[0][0] = data[738]; buffer[0][1] = data[739]; buffer[0][2] = data[740]; buffer[0][3] = data[741]; buffer[0][4] = data[742]; buffer[0][5] = data[743]; buffer[0][6] = data[744]; buffer[0][7] = data[745]; buffer[0][8] = data[746]; buffer[0][9] = data[747]; buffer[0][10] = data[748]; buffer[0][11] = data[749]; buffer[0][12] = data[750]; buffer[0][13] = data[751]; buffer[0][14] = data[752]; buffer[0][15] = data[753]; buffer[0][16] = data[754]; buffer[0][17] = data[755]; buffer[0][18] = data[756]; buffer[0][19] = data[757]; buffer[0][20] = data[758]; buffer[0][21] = data[759]; buffer[0][22] = data[760]; buffer[0][23] = data[761]; buffer[0][24] = data[762]; buffer[0][25] = data[763]; buffer[0][26] = data[764];
-
-        }
-        if (partition == 84) {
-            buffer[0][0] = data[747]; buffer[0][1] = data[748]; buffer[0][2] = data[749]; buffer[0][3] = data[750]; buffer[0][4] = data[751]; buffer[0][5] = data[752]; buffer[0][6] = data[753]; buffer[0][7] = data[754]; buffer[0][8] = data[755]; buffer[0][9] = data[756]; buffer[0][10] = data[757]; buffer[0][11] = data[758]; buffer[0][12] = data[759]; buffer[0][13] = data[760]; buffer[0][14] = data[761]; buffer[0][15] = data[762]; buffer[0][16] = data[763]; buffer[0][17] = data[764]; buffer[0][18] = data[765]; buffer[0][19] = data[766]; buffer[0][20] = data[767]; buffer[0][21] = data[768]; buffer[0][22] = data[769]; buffer[0][23] = data[770]; buffer[0][24] = data[771]; buffer[0][25] = data[772]; buffer[0][26] = data[773];
-
-        }
-        if (partition == 85) {
-            buffer[0][0] = data[756]; buffer[0][1] = data[757]; buffer[0][2] = data[758]; buffer[0][3] = data[759]; buffer[0][4] = data[760]; buffer[0][5] = data[761]; buffer[0][6] = data[762]; buffer[0][7] = data[763]; buffer[0][8] = data[764]; buffer[0][9] = data[765]; buffer[0][10] = data[766]; buffer[0][11] = data[767]; buffer[0][12] = data[768]; buffer[0][13] = data[769]; buffer[0][14] = data[770]; buffer[0][15] = data[771]; buffer[0][16] = data[772]; buffer[0][17] = data[773]; buffer[0][18] = data[774]; buffer[0][19] = data[775]; buffer[0][20] = data[776]; buffer[0][21] = data[777]; buffer[0][22] = data[778]; buffer[0][23] = data[779]; buffer[0][24] = data[780]; buffer[0][25] = data[781]; buffer[0][26] = data[782];
-
-        }
-        if (partition == 86) {
-            buffer[0][0] = data[765]; buffer[0][1] = data[766]; buffer[0][2] = data[767]; buffer[0][3] = data[768]; buffer[0][4] = data[769]; buffer[0][5] = data[770]; buffer[0][6] = data[771]; buffer[0][7] = data[772]; buffer[0][8] = data[773]; buffer[0][9] = data[774]; buffer[0][10] = data[775]; buffer[0][11] = data[776]; buffer[0][12] = data[777]; buffer[0][13] = data[778]; buffer[0][14] = data[779]; buffer[0][15] = data[780]; buffer[0][16] = data[781]; buffer[0][17] = data[782]; buffer[0][18] = data[783]; buffer[0][19] = data[784]; buffer[0][20] = data[785]; buffer[0][21] = data[786]; buffer[0][22] = data[787]; buffer[0][23] = data[788]; buffer[0][24] = data[789]; buffer[0][25] = data[790]; buffer[0][26] = data[791];
-
-        }
-        if (partition == 87) {
-            buffer[0][0] = data[774]; buffer[0][1] = data[775]; buffer[0][2] = data[776]; buffer[0][3] = data[777]; buffer[0][4] = data[778]; buffer[0][5] = data[779]; buffer[0][6] = data[780]; buffer[0][7] = data[781]; buffer[0][8] = data[782]; buffer[0][9] = data[783]; buffer[0][10] = data[784]; buffer[0][11] = data[785]; buffer[0][12] = data[786]; buffer[0][13] = data[787]; buffer[0][14] = data[788]; buffer[0][15] = data[789]; buffer[0][16] = data[790]; buffer[0][17] = data[791]; buffer[0][18] = data[792]; buffer[0][19] = data[793]; buffer[0][20] = data[794]; buffer[0][21] = data[795]; buffer[0][22] = data[796]; buffer[0][23] = data[797]; buffer[0][24] = data[798]; buffer[0][25] = data[799]; buffer[0][26] = data[800];
-
-        }
-        if (partition == 88) {
-            buffer[0][0] = data[783]; buffer[0][1] = data[784]; buffer[0][2] = data[785]; buffer[0][3] = data[786]; buffer[0][4] = data[787]; buffer[0][5] = data[788]; buffer[0][6] = data[789]; buffer[0][7] = data[790]; buffer[0][8] = data[791]; buffer[0][9] = data[792]; buffer[0][10] = data[793]; buffer[0][11] = data[794]; buffer[0][12] = data[795]; buffer[0][13] = data[796]; buffer[0][14] = data[797]; buffer[0][15] = data[798]; buffer[0][16] = data[799]; buffer[0][17] = data[800]; buffer[0][18] = data[801]; buffer[0][19] = data[802]; buffer[0][20] = data[803]; buffer[0][21] = data[804]; buffer[0][22] = data[805]; buffer[0][23] = data[806]; buffer[0][24] = data[807]; buffer[0][25] = data[808]; buffer[0][26] = data[809];
-
-        }
-        if (partition == 89) {
-            buffer[0][0] = data[792]; buffer[0][1] = data[793]; buffer[0][2] = data[794]; buffer[0][3] = data[795]; buffer[0][4] = data[796]; buffer[0][5] = data[797]; buffer[0][6] = data[798]; buffer[0][7] = data[799]; buffer[0][8] = data[800]; buffer[0][9] = data[801]; buffer[0][10] = data[802]; buffer[0][11] = data[803]; buffer[0][12] = data[804]; buffer[0][13] = data[805]; buffer[0][14] = data[806]; buffer[0][15] = data[807]; buffer[0][16] = data[808]; buffer[0][17] = data[809]; buffer[0][18] = data[810]; buffer[0][19] = data[811]; buffer[0][20] = data[812]; buffer[0][21] = data[813]; buffer[0][22] = data[814]; buffer[0][23] = data[815]; buffer[0][24] = data[816]; buffer[0][25] = data[817]; buffer[0][26] = data[818];
-
-        }
-        if (partition == 90) {
-            buffer[0][0] = data[801]; buffer[0][1] = data[802]; buffer[0][2] = data[803]; buffer[0][3] = data[804]; buffer[0][4] = data[805]; buffer[0][5] = data[806]; buffer[0][6] = data[807]; buffer[0][7] = data[808]; buffer[0][8] = data[809]; buffer[0][9] = data[810]; buffer[0][10] = data[811]; buffer[0][11] = data[812]; buffer[0][12] = data[813]; buffer[0][13] = data[814]; buffer[0][14] = data[815]; buffer[0][15] = data[816]; buffer[0][16] = data[817]; buffer[0][17] = data[818]; buffer[0][18] = data[819]; buffer[0][19] = data[820]; buffer[0][20] = data[821]; buffer[0][21] = data[822]; buffer[0][22] = data[823]; buffer[0][23] = data[824]; buffer[0][24] = data[825]; buffer[0][25] = data[826]; buffer[0][26] = data[827];
-
-        }
-        if (partition == 91) {
-            buffer[0][0] = data[810]; buffer[0][1] = data[811]; buffer[0][2] = data[812]; buffer[0][3] = data[813]; buffer[0][4] = data[814]; buffer[0][5] = data[815]; buffer[0][6] = data[816]; buffer[0][7] = data[817]; buffer[0][8] = data[818]; buffer[0][9] = data[819]; buffer[0][10] = data[820]; buffer[0][11] = data[821]; buffer[0][12] = data[822]; buffer[0][13] = data[823]; buffer[0][14] = data[824]; buffer[0][15] = data[825]; buffer[0][16] = data[826]; buffer[0][17] = data[827]; buffer[0][18] = data[828]; buffer[0][19] = data[829]; buffer[0][20] = data[830]; buffer[0][21] = data[831]; buffer[0][22] = data[832]; buffer[0][23] = data[833]; buffer[0][24] = data[834]; buffer[0][25] = data[835]; buffer[0][26] = data[836];
-
-        }
-        if (partition == 92) {
-            buffer[0][0] = data[819]; buffer[0][1] = data[820]; buffer[0][2] = data[821]; buffer[0][3] = data[822]; buffer[0][4] = data[823]; buffer[0][5] = data[824]; buffer[0][6] = data[825]; buffer[0][7] = data[826]; buffer[0][8] = data[827]; buffer[0][9] = data[828]; buffer[0][10] = data[829]; buffer[0][11] = data[830]; buffer[0][12] = data[831]; buffer[0][13] = data[832]; buffer[0][14] = data[833]; buffer[0][15] = data[834]; buffer[0][16] = data[835]; buffer[0][17] = data[836]; buffer[0][18] = data[837]; buffer[0][19] = data[838]; buffer[0][20] = data[839]; buffer[0][21] = data[840]; buffer[0][22] = data[841]; buffer[0][23] = data[842]; buffer[0][24] = data[843]; buffer[0][25] = data[844]; buffer[0][26] = data[845];
-
-        }
-        if (partition == 93) {
-            buffer[0][0] = data[828]; buffer[0][1] = data[829]; buffer[0][2] = data[830]; buffer[0][3] = data[831]; buffer[0][4] = data[832]; buffer[0][5] = data[833]; buffer[0][6] = data[834]; buffer[0][7] = data[835]; buffer[0][8] = data[836]; buffer[0][9] = data[837]; buffer[0][10] = data[838]; buffer[0][11] = data[839]; buffer[0][12] = data[840]; buffer[0][13] = data[841]; buffer[0][14] = data[842]; buffer[0][15] = data[843]; buffer[0][16] = data[844]; buffer[0][17] = data[845]; buffer[0][18] = data[846]; buffer[0][19] = data[847]; buffer[0][20] = data[848]; buffer[0][21] = data[849]; buffer[0][22] = data[850]; buffer[0][23] = data[851]; buffer[0][24] = data[852]; buffer[0][25] = data[853]; buffer[0][26] = data[854];
-
-        }
-        if (partition == 94) {
-            buffer[0][0] = data[837]; buffer[0][1] = data[838]; buffer[0][2] = data[839]; buffer[0][3] = data[840]; buffer[0][4] = data[841]; buffer[0][5] = data[842]; buffer[0][6] = data[843]; buffer[0][7] = data[844]; buffer[0][8] = data[845]; buffer[0][9] = data[846]; buffer[0][10] = data[847]; buffer[0][11] = data[848]; buffer[0][12] = data[849]; buffer[0][13] = data[850]; buffer[0][14] = data[851]; buffer[0][15] = data[852]; buffer[0][16] = data[853]; buffer[0][17] = data[854]; buffer[0][18] = data[855]; buffer[0][19] = data[856]; buffer[0][20] = data[857]; buffer[0][21] = data[858]; buffer[0][22] = data[859]; buffer[0][23] = data[860]; buffer[0][24] = data[861]; buffer[0][25] = data[862]; buffer[0][26] = data[863];
-
-        }
-        if (partition == 95) {
-            buffer[0][0] = data[846]; buffer[0][1] = data[847]; buffer[0][2] = data[848]; buffer[0][3] = data[849]; buffer[0][4] = data[850]; buffer[0][5] = data[851]; buffer[0][6] = data[852]; buffer[0][7] = data[853]; buffer[0][8] = data[854]; buffer[0][9] = data[855]; buffer[0][10] = data[856]; buffer[0][11] = data[857]; buffer[0][12] = data[858]; buffer[0][13] = data[859]; buffer[0][14] = data[860]; buffer[0][15] = data[861]; buffer[0][16] = data[862]; buffer[0][17] = data[863]; buffer[0][18] = data[864]; buffer[0][19] = data[865]; buffer[0][20] = data[866]; buffer[0][21] = data[867]; buffer[0][22] = data[868]; buffer[0][23] = data[869]; buffer[0][24] = data[870]; buffer[0][25] = data[871]; buffer[0][26] = data[872];
-
-        }
-        if (partition == 96) {
-            buffer[0][0] = data[855]; buffer[0][1] = data[856]; buffer[0][2] = data[857]; buffer[0][3] = data[858]; buffer[0][4] = data[859]; buffer[0][5] = data[860]; buffer[0][6] = data[861]; buffer[0][7] = data[862]; buffer[0][8] = data[863]; buffer[0][9] = data[864]; buffer[0][10] = data[865]; buffer[0][11] = data[866]; buffer[0][12] = data[867]; buffer[0][13] = data[868]; buffer[0][14] = data[869]; buffer[0][15] = data[870]; buffer[0][16] = data[871]; buffer[0][17] = data[872]; buffer[0][18] = data[873]; buffer[0][19] = data[874]; buffer[0][20] = data[875]; buffer[0][21] = data[876]; buffer[0][22] = data[877]; buffer[0][23] = data[878]; buffer[0][24] = data[879]; buffer[0][25] = data[880]; buffer[0][26] = data[881];
-
-        }
-        if (partition == 97) {
-            buffer[0][0] = data[864]; buffer[0][1] = data[865]; buffer[0][2] = data[866]; buffer[0][3] = data[867]; buffer[0][4] = data[868]; buffer[0][5] = data[869]; buffer[0][6] = data[870]; buffer[0][7] = data[871]; buffer[0][8] = data[872]; buffer[0][9] = data[873]; buffer[0][10] = data[874]; buffer[0][11] = data[875]; buffer[0][12] = data[876]; buffer[0][13] = data[877]; buffer[0][14] = data[878]; buffer[0][15] = data[879]; buffer[0][16] = data[880]; buffer[0][17] = data[881]; buffer[0][18] = data[882]; buffer[0][19] = data[883]; buffer[0][20] = data[884]; buffer[0][21] = data[885]; buffer[0][22] = data[886]; buffer[0][23] = data[887]; buffer[0][24] = data[888]; buffer[0][25] = data[889]; buffer[0][26] = data[890];
-
-        }
-        if (partition == 98) {
-            buffer[0][0] = data[873]; buffer[0][1] = data[874]; buffer[0][2] = data[875]; buffer[0][3] = data[876]; buffer[0][4] = data[877]; buffer[0][5] = data[878]; buffer[0][6] = data[879]; buffer[0][7] = data[880]; buffer[0][8] = data[881]; buffer[0][9] = data[882]; buffer[0][10] = data[883]; buffer[0][11] = data[884]; buffer[0][12] = data[885]; buffer[0][13] = data[886]; buffer[0][14] = data[887]; buffer[0][15] = data[888]; buffer[0][16] = data[889]; buffer[0][17] = data[890]; buffer[0][18] = data[891]; buffer[0][19] = data[892]; buffer[0][20] = data[893]; buffer[0][21] = data[894]; buffer[0][22] = data[895]; buffer[0][23] = data[896]; buffer[0][24] = data[897]; buffer[0][25] = data[898]; buffer[0][26] = data[899];
-
-        }
-        if (partition == 99) {
-            buffer[0][0] = data[882]; buffer[0][1] = data[883]; buffer[0][2] = data[884]; buffer[0][3] = data[885]; buffer[0][4] = data[886]; buffer[0][5] = data[887]; buffer[0][6] = data[888]; buffer[0][7] = data[889]; buffer[0][8] = data[890]; buffer[0][9] = data[891]; buffer[0][10] = data[892]; buffer[0][11] = data[893]; buffer[0][12] = data[894]; buffer[0][13] = data[895]; buffer[0][14] = data[896]; buffer[0][15] = data[897]; buffer[0][16] = data[898]; buffer[0][17] = data[899]; buffer[0][18] = data[900]; buffer[0][19] = data[901]; buffer[0][20] = data[902]; buffer[0][21] = data[903]; buffer[0][22] = data[904]; buffer[0][23] = data[905]; buffer[0][24] = data[906]; buffer[0][25] = data[907]; buffer[0][26] = data[908];
-
-        }
-        if (partition == 100) {
-            buffer[0][0] = data[891]; buffer[0][1] = data[892]; buffer[0][2] = data[893]; buffer[0][3] = data[894]; buffer[0][4] = data[895]; buffer[0][5] = data[896]; buffer[0][6] = data[897]; buffer[0][7] = data[898]; buffer[0][8] = data[899]; buffer[0][9] = data[900]; buffer[0][10] = data[901]; buffer[0][11] = data[902]; buffer[0][12] = data[903]; buffer[0][13] = data[904]; buffer[0][14] = data[905]; buffer[0][15] = data[906]; buffer[0][16] = data[907]; buffer[0][17] = data[908]; buffer[0][18] = data[909]; buffer[0][19] = data[910]; buffer[0][20] = data[911]; buffer[0][21] = data[912]; buffer[0][22] = data[913]; buffer[0][23] = data[914]; buffer[0][24] = data[915]; buffer[0][25] = data[916]; buffer[0][26] = data[917];
-
-        }
-        if (partition == 101) {
-            buffer[0][0] = data[900]; buffer[0][1] = data[901]; buffer[0][2] = data[902]; buffer[0][3] = data[903]; buffer[0][4] = data[904]; buffer[0][5] = data[905]; buffer[0][6] = data[906]; buffer[0][7] = data[907]; buffer[0][8] = data[908]; buffer[0][9] = data[909]; buffer[0][10] = data[910]; buffer[0][11] = data[911]; buffer[0][12] = data[912]; buffer[0][13] = data[913]; buffer[0][14] = data[914]; buffer[0][15] = data[915]; buffer[0][16] = data[916]; buffer[0][17] = data[917]; buffer[0][18] = data[918]; buffer[0][19] = data[919]; buffer[0][20] = data[920]; buffer[0][21] = data[921]; buffer[0][22] = data[922]; buffer[0][23] = data[923]; buffer[0][24] = data[924]; buffer[0][25] = data[925]; buffer[0][26] = data[926];
-
-        }
-        if (partition == 102) {
-            buffer[0][0] = data[909]; buffer[0][1] = data[910]; buffer[0][2] = data[911]; buffer[0][3] = data[912]; buffer[0][4] = data[913]; buffer[0][5] = data[914]; buffer[0][6] = data[915]; buffer[0][7] = data[916]; buffer[0][8] = data[917]; buffer[0][9] = data[918]; buffer[0][10] = data[919]; buffer[0][11] = data[920]; buffer[0][12] = data[921]; buffer[0][13] = data[922]; buffer[0][14] = data[923]; buffer[0][15] = data[924]; buffer[0][16] = data[925]; buffer[0][17] = data[926]; buffer[0][18] = data[927]; buffer[0][19] = data[928]; buffer[0][20] = data[929]; buffer[0][21] = data[930]; buffer[0][22] = data[931]; buffer[0][23] = data[932]; buffer[0][24] = data[933]; buffer[0][25] = data[934]; buffer[0][26] = data[935];
-
-        }
-        if (partition == 103) {
-            buffer[0][0] = data[918]; buffer[0][1] = data[919]; buffer[0][2] = data[920]; buffer[0][3] = data[921]; buffer[0][4] = data[922]; buffer[0][5] = data[923]; buffer[0][6] = data[924]; buffer[0][7] = data[925]; buffer[0][8] = data[926]; buffer[0][9] = data[927]; buffer[0][10] = data[928]; buffer[0][11] = data[929]; buffer[0][12] = data[930]; buffer[0][13] = data[931]; buffer[0][14] = data[932]; buffer[0][15] = data[933]; buffer[0][16] = data[934]; buffer[0][17] = data[935]; buffer[0][18] = data[936]; buffer[0][19] = data[937]; buffer[0][20] = data[938]; buffer[0][21] = data[939]; buffer[0][22] = data[940]; buffer[0][23] = data[941]; buffer[0][24] = data[942]; buffer[0][25] = data[943]; buffer[0][26] = data[944];
-
-        }
-        if (partition == 104) {
-            buffer[0][0] = data[927]; buffer[0][1] = data[928]; buffer[0][2] = data[929]; buffer[0][3] = data[930]; buffer[0][4] = data[931]; buffer[0][5] = data[932]; buffer[0][6] = data[933]; buffer[0][7] = data[934]; buffer[0][8] = data[935]; buffer[0][9] = data[936]; buffer[0][10] = data[937]; buffer[0][11] = data[938]; buffer[0][12] = data[939]; buffer[0][13] = data[940]; buffer[0][14] = data[941]; buffer[0][15] = data[942]; buffer[0][16] = data[943]; buffer[0][17] = data[944]; buffer[0][18] = data[945]; buffer[0][19] = data[946]; buffer[0][20] = data[947]; buffer[0][21] = data[948]; buffer[0][22] = data[949]; buffer[0][23] = data[950]; buffer[0][24] = data[951]; buffer[0][25] = data[952]; buffer[0][26] = data[953];
-
-        }
-        if (partition == 105) {
-            buffer[0][0] = data[936]; buffer[0][1] = data[937]; buffer[0][2] = data[938]; buffer[0][3] = data[939]; buffer[0][4] = data[940]; buffer[0][5] = data[941]; buffer[0][6] = data[942]; buffer[0][7] = data[943]; buffer[0][8] = data[944]; buffer[0][9] = data[945]; buffer[0][10] = data[946]; buffer[0][11] = data[947]; buffer[0][12] = data[948]; buffer[0][13] = data[949]; buffer[0][14] = data[950]; buffer[0][15] = data[951]; buffer[0][16] = data[952]; buffer[0][17] = data[953]; buffer[0][18] = data[954]; buffer[0][19] = data[955]; buffer[0][20] = data[956]; buffer[0][21] = data[957]; buffer[0][22] = data[958]; buffer[0][23] = data[959]; buffer[0][24] = data[960]; buffer[0][25] = data[961]; buffer[0][26] = data[962];
-
-        }
-        if (partition == 106) {
-            buffer[0][0] = data[945]; buffer[0][1] = data[946]; buffer[0][2] = data[947]; buffer[0][3] = data[948]; buffer[0][4] = data[949]; buffer[0][5] = data[950]; buffer[0][6] = data[951]; buffer[0][7] = data[952]; buffer[0][8] = data[953]; buffer[0][9] = data[954]; buffer[0][10] = data[955]; buffer[0][11] = data[956]; buffer[0][12] = data[957]; buffer[0][13] = data[958]; buffer[0][14] = data[959]; buffer[0][15] = data[960]; buffer[0][16] = data[961]; buffer[0][17] = data[962]; buffer[0][18] = data[963]; buffer[0][19] = data[964]; buffer[0][20] = data[965]; buffer[0][21] = data[966]; buffer[0][22] = data[967]; buffer[0][23] = data[968]; buffer[0][24] = data[969]; buffer[0][25] = data[970]; buffer[0][26] = data[971];
-
-        }
-        if (partition == 107) {
-            buffer[0][0] = data[954]; buffer[0][1] = data[955]; buffer[0][2] = data[956]; buffer[0][3] = data[957]; buffer[0][4] = data[958]; buffer[0][5] = data[959]; buffer[0][6] = data[960]; buffer[0][7] = data[961]; buffer[0][8] = data[962]; buffer[0][9] = data[963]; buffer[0][10] = data[964]; buffer[0][11] = data[965]; buffer[0][12] = data[966]; buffer[0][13] = data[967]; buffer[0][14] = data[968]; buffer[0][15] = data[969]; buffer[0][16] = data[970]; buffer[0][17] = data[971]; buffer[0][18] = data[972]; buffer[0][19] = data[973]; buffer[0][20] = data[974]; buffer[0][21] = data[975]; buffer[0][22] = data[976]; buffer[0][23] = data[977]; buffer[0][24] = data[978]; buffer[0][25] = data[979]; buffer[0][26] = data[980];
-
-        }
-        if (partition == 108) {
-            buffer[0][0] = data[963]; buffer[0][1] = data[964]; buffer[0][2] = data[965]; buffer[0][3] = data[966]; buffer[0][4] = data[967]; buffer[0][5] = data[968]; buffer[0][6] = data[969]; buffer[0][7] = data[970]; buffer[0][8] = data[971]; buffer[0][9] = data[972]; buffer[0][10] = data[973]; buffer[0][11] = data[974]; buffer[0][12] = data[975]; buffer[0][13] = data[976]; buffer[0][14] = data[977]; buffer[0][15] = data[978]; buffer[0][16] = data[979]; buffer[0][17] = data[980]; buffer[0][18] = data[981]; buffer[0][19] = data[982]; buffer[0][20] = data[983]; buffer[0][21] = data[984]; buffer[0][22] = data[985]; buffer[0][23] = data[986]; buffer[0][24] = data[987]; buffer[0][25] = data[988]; buffer[0][26] = data[989];
-
-        }
-        if (partition == 109) {
-            buffer[0][0] = data[972]; buffer[0][1] = data[973]; buffer[0][2] = data[974]; buffer[0][3] = data[975]; buffer[0][4] = data[976]; buffer[0][5] = data[977]; buffer[0][6] = data[978]; buffer[0][7] = data[979]; buffer[0][8] = data[980]; buffer[0][9] = data[981]; buffer[0][10] = data[982]; buffer[0][11] = data[983]; buffer[0][12] = data[984]; buffer[0][13] = data[985]; buffer[0][14] = data[986]; buffer[0][15] = data[987]; buffer[0][16] = data[988]; buffer[0][17] = data[989]; buffer[0][18] = data[990]; buffer[0][19] = data[991]; buffer[0][20] = data[992]; buffer[0][21] = data[993]; buffer[0][22] = data[994]; buffer[0][23] = data[995]; buffer[0][24] = data[996]; buffer[0][25] = data[997]; buffer[0][26] = data[998];
-
-        }
-        if (partition == 110) {
-            buffer[0][0] = data[981]; buffer[0][1] = data[982]; buffer[0][2] = data[983]; buffer[0][3] = data[984]; buffer[0][4] = data[985]; buffer[0][5] = data[986]; buffer[0][6] = data[987]; buffer[0][7] = data[988]; buffer[0][8] = data[989]; buffer[0][9] = data[990]; buffer[0][10] = data[991]; buffer[0][11] = data[992]; buffer[0][12] = data[993]; buffer[0][13] = data[994]; buffer[0][14] = data[995]; buffer[0][15] = data[996]; buffer[0][16] = data[997]; buffer[0][17] = data[998]; buffer[0][18] = data[999]; buffer[0][19] = data[1000]; buffer[0][20] = data[1001]; buffer[0][21] = data[1002]; buffer[0][22] = data[1003]; buffer[0][23] = data[1004]; buffer[0][24] = data[1005]; buffer[0][25] = data[1006]; buffer[0][26] = data[1007];
-
-        }
-        if (partition == 111) {
-            buffer[0][0] = data[990]; buffer[0][1] = data[991]; buffer[0][2] = data[992]; buffer[0][3] = data[993]; buffer[0][4] = data[994]; buffer[0][5] = data[995]; buffer[0][6] = data[996]; buffer[0][7] = data[997]; buffer[0][8] = data[998]; buffer[0][9] = data[999]; buffer[0][10] = data[1000]; buffer[0][11] = data[1001]; buffer[0][12] = data[1002]; buffer[0][13] = data[1003]; buffer[0][14] = data[1004]; buffer[0][15] = data[1005]; buffer[0][16] = data[1006]; buffer[0][17] = data[1007]; buffer[0][18] = data[1008]; buffer[0][19] = data[1009]; buffer[0][20] = data[1010]; buffer[0][21] = data[1011]; buffer[0][22] = data[1012]; buffer[0][23] = data[1013]; buffer[0][24] = data[1014]; buffer[0][25] = data[1015]; buffer[0][26] = data[1016];
-
-        }
-        if (partition == 112) {
-            buffer[0][0] = data[999]; buffer[0][1] = data[1000]; buffer[0][2] = data[1001]; buffer[0][3] = data[1002]; buffer[0][4] = data[1003]; buffer[0][5] = data[1004]; buffer[0][6] = data[1005]; buffer[0][7] = data[1006]; buffer[0][8] = data[1007]; buffer[0][9] = data[1008]; buffer[0][10] = data[1009]; buffer[0][11] = data[1010]; buffer[0][12] = data[1011]; buffer[0][13] = data[1012]; buffer[0][14] = data[1013]; buffer[0][15] = data[1014]; buffer[0][16] = data[1015]; buffer[0][17] = data[1016]; buffer[0][18] = data[1017]; buffer[0][19] = data[1018]; buffer[0][20] = data[1019]; buffer[0][21] = data[1020]; buffer[0][22] = data[1021]; buffer[0][23] = data[1022]; buffer[0][24] = data[1023]; buffer[0][25] = data[1024]; buffer[0][26] = data[1025];
-
-        }
-        if (partition == 113) {
-            buffer[0][0] = data[1008]; buffer[0][1] = data[1009]; buffer[0][2] = data[1010]; buffer[0][3] = data[1011]; buffer[0][4] = data[1012]; buffer[0][5] = data[1013]; buffer[0][6] = data[1014]; buffer[0][7] = data[1015]; buffer[0][8] = data[1016]; buffer[0][9] = data[1017]; buffer[0][10] = data[1018]; buffer[0][11] = data[1019]; buffer[0][12] = data[1020]; buffer[0][13] = data[1021]; buffer[0][14] = data[1022]; buffer[0][15] = data[1023]; buffer[0][16] = data[1024]; buffer[0][17] = data[1025]; buffer[0][18] = data[1026]; buffer[0][19] = data[1027]; buffer[0][20] = data[1028]; buffer[0][21] = data[1029]; buffer[0][22] = data[1030]; buffer[0][23] = data[1031]; buffer[0][24] = data[1032]; buffer[0][25] = data[1033]; buffer[0][26] = data[1034];
-
-        }
-        if (partition == 114) {
-            buffer[0][0] = data[1017]; buffer[0][1] = data[1018]; buffer[0][2] = data[1019]; buffer[0][3] = data[1020]; buffer[0][4] = data[1021]; buffer[0][5] = data[1022]; buffer[0][6] = data[1023]; buffer[0][7] = data[1024]; buffer[0][8] = data[1025]; buffer[0][9] = data[1026]; buffer[0][10] = data[1027]; buffer[0][11] = data[1028]; buffer[0][12] = data[1029]; buffer[0][13] = data[1030]; buffer[0][14] = data[1031]; buffer[0][15] = data[1032]; buffer[0][16] = data[1033]; buffer[0][17] = data[1034]; buffer[0][18] = data[1035]; buffer[0][19] = data[1036]; buffer[0][20] = data[1037]; buffer[0][21] = data[1038]; buffer[0][22] = data[1039]; buffer[0][23] = data[1040]; buffer[0][24] = data[1041]; buffer[0][25] = data[1042]; buffer[0][26] = data[1043];
-
-        }
-        if (partition == 115) {
-            buffer[0][0] = data[1026]; buffer[0][1] = data[1027]; buffer[0][2] = data[1028]; buffer[0][3] = data[1029]; buffer[0][4] = data[1030]; buffer[0][5] = data[1031]; buffer[0][6] = data[1032]; buffer[0][7] = data[1033]; buffer[0][8] = data[1034]; buffer[0][9] = data[1035]; buffer[0][10] = data[1036]; buffer[0][11] = data[1037]; buffer[0][12] = data[1038]; buffer[0][13] = data[1039]; buffer[0][14] = data[1040]; buffer[0][15] = data[1041]; buffer[0][16] = data[1042]; buffer[0][17] = data[1043]; buffer[0][18] = data[1044]; buffer[0][19] = data[1045]; buffer[0][20] = data[1046]; buffer[0][21] = data[1047]; buffer[0][22] = data[1048]; buffer[0][23] = data[1049]; buffer[0][24] = data[1050]; buffer[0][25] = data[1051]; buffer[0][26] = data[1052];
-
-        }
-        if (partition == 116) {
-            buffer[0][0] = data[1035]; buffer[0][1] = data[1036]; buffer[0][2] = data[1037]; buffer[0][3] = data[1038]; buffer[0][4] = data[1039]; buffer[0][5] = data[1040]; buffer[0][6] = data[1041]; buffer[0][7] = data[1042]; buffer[0][8] = data[1043]; buffer[0][9] = data[1044]; buffer[0][10] = data[1045]; buffer[0][11] = data[1046]; buffer[0][12] = data[1047]; buffer[0][13] = data[1048]; buffer[0][14] = data[1049]; buffer[0][15] = data[1050]; buffer[0][16] = data[1051]; buffer[0][17] = data[1052]; buffer[0][18] = data[1053]; buffer[0][19] = data[1054]; buffer[0][20] = data[1055]; buffer[0][21] = data[1056]; buffer[0][22] = data[1057]; buffer[0][23] = data[1058]; buffer[0][24] = data[1059]; buffer[0][25] = data[1060]; buffer[0][26] = data[1061];
-
-        }
-        if (partition == 117) {
-            buffer[0][0] = data[1044]; buffer[0][1] = data[1045]; buffer[0][2] = data[1046]; buffer[0][3] = data[1047]; buffer[0][4] = data[1048]; buffer[0][5] = data[1049]; buffer[0][6] = data[1050]; buffer[0][7] = data[1051]; buffer[0][8] = data[1052]; buffer[0][9] = data[1053]; buffer[0][10] = data[1054]; buffer[0][11] = data[1055]; buffer[0][12] = data[1056]; buffer[0][13] = data[1057]; buffer[0][14] = data[1058]; buffer[0][15] = data[1059]; buffer[0][16] = data[1060]; buffer[0][17] = data[1061]; buffer[0][18] = data[1062]; buffer[0][19] = data[1063]; buffer[0][20] = data[1064]; buffer[0][21] = data[1065]; buffer[0][22] = data[1066]; buffer[0][23] = data[1067]; buffer[0][24] = data[1068]; buffer[0][25] = data[1069]; buffer[0][26] = data[1070];
-
-        }
-        if (partition == 118) {
-            buffer[0][0] = data[1053]; buffer[0][1] = data[1054]; buffer[0][2] = data[1055]; buffer[0][3] = data[1056]; buffer[0][4] = data[1057]; buffer[0][5] = data[1058]; buffer[0][6] = data[1059]; buffer[0][7] = data[1060]; buffer[0][8] = data[1061]; buffer[0][9] = data[1062]; buffer[0][10] = data[1063]; buffer[0][11] = data[1064]; buffer[0][12] = data[1065]; buffer[0][13] = data[1066]; buffer[0][14] = data[1067]; buffer[0][15] = data[1068]; buffer[0][16] = data[1069]; buffer[0][17] = data[1070]; buffer[0][18] = data[1071]; buffer[0][19] = data[1072]; buffer[0][20] = data[1073]; buffer[0][21] = data[1074]; buffer[0][22] = data[1075]; buffer[0][23] = data[1076]; buffer[0][24] = data[1077]; buffer[0][25] = data[1078]; buffer[0][26] = data[1079];
-
-        }
-        if (partition == 119) {
-            buffer[0][0] = data[1062]; buffer[0][1] = data[1063]; buffer[0][2] = data[1064]; buffer[0][3] = data[1065]; buffer[0][4] = data[1066]; buffer[0][5] = data[1067]; buffer[0][6] = data[1068]; buffer[0][7] = data[1069]; buffer[0][8] = data[1070]; buffer[0][9] = data[1071]; buffer[0][10] = data[1072]; buffer[0][11] = data[1073]; buffer[0][12] = data[1074]; buffer[0][13] = data[1075]; buffer[0][14] = data[1076]; buffer[0][15] = data[1077]; buffer[0][16] = data[1078]; buffer[0][17] = data[1079]; buffer[0][18] = data[1080]; buffer[0][19] = data[1081]; buffer[0][20] = data[1082]; buffer[0][21] = data[1083]; buffer[0][22] = data[1084]; buffer[0][23] = data[1085]; buffer[0][24] = data[1086]; buffer[0][25] = data[1087]; buffer[0][26] = data[1088];
-
-        }
-        if (partition == 120) {
-            buffer[0][0] = data[1071]; buffer[0][1] = data[1072]; buffer[0][2] = data[1073]; buffer[0][3] = data[1074]; buffer[0][4] = data[1075]; buffer[0][5] = data[1076]; buffer[0][6] = data[1077]; buffer[0][7] = data[1078]; buffer[0][8] = data[1079]; buffer[0][9] = data[1080]; buffer[0][10] = data[1081]; buffer[0][11] = data[1082]; buffer[0][12] = data[1083]; buffer[0][13] = data[1084]; buffer[0][14] = data[1085]; buffer[0][15] = data[1086]; buffer[0][16] = data[1087]; buffer[0][17] = data[1088]; buffer[0][18] = data[1089]; buffer[0][19] = data[1090]; buffer[0][20] = data[1091]; buffer[0][21] = data[1092]; buffer[0][22] = data[1093]; buffer[0][23] = data[1094]; buffer[0][24] = data[1095]; buffer[0][25] = data[1096]; buffer[0][26] = data[1097];
-
-        }
-        if (partition == 121) {
-            buffer[0][0] = data[1080]; buffer[0][1] = data[1081]; buffer[0][2] = data[1082]; buffer[0][3] = data[1083]; buffer[0][4] = data[1084]; buffer[0][5] = data[1085]; buffer[0][6] = data[1086]; buffer[0][7] = data[1087]; buffer[0][8] = data[1088]; buffer[0][9] = data[1089]; buffer[0][10] = data[1090]; buffer[0][11] = data[1091]; buffer[0][12] = data[1092]; buffer[0][13] = data[1093]; buffer[0][14] = data[1094]; buffer[0][15] = data[1095]; buffer[0][16] = data[1096]; buffer[0][17] = data[1097]; buffer[0][18] = data[1098]; buffer[0][19] = data[1099]; buffer[0][20] = data[1100]; buffer[0][21] = data[1101]; buffer[0][22] = data[1102]; buffer[0][23] = data[1103]; buffer[0][24] = data[1104]; buffer[0][25] = data[1105]; buffer[0][26] = data[1106];
-
-        }
-        if (partition == 122) {
-            buffer[0][0] = data[1089]; buffer[0][1] = data[1090]; buffer[0][2] = data[1091]; buffer[0][3] = data[1092]; buffer[0][4] = data[1093]; buffer[0][5] = data[1094]; buffer[0][6] = data[1095]; buffer[0][7] = data[1096]; buffer[0][8] = data[1097]; buffer[0][9] = data[1098]; buffer[0][10] = data[1099]; buffer[0][11] = data[1100]; buffer[0][12] = data[1101]; buffer[0][13] = data[1102]; buffer[0][14] = data[1103]; buffer[0][15] = data[1104]; buffer[0][16] = data[1105]; buffer[0][17] = data[1106]; buffer[0][18] = data[1107]; buffer[0][19] = data[1108]; buffer[0][20] = data[1109]; buffer[0][21] = data[1110]; buffer[0][22] = data[1111]; buffer[0][23] = data[1112]; buffer[0][24] = data[1113]; buffer[0][25] = data[1114]; buffer[0][26] = data[1115];
-
-        }
-        if (partition == 123) {
-            buffer[0][0] = data[1098]; buffer[0][1] = data[1099]; buffer[0][2] = data[1100]; buffer[0][3] = data[1101]; buffer[0][4] = data[1102]; buffer[0][5] = data[1103]; buffer[0][6] = data[1104]; buffer[0][7] = data[1105]; buffer[0][8] = data[1106]; buffer[0][9] = data[1107]; buffer[0][10] = data[1108]; buffer[0][11] = data[1109]; buffer[0][12] = data[1110]; buffer[0][13] = data[1111]; buffer[0][14] = data[1112]; buffer[0][15] = data[1113]; buffer[0][16] = data[1114]; buffer[0][17] = data[1115]; buffer[0][18] = data[1116]; buffer[0][19] = data[1117]; buffer[0][20] = data[1118]; buffer[0][21] = data[1119]; buffer[0][22] = data[1120]; buffer[0][23] = data[1121]; buffer[0][24] = data[1122]; buffer[0][25] = data[1123]; buffer[0][26] = data[1124];
-
-        }
-        if (partition == 124) {
-            buffer[0][0] = data[1107]; buffer[0][1] = data[1108]; buffer[0][2] = data[1109]; buffer[0][3] = data[1110]; buffer[0][4] = data[1111]; buffer[0][5] = data[1112]; buffer[0][6] = data[1113]; buffer[0][7] = data[1114]; buffer[0][8] = data[1115]; buffer[0][9] = data[1116]; buffer[0][10] = data[1117]; buffer[0][11] = data[1118]; buffer[0][12] = data[1119]; buffer[0][13] = data[1120]; buffer[0][14] = data[1121]; buffer[0][15] = data[1122]; buffer[0][16] = data[1123]; buffer[0][17] = data[1124]; buffer[0][18] = data[1125]; buffer[0][19] = data[1126]; buffer[0][20] = data[1127]; buffer[0][21] = data[1128]; buffer[0][22] = data[1129]; buffer[0][23] = data[1130]; buffer[0][24] = data[1131]; buffer[0][25] = data[1132]; buffer[0][26] = data[1133];
-
-        }
-        if (partition == 125) {
-            buffer[0][0] = data[1116]; buffer[0][1] = data[1117]; buffer[0][2] = data[1118]; buffer[0][3] = data[1119]; buffer[0][4] = data[1120]; buffer[0][5] = data[1121]; buffer[0][6] = data[1122]; buffer[0][7] = data[1123]; buffer[0][8] = data[1124]; buffer[0][9] = data[1125]; buffer[0][10] = data[1126]; buffer[0][11] = data[1127]; buffer[0][12] = data[1128]; buffer[0][13] = data[1129]; buffer[0][14] = data[1130]; buffer[0][15] = data[1131]; buffer[0][16] = data[1132]; buffer[0][17] = data[1133]; buffer[0][18] = data[1134]; buffer[0][19] = data[1135]; buffer[0][20] = data[1136]; buffer[0][21] = data[1137]; buffer[0][22] = data[1138]; buffer[0][23] = data[1139]; buffer[0][24] = data[1140]; buffer[0][25] = data[1141]; buffer[0][26] = data[1142];
-
-        }
-        if (partition == 126) {
-            buffer[0][0] = data[1125]; buffer[0][1] = data[1126]; buffer[0][2] = data[1127]; buffer[0][3] = data[1128]; buffer[0][4] = data[1129]; buffer[0][5] = data[1130]; buffer[0][6] = data[1131]; buffer[0][7] = data[1132]; buffer[0][8] = data[1133]; buffer[0][9] = data[1134]; buffer[0][10] = data[1135]; buffer[0][11] = data[1136]; buffer[0][12] = data[1137]; buffer[0][13] = data[1138]; buffer[0][14] = data[1139]; buffer[0][15] = data[1140]; buffer[0][16] = data[1141]; buffer[0][17] = data[1142]; buffer[0][18] = data[1143]; buffer[0][19] = data[1144]; buffer[0][20] = data[1145]; buffer[0][21] = data[1146]; buffer[0][22] = data[1147]; buffer[0][23] = data[1148]; buffer[0][24] = data[1149]; buffer[0][25] = data[1150]; buffer[0][26] = data[1151];
-
-        }
-        if (partition == 127) {
-            buffer[0][0] = data[1134]; buffer[0][1] = data[1135]; buffer[0][2] = data[1136]; buffer[0][3] = data[1137]; buffer[0][4] = data[1138]; buffer[0][5] = data[1139]; buffer[0][6] = data[1140]; buffer[0][7] = data[1141]; buffer[0][8] = data[1142]; buffer[0][9] = data[1143]; buffer[0][10] = data[1144]; buffer[0][11] = data[1145]; buffer[0][12] = data[1146]; buffer[0][13] = data[1147]; buffer[0][14] = data[1148]; buffer[0][15] = data[1149]; buffer[0][16] = data[1150]; buffer[0][17] = data[1151]; buffer[0][18] = 0; buffer[0][19] = 0; buffer[0][20] = 0; buffer[0][21] = 0; buffer[0][22] = 0; buffer[0][23] = 0; buffer[0][24] = 0; buffer[0][25] = 0; buffer[0][26] = 0;
-
-        }
-    }
-};
 
 }
 # 8 "firmware/parameters.h" 2
@@ -60605,6 +60084,238 @@ void dense(hls::stream<data_T> &data_stream, hls::stream<res_T> &res_stream,
 
 }
 # 17 "firmware/parameters.h" 2
+# 1 "firmware/nnet_utils/nnet_padding.h" 1
+
+
+
+# 1 "/tools/Xilinx/Vitis_HLS/2024.1/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/math.h" 1 3
+# 5 "firmware/nnet_utils/nnet_padding.h" 2
+
+namespace nnet {
+
+struct padding1d_config {
+    static const unsigned n_chan = 10;
+    static const unsigned in_width = 10;
+    static const unsigned out_width = 10;
+    static const unsigned pad_left = 0;
+    static const unsigned pad_right = 0;
+};
+
+template <class data_T, class res_T, typename CONFIG_T>
+void zeropad1d_cf(data_T data[CONFIG_T::n_chan * CONFIG_T::in_width], data_T res[CONFIG_T::n_chan * CONFIG_T::out_width]) {
+#pragma HLS PIPELINE
+
+ VITIS_LOOP_20_1: for (int j = 0; j < CONFIG_T::n_chan; j++) {
+        VITIS_LOOP_21_2: for (int i = 0; i < CONFIG_T::pad_left; i++) {
+            *(res++) = 0;
+        }
+
+        VITIS_LOOP_25_3: for (int i = 0; i < CONFIG_T::in_width; i++) {
+            *(res++) = (res_T) * (data++);
+        }
+
+        VITIS_LOOP_29_4: for (int i = 0; i < CONFIG_T::pad_right; i++) {
+            *(res++) = 0;
+        }
+    }
+}
+
+template <class data_T, class res_T, typename CONFIG_T>
+void zeropad1d_cl(data_T data[CONFIG_T::n_chan * CONFIG_T::in_width], res_T res[CONFIG_T::n_chan * CONFIG_T::out_width]) {
+#pragma HLS PIPELINE
+
+ VITIS_LOOP_39_1: for (int i = 0; i < CONFIG_T::pad_left; i++) {
+        VITIS_LOOP_40_2: for (int j = 0; j < CONFIG_T::n_chan; j++) {
+            *(res++) = 0;
+        }
+    }
+
+    VITIS_LOOP_45_3: for (int i = 0; i < CONFIG_T::in_width; i++) {
+        VITIS_LOOP_46_4: for (int j = 0; j < CONFIG_T::n_chan; j++) {
+            *(res++) = (res_T) * (data++);
+        }
+    }
+
+    VITIS_LOOP_51_5: for (int i = 0; i < CONFIG_T::pad_right; i++) {
+        VITIS_LOOP_52_6: for (int j = 0; j < CONFIG_T::n_chan; j++) {
+            *(res++) = 0;
+        }
+    }
+}
+
+struct padding2d_config {
+    static const unsigned n_chan = 10;
+    static const unsigned in_height = 10;
+    static const unsigned in_width = 10;
+    static const unsigned out_height = 10;
+    static const unsigned out_width = 10;
+    static const unsigned pad_top = 0;
+    static const unsigned pad_bottom = 0;
+    static const unsigned pad_left = 0;
+    static const unsigned pad_right = 0;
+};
+
+template <class data_T, class res_T, typename CONFIG_T>
+void zeropad2d_cf(data_T data[CONFIG_T::n_chan * CONFIG_T::in_height * CONFIG_T::in_width],
+                  data_T res[CONFIG_T::n_chan * CONFIG_T::out_height * CONFIG_T::out_width]) {
+#pragma HLS PIPELINE
+
+ VITIS_LOOP_75_1: for (int k = 0; k < CONFIG_T::n_chan; k++) {
+
+        VITIS_LOOP_77_2: for (int i = 0; i < CONFIG_T::pad_top; i++) {
+            VITIS_LOOP_78_3: for (int j = 0; j < CONFIG_T::out_width; j++) {
+                *(res++) = 0;
+            }
+        }
+
+        VITIS_LOOP_83_4: for (int i = 0; i < CONFIG_T::in_height; i++) {
+            VITIS_LOOP_84_5: for (int j = 0; j < CONFIG_T::pad_left; j++) {
+                *(res++) = 0;
+            }
+            VITIS_LOOP_87_6: for (int j = 0; j < CONFIG_T::in_width; j++) {
+                *(res++) = (res_T) * (data++);
+            }
+            VITIS_LOOP_90_7: for (int j = 0; j < CONFIG_T::pad_right; j++) {
+                *(res++) = 0;
+            }
+        }
+
+        VITIS_LOOP_95_8: for (int i = 0; i < CONFIG_T::pad_bottom; i++) {
+            VITIS_LOOP_96_9: for (int j = 0; j < CONFIG_T::out_width; j++) {
+                *(res++) = 0;
+            }
+        }
+    }
+}
+
+template <class data_T, class res_T, typename CONFIG_T>
+void zeropad2d_cl(data_T data[CONFIG_T::n_chan * CONFIG_T::in_height * CONFIG_T::in_width],
+                  res_T res[CONFIG_T::n_chan * CONFIG_T::out_height * CONFIG_T::out_width]) {
+#pragma HLS PIPELINE
+
+ VITIS_LOOP_108_1: for (int i = 0; i < CONFIG_T::pad_top; i++) {
+        VITIS_LOOP_109_2: for (int j = 0; j < CONFIG_T::out_width; j++) {
+            VITIS_LOOP_110_3: for (int k = 0; k < CONFIG_T::n_chan; k++) {
+                *(res++) = 0;
+            }
+        }
+    }
+
+    VITIS_LOOP_116_4: for (int i = 0; i < CONFIG_T::in_height; i++) {
+        VITIS_LOOP_117_5: for (int j = 0; j < CONFIG_T::pad_left; j++) {
+            VITIS_LOOP_118_6: for (int k = 0; k < CONFIG_T::n_chan; k++) {
+                *(res++) = 0;
+            }
+        }
+        VITIS_LOOP_122_7: for (int j = 0; j < CONFIG_T::in_width; j++) {
+            VITIS_LOOP_123_8: for (int k = 0; k < CONFIG_T::n_chan; k++) {
+                *(res++) = (res_T) * (data++);
+            }
+        }
+        VITIS_LOOP_127_9: for (int j = 0; j < CONFIG_T::pad_right; j++) {
+            VITIS_LOOP_128_10: for (int k = 0; k < CONFIG_T::n_chan; k++) {
+                *(res++) = 0;
+            }
+        }
+    }
+
+    VITIS_LOOP_134_11: for (int i = 0; i < CONFIG_T::pad_bottom; i++) {
+        VITIS_LOOP_135_12: for (int j = 0; j < CONFIG_T::out_width; j++) {
+            VITIS_LOOP_136_13: for (int k = 0; k < CONFIG_T::n_chan; k++) {
+                *(res++) = 0;
+            }
+        }
+    }
+}
+
+}
+# 18 "firmware/parameters.h" 2
+# 1 "firmware/nnet_utils/nnet_padding_stream.h" 1
+
+
+
+# 1 "/tools/Xilinx/Vitis_HLS/2024.1/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/math.h" 1 3
+# 5 "firmware/nnet_utils/nnet_padding_stream.h" 2
+
+namespace nnet {
+
+template <class res_T, typename CONFIG_T> void fill_zero(hls::stream<res_T> &res) {
+#pragma HLS INLINE
+ res_T res_part;
+    VITIS_LOOP_11_1: for (int c = 0; c < CONFIG_T::n_chan; c++) {
+#pragma HLS UNROLL
+ res_part[c] = 0;
+    }
+    res.write(res_part);
+}
+
+template <class data_T, class res_T, typename CONFIG_T> void fill_data(hls::stream<data_T> &data, hls::stream<res_T> &res) {
+#pragma HLS INLINE
+ data_T data_part = data.read();
+    res_T res_part;
+    VITIS_LOOP_22_1: for (int c = 0; c < CONFIG_T::n_chan; c++) {
+#pragma HLS UNROLL
+ res_part[c] = data_part[c];
+    }
+    res.write(res_part);
+}
+
+template <class data_T, class res_T, typename CONFIG_T>
+void zeropad1d_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
+PadLeft:
+    for (int i = 0; i < CONFIG_T::pad_left; i++) {
+        fill_zero<res_T, CONFIG_T>(res);
+    }
+
+CopyMain:
+    for (int i = 0; i < CONFIG_T::in_width; i++) {
+        fill_data<data_T, res_T, CONFIG_T>(data, res);
+    }
+
+PadRight:
+    for (int i = 0; i < CONFIG_T::pad_right; i++) {
+        fill_zero<res_T, CONFIG_T>(res);
+    }
+}
+
+template <class data_T, class res_T, typename CONFIG_T>
+void zeropad2d_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
+
+PadTop:
+    for (int i = 0; i < CONFIG_T::pad_top; i++) {
+    PadTopWidth:
+        for (int j = 0; j < CONFIG_T::out_width; j++) {
+            fill_zero<res_T, CONFIG_T>(res);
+        }
+    }
+
+PadMain:
+    for (int i = 0; i < CONFIG_T::in_height; i++) {
+    PadLeft:
+        for (int j = 0; j < CONFIG_T::pad_left; j++) {
+            fill_zero<res_T, CONFIG_T>(res);
+        }
+    CopyMain:
+        for (int j = 0; j < CONFIG_T::in_width; j++) {
+            fill_data<data_T, res_T, CONFIG_T>(data, res);
+        }
+    PadRight:
+        for (int j = 0; j < CONFIG_T::pad_right; j++) {
+            fill_zero<res_T, CONFIG_T>(res);
+        }
+    }
+
+PadBottom:
+    for (int i = 0; i < CONFIG_T::pad_bottom; i++) {
+    PadBottomWidth:
+        for (int j = 0; j < CONFIG_T::out_width; j++) {
+            fill_zero<res_T, CONFIG_T>(res);
+        }
+    }
+}
+
+}
+# 19 "firmware/parameters.h" 2
 # 1 "firmware/nnet_utils/nnet_pooling.h" 1
 
 
@@ -60924,7 +60635,7 @@ FiltLoop:
 }
 
 }
-# 18 "firmware/parameters.h" 2
+# 20 "firmware/parameters.h" 2
 # 1 "firmware/nnet_utils/nnet_pooling_stream.h" 1
 
 
@@ -62079,27 +61790,36 @@ ReadInput:
 }
 
 }
-# 19 "firmware/parameters.h" 2
+# 21 "firmware/parameters.h" 2
 
 
 # 1 "firmware/weights/w2.h" 1
 # 12 "firmware/weights/w2.h"
-model_default_t w2[432] = {-0.2937367260, 0.2203695327, 0.2143291384, 0.0272539575, -0.2503960729, -0.1075587049, -0.0272399765, 0.1680428088, -0.6278591156, -0.7884601951, 0.5905409455, -0.4047152400, 0.2006904781, -0.0094506368, -0.2553531229, 0.0655390024, 0.4973753393, -1.0411953926, 0.1903268695, -0.5691368580, -0.2968683839, 0.0110941324, -0.1291898489, -0.1383496523, 0.5738069415, -0.3387193382, 0.7913015485, -0.2819938064, -0.5028493404, 0.6935541630, -0.2091340721, 0.0661525577, 0.1203355342, 0.5334554911, 0.6502499580, 0.2838525176, 0.1874128133, -0.1146356687, -0.2159549892, 0.2301247418, 0.4375591576, -0.3231751919, 0.2822652459, -0.0684633106, -0.3725429773, 0.1532457471, 0.3545638919, 0.0482625253, -0.1986999810, -0.1365098655, 0.0974840522, -0.7926709652, -1.0239783525, -0.0477541983, 0.6529021859, 0.1183008552, -0.8386554122, 0.1601830423, 0.0529230721, -0.0691785514, 0.8876910210, -0.0168680232, -0.2888880968, 0.8239638209, 0.0015530383, -1.0019264221, -0.1471921504, -0.2796076238, 0.7597059011, 0.2049757391, -0.8750256896, -0.0308637023, 0.6865632534, -0.2520599067, -0.3233892024, 0.2652269304, -0.2710922062, -0.4392335713, 0.0950687528, -0.4896681607, 0.0225451868, 0.0384231135, -0.0409834050, -0.1979598850, 0.3434612453, 0.0100546014, -0.8240211010, -0.0568719842, 0.7412220836, -0.3038881719, -0.6842254996, -0.4244473875, -0.9755738974, -0.1483203769, 0.2710711360, -0.2881899178, -0.1080300584, 0.6321420074, -0.1883748621, 0.3494357467, 0.2404533178, 0.0548651032, -0.2788949311, -0.3048636615, 0.2163283974, -0.0706698075, -0.9249876738, 0.2049853802, 0.3560767174, 0.0185165908, 0.2388908565, -0.3807794750, 0.3269600272, 0.7608613372, -0.2853143215, -0.1180385202, 0.3534969985, -0.1077711135, 0.3420233130, -0.1084970087, 0.0766042694, 0.1208970249, -0.9226018786, -0.0518544465, -0.4490200877, 0.0052108513, 0.1963826567, 0.2819111645, 0.1972198188, 0.5527560115, -0.2389116585, -0.1854540110, 0.3396825492, -0.1394231915, 0.5293943882, -0.0388140567, 0.2990673780, 0.3933340311, -0.9447890520, -0.0918562561, -0.7959304452, -0.0650547668, 0.1456013471, -0.9593140483, -0.1614855528, -0.1736075729, -0.0416056216, 0.1471351534, -0.4474471509, -0.1219613031, -0.0135381008, -0.3948352635, -0.3891169131, 0.8418987393, 0.2942656577, 0.7865459323, -0.0424421877, -0.0551321842, -0.0147367716, 0.2169450819, 0.1972979605, -0.7439161539, 0.6216099262, -0.7504894733, -0.2980856001, -0.0239304937, -0.1544741690, 0.0582975745, 0.3635668755, -0.2029675841, 0.9183800220, -0.2563342154, -0.2960513830, 0.7459378839, 0.0882524699, 0.2923903763, 0.2538608313, 0.2967232764, 0.3353150487, 0.1085999459, -0.0087149618, 0.0464194082, -0.3807246983, -0.0768568665, 0.0845245346, 0.0489512980, -0.1273446083, -0.2363015115, -0.5551381707, 0.3056520522, 0.3085649014, 0.2240418494, -0.0675452203, -0.9693024158, -0.1121337414, 0.3283391297, -0.5742381811, 0.2120523602, 0.6619275808, 0.2253977358, -0.7673972845, -0.0342234522, -0.3676297963, -0.5592413545, -0.5924351215, 0.1260441840, -0.0467081778, 0.9403674006, 0.0197038911, -0.6756885052, -0.2193322182, 0.0972655118, 0.7477136254, -0.1993995607, -0.5045744181, -0.0324980244, 0.0830400661, -0.1914353967, -0.6344460845, 0.8804808259, -0.3295553625, -0.6026128531, 0.0871828347, -0.9729538560, -0.1857335418, -0.0408645719, -0.2125236988, -0.7540132403, 0.8242802024, 0.0788284540, -0.4665133059, 0.0471258424, 0.4353153110, -0.2380174398, -0.6505587697, 0.0359545909, -0.8735587001, -0.2223964185, -0.0782011673, 0.8154351115, -0.2977828383, 0.5475046039, -0.1356796771, 0.1039371267, 0.4970196784, 0.0361808166, -0.6668733954, 0.0451381840, 0.1585244685, -0.2020236403, -0.3160193264, 0.0437490717, -0.6820786595, -0.0705683604, -0.0608030781, -0.2243122011, -0.1032008305, 0.3786175847, -0.2531922162, -0.3007550240, 0.3100700676, 0.1584216207, 0.1278808862, 0.0227950923, 0.1455118209, 0.0513470918, -0.6942968369, -0.0364419632, -0.6350983381, -0.1954379231, 0.1014793292, 0.1169124097, 0.2302691489, 0.2740304768, 0.1767833233, 0.5520855188, 0.2773673832, 0.2118784189, 0.4226722121, -0.0757274628, 0.4994609952, -0.0871134549, -0.6633909345, -0.2960545123, -0.6814302802, -0.1023963839, 0.0732043907, -0.8611830473, -0.3534396887, 0.0052775815, 0.1281910986, 0.2690410018, -0.1445278972, -0.1705279648, 0.2099488229, -0.0785563588, -0.7081463337, 1.0255295038, 0.6316694021, 0.5202101469, -0.1659823060, -0.1733152717, -0.1835682392, 0.3432966471, 0.4919121861, -0.9605007172, 0.2707903385, -0.6891033053, -0.1643107682, -0.1793491691, -0.5509542227, 0.2587938905, 0.7570433617, -0.4415208697, 0.7539737225, -0.7969456911, -0.3478842378, 0.4511240125, 0.5859801173, 0.4018988013, 0.2766224444, 0.2954784632, 0.4798662364, -0.4053661227, 0.0518597290, 0.0128650703, -0.2057072371, -0.2710371017, 0.1990209222, -0.2647062838, 0.2609459460, -0.3467867970, -0.3824605942, 0.6919592023, -0.1458856761, 0.4769142866, -0.0953123644, -0.9175273776, -0.3252395093, 0.7120258212, -0.4027274549, -0.0497223288, 0.8380553126, -0.0434975252, -0.6109533310, -0.1910040826, -0.3392903805, -0.6713938713, -0.7530589700, -0.0553847440, -0.1605989933, 0.7986017466, 0.0344592258, -0.5326546431, 0.0612903796, 0.2976796925, 0.0017227526, -0.0334715508, -0.4369615316, -0.0274890233, 0.2540845275, 0.2481554598, -1.0517283678, 0.3577179909, -0.5361021161, -0.4438968301, -0.1889077425, -0.2809837162, -0.5074290037, -0.1981116682, -0.2988608181, -0.8455204368, 0.6724438667, -0.1517703533, -0.7237232924, 0.0202544797, 0.6334081292, 0.0810610354, -0.5307684541, -0.0089707784, -0.6014901996, 0.0772683993, -0.0937739685, 0.6060707569, -0.2437176257, -0.2899284065, 0.3004587889, 0.3884665072, 0.6055864692, -0.0082794921, -0.6554541588, -0.3030911088, 0.5573273301, -0.1709064096, -0.0296833273, 0.0809785351, -0.4759832621, 0.0280359630, 0.3350428641, -0.0361238047, -0.5863953233, 0.4450089633, 0.1986378282, 0.3271455765, 0.5885761976, -0.1311607659, 0.1965035051, -0.1516447961, -0.3778091073, -0.2895258069, 0.8900366426, -0.0481605083, -0.4740517139, 0.2456714511, 0.1659053862, -0.0020435555, 0.1982130110, -0.0205276515, -0.0721798316, 0.3835502267, 0.0887869745, -0.0104270792, 0.4925718606, 0.3045692742, 0.3551415801, -0.1166970357, -0.4183375835, -0.2948826253, -0.6879402399, 0.0853598863, 0.1952490211, -0.6115559340};
-# 22 "firmware/parameters.h" 2
+model_default_t w2[432] = {-0.3477829993, 0.2148187757, 0.3650199771, -0.5126272440, -0.3164180815, -0.0075955610, -0.7796682715, 0.0137580950, 0.2202540636, 0.7392134070, 0.0968206748, 0.1644997597, 0.2916945815, 0.4833273888, -0.0139695518, 0.2456458658, 0.3579027355, 0.2804637849, -0.6669554114, 0.4576694965, 0.1881910115, 0.2600407600, -0.1411304921, -0.4370997250, -0.8684177399, -0.1216720790, 0.4244110882, -0.4100962877, -0.9523141384, 0.7091596723, -0.7819825411, -0.1956312209, 0.4140857160, -0.6859974861, -0.4834971726, 0.5072690248, 0.4191727042, 0.4312535822, -0.2682440877, -0.0514900386, 0.0553659201, 0.0667531341, 0.2617642879, -0.1073439717, 0.0158509705, 0.5144525170, 0.0705371276, -0.5559038520, -0.1169478223, 0.3505156040, 0.2546849251, -0.2848897278, -0.9795847535, -0.0343416743, -0.0809078068, 0.9734648466, 0.2365006357, -0.6588921547, 0.4886896908, -0.4284941554, 0.2529681027, 0.4777067900, 0.1115657985, 0.6657245159, 0.1166518033, -0.3895597756, -0.3532080650, -0.4946723580, 0.5705396533, -0.0111830821, -0.2754652500, -0.7990900278, -0.6953459978, 0.3162032664, 0.2407457232, 0.3762620389, -0.3202939332, -0.2323089540, -0.5497861505, -0.4762975872, 0.1677723229, -0.8641992211, 0.8373255134, 0.7145061493, 0.8030233979, 0.1489344090, -0.0209422130, -0.2132017016, 0.4181485474, 0.7059761882, -0.6239128709, -0.9108372331, 0.3777723014, -0.4526709914, -0.2449271530, -0.4525034428, -0.1048207730, -0.3973248303, 0.3271609247, -0.1851777434, 0.5013674498, -0.3236632943, 0.0077759400, -0.5692558885, 0.4210586846, 0.0684813559, -0.3539358079, -0.1842883825, -0.1347183585, -0.2469756901, -0.6997061968, 0.1553279608, -0.2628414929, -0.3930690885, -0.4488988221, 0.2044298649, 0.5448689461, 0.1599219441, 0.0556740314, 0.1326409578, 0.1910452247, 0.1957366168, -0.1602160633, 0.3328037560, 0.2444650233, 0.0277222563, -0.6337285638, 0.5345638990, 0.2256924957, -0.3926894069, 0.4322353303, 0.1728110760, 0.2402827442, 0.2603237033, 0.2551899850, 0.2438689023, 0.7377809882, 0.2246382684, -0.2732737958, 0.7251673937, -0.5001484156, 0.0121970354, -0.6734767556, -0.2614494860, 0.0184729472, -0.3343179524, 0.3124285638, -0.4500829279, -0.2332933694, -0.5099154711, 0.7734837532, -0.0267931968, -0.1485738307, 0.6647353172, -0.1366989315, -0.0268407296, 0.4454953969, 0.3665103614, -0.0969965234, -0.2080539018, 0.6142473817, -0.2619844377, -0.4032250345, 0.1059847400, 0.4979740977, 0.2665822804, -0.1677625626, -0.2928743958, -0.5406128168, -0.4529731572, 0.2845965624, 0.0422804654, -1.0507202148, 0.3787935376, -0.6562601328, 0.4022296667, 0.1489814371, -0.7430184484, 0.0372403897, 0.2724128366, 0.2875135839, 0.3816202581, 0.1176614761, -0.1172669977, 0.5119627714, -0.3052162528, 0.1502637118, -0.1502226591, 0.0437450744, 0.5885265470, -0.1256722808, 0.5563401580, 0.1184471250, -0.5110855103, 0.4645335972, -0.6001768708, -0.7659206390, -0.3822672069, -0.3646183312, 1.1115596294, -0.5521110892, -0.3320861459, 0.4281235337, -0.4119130671, 0.0234536342, 0.1012644619, 0.6196235418, 1.0120700598, -0.1243353412, -0.3818984628, -0.7338646054, -0.4696682096, 0.2300644070, 0.1741378009, 0.0637134835, -0.7055605054, -0.8540740609, 0.7378177047, -0.0108764572, 0.2709945440, 0.4804135561, -0.3931471705, -0.6026969552, -0.5074668527, -0.0322021917, -0.9224262238, 0.6465991139, 0.0055523580, 0.4481632710, -0.1018001735, -0.2499344647, 0.0490817688, -0.0225989912, 0.6994449496, -0.4288356006, -0.6938151121, 0.0740381777, 0.0312112384, -0.4502391517, 0.3086331785, -0.2787479758, -0.4511405230, -0.2029619366, -0.1562197655, 0.6018875241, -0.4708921611, -0.2270773798, -0.5354565978, 0.2966491878, -0.1561407149, -0.5353198051, -0.3981481194, -0.3733322620, 0.0920116305, -0.1027501076, 0.3194309771, -0.1893882751, 0.4769817293, -0.2540411055, 0.4216130078, 0.2003495097, -0.2587494254, -0.0340308808, 0.1823736280, 0.3423923552, 0.0590795428, -0.5190153122, 0.1395257860, -0.2008496225, 0.3252515793, -0.5950438976, 0.1238423437, 0.0393503606, -0.6151373982, 0.5614833236, 0.0805111080, 0.3078179061, 0.3317396045, -0.2635909915, -0.1859499961, 0.2436252832, 0.3559751511, -0.6556830406, 0.4871260822, -0.0207012016, -0.5252130032, -0.6845000386, -0.3418161273, 0.0313418284, -0.1264270097, 0.5984070897, -0.0628029630, -0.5932349563, -0.3281438947, 0.3896304965, 0.0793040395, 0.0412354469, 0.8328858614, -0.1614705771, 0.0123168835, 0.4606743157, 0.4602357447, 0.3089404702, -0.0584130995, 0.6609001160, -0.3655770421, -0.0756387189, 0.4441786110, -0.9520357847, 0.4449159801, -0.3144902885, -0.1653289944, -1.0379452705, -0.2080387473, 0.1869821995, -0.1362539381, -0.9471731186, 0.2886065245, -0.6760160923, 0.2226414531, -0.0009650969, 0.0691681132, 0.1320861876, -0.2456088662, 0.4926909506, -0.1757401526, -0.1192108542, -0.0224908926, 0.3242755234, -0.0202161297, 0.4139738381, 0.0776087046, 0.0938238576, 0.6417860389, 0.5212312341, 0.4470453560, -0.4173730612, -0.8553406000, -0.2621781230, -0.3608154655, -0.5196483731, -0.3546622992, 0.2196822762, 0.6472204924, -0.7357853651, -0.1950570941, 0.5619485378, -0.4296195805, 0.4497686327, -0.3855843842, 0.4187685549, 0.9871208072, 0.1415300071, -0.4669471681, -0.6841148734, -0.2143246680, 0.5376025438, 0.1165777668, 0.1971567869, -0.4635877311, -0.4749436677, 0.4235798120, -0.4060175717, 0.3322438300, 0.4784019887, -0.0904192105, -0.4632193148, -0.1418022662, 0.1916725636, -0.4209055603, 0.5078544021, 0.0735300481, 0.7225409150, -0.7203493714, -0.0518093966, 0.3887040019, -0.0790340900, 0.4113134146, -0.6029036641, -0.0721476004, 0.1902023107, -0.3480356038, 0.1285879612, 0.7283918262, 0.1584630013, -0.0509677753, -0.7604803443, 0.2150077224, 0.4208708405, -0.1968889832, -0.2473881692, -0.2128021866, -0.2791897655, -0.0757202804, -0.1950653493, -0.4389964044, -0.4171844721, 0.1356527954, -0.0810585916, 0.2615155876, 0.1154573262, 0.6998314857, -0.5278487206, 0.3295983672, 0.7673454285, -0.3565933108, 0.0863214359, -0.1130061969, 0.2285009474, -0.1145971119, -0.3397876620, 0.5384517908, 0.0494389348, 0.0183724537, 0.4364090562, -0.2029761523, -0.0354773626, -0.7977098823, -0.1038630009, 0.3147665858, 0.2116642147, 0.3235923052, -0.2421196550, -0.4159020782, 0.2675363123, 0.5585913658, -0.6101177931, 0.4262121618, 0.0870319754, -0.0306120832, -0.1168585643, -0.2558786869};
+# 24 "firmware/parameters.h" 2
 # 1 "firmware/weights/b2.h" 1
 # 12 "firmware/weights/b2.h"
-model_default_t b2[16] = {0.0879436731, 0.1633225679, 0.3976580799, -0.0941715986, -0.0657835305, -0.1468502134, -0.4254815280, -0.1562923044, 0.3810111582, 0.4229879677, -0.0487938337, 0.4305800796, -0.0563050732, 0.5364525318, 0.0056258980, -0.6692279577};
-# 23 "firmware/parameters.h" 2
+model_default_t b2[16] = {0.4126757979, -0.0063434192, 0.2897528410, 0.3600155413, 0.5759449005, -0.0508643016, 0.3411115110, -0.3411804736, 0.2324068248, 0.5004972219, 0.2741830051, -0.1321476996, 0.2044695914, 0.4272969663, -0.1811509579, -0.3202835321};
+# 25 "firmware/parameters.h" 2
 # 1 "firmware/weights/w6.h" 1
 # 12 "firmware/weights/w6.h"
-model_default_t w6[96] = {0.1096637622, -0.7181918025, 0.1420924962, -0.8275759816, 0.2355135530, 0.7654807568, 0.8422842622, 0.2832228243, -0.6403285265, -1.2685329914, -0.0591754913, 0.0937846079, -0.0937261954, -0.4458416998, 0.0056715854, 0.5563477278, -0.0168821309, 0.8371517658, 0.3140412867, 0.0398490950, 0.9686781168, -0.8195214868, 0.3252792060, 0.2306474894, -0.5895584822, 0.9909625649, 0.2057216763, -0.3370836079, 0.0196904019, 0.1480480582, 0.1871024966, -0.4006430507, -0.4535055459, -0.1270636618, 0.3275233209, -0.2084668428, -0.1396835148, 0.9470314980, 0.4511499405, -0.4309446514, -0.6471930742, -0.6780858040, -0.4558889866, -0.4357855916, 0.5422974825, -0.1563370526, 0.2113209963, 0.0039664344, -0.8230469823, -0.0002173211, 0.7873111963, -0.9953787327, -0.3099975884, 0.8618630767, -0.7457376719, -0.1282119304, 0.0765179694, 0.9436202645, 0.9149866700, -0.6083279252, 0.2841569185, -0.9294240475, -0.3668972552, 0.5238711834, -0.5781428218, -0.5844637752, -0.2459443063, 0.3138476610, -0.7219072580, -0.2630046010, 0.6241628528, -0.9561437964, 1.0246043205, 0.7758237123, -0.0125707202, -0.5993996859, -0.1130700633, -0.3432132900, -0.7831690311, -0.2818133533, -0.9295887947, 0.5009790063, -0.5907771587, 0.8487999439, -0.2711957991, 0.2785533965, -0.1661075354, -0.0400868542, 0.2756529152, 0.5181374550, -0.0236752592, -0.4161877632, 1.0938067436, 0.2105122507, -0.4097662866, -0.0707648695};
-# 24 "firmware/parameters.h" 2
+model_default_t w6[96] = {-0.7028913498, -0.7678696513, 0.0375432447, 0.7704516649, -0.6632519364, 0.8725219369, 0.7987088561, 0.1320177913, -0.0244690217, -0.0858125016, -0.9458640218, -0.0313253477, -0.3255602717, 1.0368851423, -0.2411273569, 0.3172244728, 0.3922142386, -0.7979785800, 0.0670302734, 0.2551235557, -0.6471743584, -1.0217432976, -0.2261030525, 0.7607301474, -0.9942485094, 1.0854775906, 0.1077270582, -0.2506168485, -0.8508519530, 0.6393882632, 0.1477308422, -0.6699742079, 0.9315572977, -0.8635706306, 0.1441263407, 0.7289692760, -0.4619950950, -0.3383222222, -0.1426446587, 0.8354031444, 0.7167822123, -0.8717225194, -0.3919009268, 0.7141924500, 0.9684108496, -0.3523494005, -0.7258381844, -0.1461919695, 1.1606752872, 0.2569822073, -0.8512586355, -1.0973757505, 0.3382541239, 0.5506621003, 0.2895585597, 0.1398251206, -0.4291306436, 0.5465211868, 0.4977623522, -0.4730625749, 0.9448304176, -0.9483429790, 0.0254721530, 0.3100069165, -0.4895565212, 0.7622830868, 0.7564989924, 0.9572654366, 0.6177786589, -0.8476355076, -0.1097869873, -0.6641376615, -0.6079946160, -0.2377550304, 0.4016283751, -0.7154145241, 0.7611392736, -0.5115829706, 0.1556265801, -1.1577415466, -0.1108678952, 1.2171950340, -0.1060550213, 0.6704012752, 0.8758167624, 0.3339750171, 0.6911250949, -1.0001937151, -0.1456121951, 0.1164024100, -0.4948920012, -0.6848090887, 1.3044569492, -0.7794191241, -0.3496398330, 0.2970500886};
+# 26 "firmware/parameters.h" 2
 # 1 "firmware/weights/b6.h" 1
 # 12 "firmware/weights/b6.h"
-model_default_t b6[6] = {-0.3271560073, -0.3772365153, -0.5341307521, 0.4669223130, 0.3738272786, 0.3102774620};
-# 25 "firmware/parameters.h" 2
+model_default_t b6[6] = {-0.3360992074, -0.3153533340, -0.4078309536, 0.3315404356, 0.3182561100, 0.2421403378};
+# 27 "firmware/parameters.h" 2
 
 
+
+
+struct config8 : nnet::padding1d_config {
+    static const unsigned in_width = 128;
+    static const unsigned n_chan = 9;
+    static const unsigned out_width = 130;
+    static const unsigned pad_left = 1;
+    static const unsigned pad_right = 1;
+};
 
 
 struct config2_mult : nnet::dense_config {
@@ -62119,9 +61839,9 @@ struct config2_mult : nnet::dense_config {
 };
 
 struct config2 : nnet::conv1d_config {
-    static const unsigned pad_left = 1;
-    static const unsigned pad_right = 1;
-    static const unsigned in_width = 128;
+    static const unsigned pad_left = 0;
+    static const unsigned pad_right = 0;
+    static const unsigned in_width = 130;
     static const unsigned n_chan = 9;
     static const unsigned filt_width = 3;
     static const unsigned kernel_size = filt_width;
@@ -62136,12 +61856,12 @@ struct config2 : nnet::conv1d_config {
     static const bool store_weights_in_bram = false;
     static const unsigned strategy = nnet::latency;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
-    static const unsigned min_width = 128;
+    static const unsigned min_width = 130;
     static const ap_uint<filt_width> pixels[min_width];
     static const unsigned n_partitions = 128;
     static const unsigned n_pixels = out_width / n_partitions;
     template<class data_T, class CONFIG_T>
-    using fill_buffer = nnet::fill_buffer_2<data_T, CONFIG_T>;
+    using fill_buffer = nnet::FillConv1DBuffer<data_T, CONFIG_T>;
     typedef model_default_t accum_t;
     typedef model_default_t bias_t;
     typedef model_default_t weight_t;
@@ -62157,9 +61877,9 @@ const ap_uint<config2::filt_width> config2::pixels[] = {0};
 struct relu_config4 : nnet::activ_config {
     static const unsigned n_in = 2048;
     static const unsigned table_size = 1024;
-    static const unsigned io_type = nnet::io_parallel;
+    static const unsigned io_type = nnet::io_stream;
     static const unsigned reuse_factor = 1;
-    typedef activation_table_t table_t;
+    typedef activation_4_table_t table_t;
 };
 
 
@@ -62175,7 +61895,7 @@ struct config5 : nnet::pooling1d_config {
 struct config6 : nnet::dense_config {
     static const unsigned n_in = 16;
     static const unsigned n_out = 6;
-    static const unsigned io_type = nnet::io_parallel;
+    static const unsigned io_type = nnet::io_stream;
     static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 1;
     static const unsigned n_zeros = 0;
@@ -62201,23 +61921,23 @@ struct softmax_config7 : nnet::activ_config {
     static const unsigned parallelization_factor = -1;
     static const unsigned exp_table_size = 1024;
     static const unsigned inv_table_size = 1024;
-    static const unsigned io_type = nnet::io_parallel;
+    static const unsigned io_type = nnet::io_stream;
     static const unsigned reuse_factor = 1;
     static const unsigned axis = -1;
     static const nnet::softmax_implementation implementation = nnet::softmax_implementation::stable;
     static constexpr float exp_scale = 1.0;
-    typedef dense_softmax_exp_table_t exp_table_t;
-    typedef dense_softmax_inv_table_t inv_table_t;
+    typedef dense_4_softmax_exp_table_t exp_table_t;
+    typedef dense_4_softmax_inv_table_t inv_table_t;
     typedef model_default_t accum_t;
-    typedef dense_softmax_inv_inp_t inv_inp_t;
+    typedef dense_4_softmax_inv_inp_t inv_inp_t;
     typedef ap_ufixed<15, 5> inp_norm_t;
 };
 # 5 "firmware/myproject.cpp" 2
 
 
 __attribute__((sdx_kernel("myproject", 0))) void myproject(
-    input_t input_1[128*9],
-    result_t layer7_out[6]
+    hls::stream<input_t> &input_5,
+    hls::stream<result_t> &layer7_out
 ) {
 #line 169 "/home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/build_prj.tcl"
 #pragma HLSDIRECTIVE TOP name=myproject
@@ -62225,24 +61945,27 @@ __attribute__((sdx_kernel("myproject", 0))) void myproject(
 
 
 
-#pragma HLS ARRAY_RESHAPE variable=input_1 complete dim=0
-#pragma HLS ARRAY_PARTITION variable=layer7_out complete dim=0
-#pragma HLS INTERFACE ap_vld port=input_1,layer7_out
+#pragma HLS INTERFACE axis port=input_5,layer7_out
 #pragma HLS DATAFLOW
-# 34 "firmware/myproject.cpp"
- layer2_t layer2_out[128*16];
-#pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
+# 32 "firmware/myproject.cpp"
+ hls::stream<layer8_t> layer8_out("layer8_out");
+#pragma HLS STREAM variable=layer8_out depth=130
 
- layer4_t layer4_out[128*16];
-#pragma HLS ARRAY_PARTITION variable=layer4_out complete dim=0
+ hls::stream<layer2_t> layer2_out("layer2_out");
+#pragma HLS STREAM variable=layer2_out depth=128
 
- layer5_t layer5_out[16];
-#pragma HLS ARRAY_PARTITION variable=layer5_out complete dim=0
+ hls::stream<layer4_t> layer4_out("layer4_out");
+#pragma HLS STREAM variable=layer4_out depth=128
 
- layer6_t layer6_out[6];
-#pragma HLS ARRAY_PARTITION variable=layer6_out complete dim=0
+ hls::stream<layer5_t> layer5_out("layer5_out");
+#pragma HLS STREAM variable=layer5_out depth=1
 
- nnet::conv_1d_cl<input_t, layer2_t, config2>(input_1, layer2_out, w2, b2);
+ hls::stream<layer6_t> layer6_out("layer6_out");
+#pragma HLS STREAM variable=layer6_out depth=1
+
+ nnet::zeropad1d_cl<input_t, layer8_t, config8>(input_5, layer8_out);
+
+    nnet::conv_1d_cl<layer8_t, layer2_t, config2>(layer8_out, layer2_out, w2, b2);
 
     nnet::relu<layer2_t, layer4_t, relu_config4>(layer2_out, layer4_out);
 

@@ -3,354 +3,180 @@ source_filename = "llvm-link"
 target datalayout = "e-m:e-i64:64-i128:128-i256:256-i512:512-i1024:1024-i2048:2048-i4096:4096-n8:16:32:64-S128-v16:16-v24:32-v32:32-v48:64-v96:128-v192:256-v256:256-v512:512-v1024:1024"
 target triple = "fpga64-xilinx-none"
 
+%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>" = type { %"struct.nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>" }
+%"struct.nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>" = type { [9 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"] }
 %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>" = type { %"struct.ap_fixed_base<16, 6, true, AP_TRN, AP_WRAP, 0>" }
 %"struct.ap_fixed_base<16, 6, true, AP_TRN, AP_WRAP, 0>" = type { %"struct.ssdm_int<16, true>" }
 %"struct.ssdm_int<16, true>" = type { i16 }
+%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>" = type { %"struct.nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>" }
+%"struct.nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>" = type { [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"] }
+
+; Function Attrs: inaccessiblememonly nounwind willreturn
+declare void @llvm.sideeffect() #0
 
 ; Function Attrs: noinline
-define void @apatb_myproject_ir(%"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"* noalias nonnull readonly "fpga.decayed.dim.hint"="1152" %input_1, %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="6" "partition" %layer7_out) local_unnamed_addr #0 {
+define void @apatb_myproject_ir(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias nocapture nonnull dereferenceable(18) %input_5, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias nocapture nonnull dereferenceable(12) %layer7_out) local_unnamed_addr #1 {
 entry:
-  %input_1_copy3 = alloca i18432, align 512
-  %layer7_out_copy_0 = alloca i16, align 512
-  %layer7_out_copy_1 = alloca i16, align 512
-  %layer7_out_copy_2 = alloca i16, align 512
-  %layer7_out_copy_3 = alloca i16, align 512
-  %layer7_out_copy_4 = alloca i16, align 512
-  %layer7_out_copy_5 = alloca i16, align 512
-  %0 = bitcast %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"* %input_1 to [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]*
-  %1 = bitcast %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"* %layer7_out to [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]*
-  call void @copy_in([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* nonnull %0, i18432* nonnull align 512 %input_1_copy3, [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* nonnull %1, i16* nonnull align 512 %layer7_out_copy_0, i16* nonnull align 512 %layer7_out_copy_1, i16* nonnull align 512 %layer7_out_copy_2, i16* nonnull align 512 %layer7_out_copy_3, i16* nonnull align 512 %layer7_out_copy_4, i16* nonnull align 512 %layer7_out_copy_5)
-  call void @apatb_myproject_hw(i18432* %input_1_copy3, i16* %layer7_out_copy_0, i16* %layer7_out_copy_1, i16* %layer7_out_copy_2, i16* %layer7_out_copy_3, i16* %layer7_out_copy_4, i16* %layer7_out_copy_5)
-  call void @copy_back([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %0, i18432* %input_1_copy3, [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %1, i16* %layer7_out_copy_0, i16* %layer7_out_copy_1, i16* %layer7_out_copy_2, i16* %layer7_out_copy_3, i16* %layer7_out_copy_4, i16* %layer7_out_copy_5)
+  %input_5_copy = alloca %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>", align 512
+  call void @llvm.sideeffect() #7 [ "stream_interface"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %input_5_copy, i32 0) ]
+  %layer7_out_copy = alloca %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>", align 512
+  call void @llvm.sideeffect() #8 [ "stream_interface"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %layer7_out_copy, i32 0) ]
+  call fastcc void @copy_in(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* nonnull %input_5, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* nonnull align 512 %input_5_copy, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* nonnull %layer7_out, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* nonnull align 512 %layer7_out_copy)
+  call void @apatb_myproject_hw(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %input_5_copy, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %layer7_out_copy)
+  call void @copy_back(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %input_5, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %input_5_copy, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %layer7_out, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %layer7_out_copy)
   ret void
 }
 
-; Function Attrs: nounwind willreturn
-declare void @llvm.assume(i1) #1
-
-; Function Attrs: argmemonly noinline norecurse willreturn
-define void @"arraycpy_hls.p0a6struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"(i16* nocapture "orig.arg.no"="0" "unpacked"="0.0.0" %dst_0, i16* nocapture "orig.arg.no"="0" "unpacked"="0.0.1" %dst_1, i16* nocapture "orig.arg.no"="0" "unpacked"="0.0.2" %dst_2, i16* nocapture "orig.arg.no"="0" "unpacked"="0.0.3" %dst_3, i16* nocapture "orig.arg.no"="0" "unpacked"="0.0.4" %dst_4, i16* nocapture "orig.arg.no"="0" "unpacked"="0.0.5" %dst_5, [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* readonly "orig.arg.no"="1" "unpacked"="1" %src, i64 "orig.arg.no"="2" "unpacked"="2" %num) #2 {
+; Function Attrs: argmemonly noinline willreturn
+define internal fastcc void @copy_in(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias align 512, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias align 512) unnamed_addr #2 {
 entry:
-  %0 = icmp eq [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %src, null
-  br i1 %0, label %ret, label %copy
-
-copy:                                             ; preds = %entry
-  %for.loop.cond1 = icmp sgt i64 %num, 0
-  br i1 %for.loop.cond1, label %for.loop.lr.ph, label %copy.split
-
-for.loop.lr.ph:                                   ; preds = %copy
-  br label %for.loop
-
-for.loop:                                         ; preds = %dst.addr.0.0.06.exit, %for.loop.lr.ph
-  %for.loop.idx2 = phi i64 [ 0, %for.loop.lr.ph ], [ %for.loop.idx.next, %dst.addr.0.0.06.exit ]
-  %src.addr.0.0.05 = getelementptr [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"], [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %src, i64 0, i64 %for.loop.idx2, i32 0, i32 0, i32 0
-  %1 = load i16, i16* %src.addr.0.0.05, align 2
-  switch i64 %for.loop.idx2, label %dst.addr.0.0.06.case.5 [
-    i64 0, label %dst.addr.0.0.06.case.0
-    i64 1, label %dst.addr.0.0.06.case.1
-    i64 2, label %dst.addr.0.0.06.case.2
-    i64 3, label %dst.addr.0.0.06.case.3
-    i64 4, label %dst.addr.0.0.06.case.4
-  ]
-
-dst.addr.0.0.06.case.0:                           ; preds = %for.loop
-  store i16 %1, i16* %dst_0, align 2
-  br label %dst.addr.0.0.06.exit
-
-dst.addr.0.0.06.case.1:                           ; preds = %for.loop
-  store i16 %1, i16* %dst_1, align 2
-  br label %dst.addr.0.0.06.exit
-
-dst.addr.0.0.06.case.2:                           ; preds = %for.loop
-  store i16 %1, i16* %dst_2, align 2
-  br label %dst.addr.0.0.06.exit
-
-dst.addr.0.0.06.case.3:                           ; preds = %for.loop
-  store i16 %1, i16* %dst_3, align 2
-  br label %dst.addr.0.0.06.exit
-
-dst.addr.0.0.06.case.4:                           ; preds = %for.loop
-  store i16 %1, i16* %dst_4, align 2
-  br label %dst.addr.0.0.06.exit
-
-dst.addr.0.0.06.case.5:                           ; preds = %for.loop
-  %2 = icmp eq i64 %for.loop.idx2, 5
-  call void @llvm.assume(i1 %2)
-  store i16 %1, i16* %dst_5, align 2
-  br label %dst.addr.0.0.06.exit
-
-dst.addr.0.0.06.exit:                             ; preds = %dst.addr.0.0.06.case.5, %dst.addr.0.0.06.case.4, %dst.addr.0.0.06.case.3, %dst.addr.0.0.06.case.2, %dst.addr.0.0.06.case.1, %dst.addr.0.0.06.case.0
-  %for.loop.idx.next = add nuw nsw i64 %for.loop.idx2, 1
-  %exitcond = icmp ne i64 %for.loop.idx.next, %num
-  br i1 %exitcond, label %for.loop, label %copy.split
-
-copy.split:                                       ; preds = %dst.addr.0.0.06.exit, %copy
-  br label %ret
-
-ret:                                              ; preds = %copy.split, %entry
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* align 512 %1, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %0)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* align 512 %3, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %2)
   ret void
 }
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @"onebyonecpy_hls.p0a6struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"(i16* noalias nocapture align 512 "orig.arg.no"="0" "unpacked"="0.0.0" %dst_0, i16* noalias nocapture align 512 "orig.arg.no"="0" "unpacked"="0.0.1" %dst_1, i16* noalias nocapture align 512 "orig.arg.no"="0" "unpacked"="0.0.2" %dst_2, i16* noalias nocapture align 512 "orig.arg.no"="0" "unpacked"="0.0.3" %dst_3, i16* noalias nocapture align 512 "orig.arg.no"="0" "unpacked"="0.0.4" %dst_4, i16* noalias nocapture align 512 "orig.arg.no"="0" "unpacked"="0.0.5" %dst_5, [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias readonly "orig.arg.no"="1" "unpacked"="1" %src) #3 {
+; Function Attrs: argmemonly noinline willreturn
+define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias align 512 %dst, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias %src) unnamed_addr #3 {
 entry:
-  %0 = icmp eq [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %src, null
-  br i1 %0, label %ret, label %copy
+  %0 = icmp eq %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %dst, null
+  %1 = icmp eq %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %src, null
+  %2 = or i1 %0, %1
+  br i1 %2, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call void @"arraycpy_hls.p0a6struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"(i16* %dst_0, i16* %dst_1, i16* %dst_2, i16* %dst_3, i16* %dst_4, i16* %dst_5, [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* nonnull %src, i64 6)
+  call fastcc void @"streamcpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* nonnull align 512 %dst, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* nonnull %src)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
   ret void
 }
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define void @"arraycpy_hls.p0a6struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>.100"([6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* "orig.arg.no"="0" "unpacked"="0" %dst, i16* nocapture readonly "orig.arg.no"="1" "unpacked"="1.0.0" %src_0, i16* nocapture readonly "orig.arg.no"="1" "unpacked"="1.0.1" %src_1, i16* nocapture readonly "orig.arg.no"="1" "unpacked"="1.0.2" %src_2, i16* nocapture readonly "orig.arg.no"="1" "unpacked"="1.0.3" %src_3, i16* nocapture readonly "orig.arg.no"="1" "unpacked"="1.0.4" %src_4, i16* nocapture readonly "orig.arg.no"="1" "unpacked"="1.0.5" %src_5, i64 "orig.arg.no"="2" "unpacked"="2" %num) #2 {
+; Function Attrs: argmemonly noinline willreturn
+define internal fastcc void @"streamcpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias nocapture align 512, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias nocapture) unnamed_addr #4 {
 entry:
-  %0 = icmp eq [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %dst, null
-  br i1 %0, label %ret, label %copy
+  %2 = alloca %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"
+  br label %empty
 
-copy:                                             ; preds = %entry
-  %for.loop.cond1 = icmp sgt i64 %num, 0
-  br i1 %for.loop.cond1, label %for.loop.lr.ph, label %copy.split
+empty:                                            ; preds = %push, %entry
+  %3 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %1 to i8*
+  %4 = call i1 @fpga_fifo_not_empty_18(i8* %3)
+  br i1 %4, label %push, label %ret
 
-for.loop.lr.ph:                                   ; preds = %copy
-  br label %for.loop
+push:                                             ; preds = %empty
+  %5 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %2 to i8*
+  %6 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %1 to i8*
+  call void @fpga_fifo_pop_18(i8* %5, i8* %6)
+  %7 = load volatile %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>", %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %2
+  %8 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %2 to i8*
+  %9 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %0 to i8*
+  call void @fpga_fifo_push_18(i8* %8, i8* %9)
+  br label %empty, !llvm.loop !5
 
-for.loop:                                         ; preds = %src.addr.0.0.05.exit, %for.loop.lr.ph
-  %for.loop.idx2 = phi i64 [ 0, %for.loop.lr.ph ], [ %for.loop.idx.next, %src.addr.0.0.05.exit ]
-  %dst.addr.0.0.06 = getelementptr [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"], [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %dst, i64 0, i64 %for.loop.idx2, i32 0, i32 0, i32 0
-  switch i64 %for.loop.idx2, label %src.addr.0.0.05.case.5 [
-    i64 0, label %src.addr.0.0.05.case.0
-    i64 1, label %src.addr.0.0.05.case.1
-    i64 2, label %src.addr.0.0.05.case.2
-    i64 3, label %src.addr.0.0.05.case.3
-    i64 4, label %src.addr.0.0.05.case.4
-  ]
-
-src.addr.0.0.05.case.0:                           ; preds = %for.loop
-  %_0 = load i16, i16* %src_0, align 2
-  br label %src.addr.0.0.05.exit
-
-src.addr.0.0.05.case.1:                           ; preds = %for.loop
-  %_1 = load i16, i16* %src_1, align 2
-  br label %src.addr.0.0.05.exit
-
-src.addr.0.0.05.case.2:                           ; preds = %for.loop
-  %_2 = load i16, i16* %src_2, align 2
-  br label %src.addr.0.0.05.exit
-
-src.addr.0.0.05.case.3:                           ; preds = %for.loop
-  %_3 = load i16, i16* %src_3, align 2
-  br label %src.addr.0.0.05.exit
-
-src.addr.0.0.05.case.4:                           ; preds = %for.loop
-  %_4 = load i16, i16* %src_4, align 2
-  br label %src.addr.0.0.05.exit
-
-src.addr.0.0.05.case.5:                           ; preds = %for.loop
-  %1 = icmp eq i64 %for.loop.idx2, 5
-  call void @llvm.assume(i1 %1)
-  %_5 = load i16, i16* %src_5, align 2
-  br label %src.addr.0.0.05.exit
-
-src.addr.0.0.05.exit:                             ; preds = %src.addr.0.0.05.case.5, %src.addr.0.0.05.case.4, %src.addr.0.0.05.case.3, %src.addr.0.0.05.case.2, %src.addr.0.0.05.case.1, %src.addr.0.0.05.case.0
-  %2 = phi i16 [ %_0, %src.addr.0.0.05.case.0 ], [ %_1, %src.addr.0.0.05.case.1 ], [ %_2, %src.addr.0.0.05.case.2 ], [ %_3, %src.addr.0.0.05.case.3 ], [ %_4, %src.addr.0.0.05.case.4 ], [ %_5, %src.addr.0.0.05.case.5 ]
-  store i16 %2, i16* %dst.addr.0.0.06, align 2
-  %for.loop.idx.next = add nuw nsw i64 %for.loop.idx2, 1
-  %exitcond = icmp ne i64 %for.loop.idx.next, %num
-  br i1 %exitcond, label %for.loop, label %copy.split
-
-copy.split:                                       ; preds = %src.addr.0.0.05.exit, %copy
-  br label %ret
-
-ret:                                              ; preds = %copy.split, %entry
+ret:                                              ; preds = %empty
   ret void
 }
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @"onebyonecpy_hls.p0a6struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>.97"([6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias "orig.arg.no"="0" "unpacked"="0" %dst, i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0.0" %src_0, i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0.1" %src_1, i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0.2" %src_2, i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0.3" %src_3, i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0.4" %src_4, i16* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0.5" %src_5) #3 {
+; Function Attrs: argmemonly noinline willreturn
+define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias align 512 %dst, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias %src) unnamed_addr #3 {
 entry:
-  %0 = icmp eq [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %dst, null
-  br i1 %0, label %ret, label %copy
+  %0 = icmp eq %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %dst, null
+  %1 = icmp eq %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %src, null
+  %2 = or i1 %0, %1
+  br i1 %2, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call void @"arraycpy_hls.p0a6struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>.100"([6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* nonnull %dst, i16* %src_0, i16* %src_1, i16* %src_2, i16* %src_3, i16* %src_4, i16* %src_5, i64 6)
+  call fastcc void @"streamcpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* nonnull align 512 %dst, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* nonnull %src)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
   ret void
 }
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define void @"arraycpy_hls.p0a1152struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>.110"(i18432* nocapture "orig.arg.no"="0" "unpacked"="0.0" %dst, i64 %dst_shift, [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* readonly "orig.arg.no"="1" "unpacked"="1" %src, i64 "orig.arg.no"="2" "unpacked"="2" %num) #2 {
+; Function Attrs: argmemonly noinline willreturn
+define internal fastcc void @"streamcpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias nocapture align 512, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias nocapture) unnamed_addr #4 {
 entry:
-  %0 = icmp eq [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %src, null
-  br i1 %0, label %ret, label %copy
+  %2 = alloca %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"
+  br label %empty
 
-copy:                                             ; preds = %entry
-  %for.loop.cond1 = icmp sgt i64 %num, 0
-  br i1 %for.loop.cond1, label %for.loop.lr.ph, label %copy.split
+empty:                                            ; preds = %push, %entry
+  %3 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %1 to i8*
+  %4 = call i1 @fpga_fifo_not_empty_12(i8* %3)
+  br i1 %4, label %push, label %ret
 
-for.loop.lr.ph:                                   ; preds = %copy
-  br label %for.loop
+push:                                             ; preds = %empty
+  %5 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %2 to i8*
+  %6 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %1 to i8*
+  call void @fpga_fifo_pop_12(i8* %5, i8* %6)
+  %7 = load volatile %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>", %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %2
+  %8 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %2 to i8*
+  %9 = bitcast %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %0 to i8*
+  call void @fpga_fifo_push_12(i8* %8, i8* %9)
+  br label %empty, !llvm.loop !7
 
-for.loop:                                         ; preds = %for.loop, %for.loop.lr.ph
-  %for.loop.idx2 = phi i64 [ 0, %for.loop.lr.ph ], [ %for.loop.idx.next, %for.loop ]
-  %src.addr.0.0.05 = getelementptr [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"], [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %src, i64 0, i64 %for.loop.idx2, i32 0, i32 0, i32 0
-  %1 = mul i64 16, %for.loop.idx2
-  %2 = add i64 %dst_shift, %1
-  %3 = load i16, i16* %src.addr.0.0.05, align 2
-  %4 = load i18432, i18432* %dst, align 512
-  %5 = zext i64 %2 to i18432
-  %6 = shl i18432 65535, %5
-  %7 = zext i16 %3 to i18432
-  %8 = shl i18432 %7, %5
-  %thr.xor1 = xor i18432 %6, -1
-  %thr.and2 = and i18432 %4, %thr.xor1
-  %thr.or3 = or i18432 %thr.and2, %8
-  store i18432 %thr.or3, i18432* %dst, align 512
-  %for.loop.idx.next = add nuw nsw i64 %for.loop.idx2, 1
-  %exitcond = icmp ne i64 %for.loop.idx.next, %num
-  br i1 %exitcond, label %for.loop, label %copy.split
-
-copy.split:                                       ; preds = %for.loop, %copy
-  br label %ret
-
-ret:                                              ; preds = %copy.split, %entry
+ret:                                              ; preds = %empty
   ret void
 }
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @"onebyonecpy_hls.p0a1152struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>.107"(i18432* noalias nocapture align 512 "orig.arg.no"="0" "unpacked"="0.0" %dst, [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias readonly "orig.arg.no"="1" "unpacked"="1" %src) #3 {
+; Function Attrs: argmemonly noinline willreturn
+define internal fastcc void @copy_out(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias align 512, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias align 512) unnamed_addr #5 {
 entry:
-  %0 = icmp eq [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %src, null
-  br i1 %0, label %ret, label %copy
-
-copy:                                             ; preds = %entry
-  call void @"arraycpy_hls.p0a1152struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>.110"(i18432* %dst, i64 0, [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* nonnull %src, i64 1152)
-  br label %ret
-
-ret:                                              ; preds = %copy, %entry
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* align 512 %1)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %2, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* align 512 %3)
   ret void
 }
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @copy_in([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias readonly "orig.arg.no"="0" "unpacked"="0", i18432* noalias nocapture align 512 "orig.arg.no"="1" "unpacked"="1.0", [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias readonly "orig.arg.no"="2" "unpacked"="2", i16* noalias nocapture align 512 "orig.arg.no"="3" "unpacked"="3.0.0" %_0, i16* noalias nocapture align 512 "orig.arg.no"="3" "unpacked"="3.0.1" %_1, i16* noalias nocapture align 512 "orig.arg.no"="3" "unpacked"="3.0.2" %_2, i16* noalias nocapture align 512 "orig.arg.no"="3" "unpacked"="3.0.3" %_3, i16* noalias nocapture align 512 "orig.arg.no"="3" "unpacked"="3.0.4" %_4, i16* noalias nocapture align 512 "orig.arg.no"="3" "unpacked"="3.0.5" %_5) #4 {
+declare void @apatb_myproject_hw(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"*, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"*)
+
+; Function Attrs: argmemonly noinline willreturn
+define internal fastcc void @copy_back(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias align 512, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias align 512) unnamed_addr #5 {
 entry:
-  call void @"onebyonecpy_hls.p0a1152struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>.107"(i18432* align 512 %1, [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %0)
-  call void @"onebyonecpy_hls.p0a6struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"(i16* align 512 %_0, i16* align 512 %_1, i16* align 512 %_2, i16* align 512 %_3, i16* align 512 %_4, i16* align 512 %_5, [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %2)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* align 512 %1)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %2, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* align 512 %3)
   ret void
 }
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define void @"arraycpy_hls.p0a1152struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* "orig.arg.no"="0" "unpacked"="0" %dst, i18432* nocapture readonly "orig.arg.no"="1" "unpacked"="1.0" %src, i64 %src_shift, i64 "orig.arg.no"="2" "unpacked"="2" %num) #2 {
+define void @myproject_hw_stub_wrapper(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"*, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"*) #6 {
 entry:
-  %0 = icmp eq [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %dst, null
-  br i1 %0, label %ret, label %copy
-
-copy:                                             ; preds = %entry
-  %for.loop.cond1 = icmp sgt i64 %num, 0
-  br i1 %for.loop.cond1, label %for.loop.lr.ph, label %copy.split
-
-for.loop.lr.ph:                                   ; preds = %copy
-  br label %for.loop
-
-for.loop:                                         ; preds = %for.loop, %for.loop.lr.ph
-  %for.loop.idx2 = phi i64 [ 0, %for.loop.lr.ph ], [ %for.loop.idx.next, %for.loop ]
-  %1 = mul i64 16, %for.loop.idx2
-  %2 = add i64 %src_shift, %1
-  %dst.addr.0.0.06 = getelementptr [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"], [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %dst, i64 0, i64 %for.loop.idx2, i32 0, i32 0, i32 0
-  %3 = load i18432, i18432* %src, align 512
-  %4 = zext i64 %2 to i18432
-  %5 = lshr i18432 %3, %4
-  %6 = trunc i18432 %5 to i16
-  store i16 %6, i16* %dst.addr.0.0.06, align 2
-  %for.loop.idx.next = add nuw nsw i64 %for.loop.idx2, 1
-  %exitcond = icmp ne i64 %for.loop.idx.next, %num
-  br i1 %exitcond, label %for.loop, label %copy.split
-
-copy.split:                                       ; preds = %for.loop, %copy
-  br label %ret
-
-ret:                                              ; preds = %copy.split, %entry
+  call void @copy_out(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %1)
+  call void @myproject_hw_stub(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %1)
+  call void @copy_in(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* %1)
   ret void
 }
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @"onebyonecpy_hls.p0a1152struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias "orig.arg.no"="0" "unpacked"="0" %dst, i18432* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0" %src) #3 {
-entry:
-  %0 = icmp eq [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %dst, null
-  br i1 %0, label %ret, label %copy
+declare void @myproject_hw_stub(%"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 9>, 0>"* noalias nocapture nonnull, %"class.hls::stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 6>, 0>"* noalias nocapture nonnull)
 
-copy:                                             ; preds = %entry
-  call void @"arraycpy_hls.p0a1152struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* nonnull %dst, i18432* %src, i64 0, i64 1152)
-  br label %ret
+declare i1 @fpga_fifo_not_empty_18(i8*)
 
-ret:                                              ; preds = %copy, %entry
-  ret void
-}
+declare i1 @fpga_fifo_not_empty_12(i8*)
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @copy_out([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias "orig.arg.no"="0" "unpacked"="0", i18432* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0", [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias "orig.arg.no"="2" "unpacked"="2", i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.0" %_0, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.1" %_1, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.2" %_2, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.3" %_3, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.4" %_4, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.5" %_5) #5 {
-entry:
-  call void @"onebyonecpy_hls.p0a1152struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %0, i18432* align 512 %1)
-  call void @"onebyonecpy_hls.p0a6struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>.97"([6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %2, i16* align 512 %_0, i16* align 512 %_1, i16* align 512 %_2, i16* align 512 %_3, i16* align 512 %_4, i16* align 512 %_5)
-  ret void
-}
+declare void @fpga_fifo_pop_18(i8*, i8*)
 
-declare void @apatb_myproject_hw(i18432*, i16*, i16*, i16*, i16*, i16*, i16*)
+declare void @fpga_fifo_pop_12(i8*, i8*)
 
-; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @copy_back([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias "orig.arg.no"="0" "unpacked"="0", i18432* noalias nocapture readonly align 512 "orig.arg.no"="1" "unpacked"="1.0", [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* noalias "orig.arg.no"="2" "unpacked"="2", i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.0" %_0, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.1" %_1, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.2" %_2, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.3" %_3, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.4" %_4, i16* noalias nocapture readonly align 512 "orig.arg.no"="3" "unpacked"="3.0.5" %_5) #5 {
-entry:
-  call void @"onebyonecpy_hls.p0a6struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>.97"([6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %2, i16* align 512 %_0, i16* align 512 %_1, i16* align 512 %_2, i16* align 512 %_3, i16* align 512 %_4, i16* align 512 %_5)
-  ret void
-}
+declare void @fpga_fifo_push_18(i8*, i8*)
 
-define void @myproject_hw_stub_wrapper(i18432*, i16*, i16*, i16*, i16*, i16*, i16*) #6 {
-entry:
-  %7 = alloca [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]
-  %8 = alloca [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]
-  call void @copy_out([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %7, i18432* %0, [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %8, i16* %1, i16* %2, i16* %3, i16* %4, i16* %5, i16* %6)
-  %9 = bitcast [1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %7 to %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"*
-  %10 = bitcast [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %8 to %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"*
-  call void @myproject_hw_stub(%"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"* %9, %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"* %10)
-  call void @copy_in([1152 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %7, i18432* %0, [6 x %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"]* %8, i16* %1, i16* %2, i16* %3, i16* %4, i16* %5, i16* %6)
-  ret void
-}
+declare void @fpga_fifo_push_12(i8*, i8*)
 
-declare void @myproject_hw_stub(%"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"* noalias nonnull readonly, %"struct.ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>"* noalias nocapture nonnull)
-
-attributes #0 = { noinline "fpga.wrapper.func"="wrapper" }
-attributes #1 = { nounwind willreturn }
-attributes #2 = { argmemonly noinline norecurse willreturn "fpga.wrapper.func"="arraycpy_hls" }
-attributes #3 = { argmemonly noinline norecurse willreturn "fpga.wrapper.func"="onebyonecpy_hls" }
-attributes #4 = { argmemonly noinline norecurse willreturn "fpga.wrapper.func"="copyin" }
-attributes #5 = { argmemonly noinline norecurse willreturn "fpga.wrapper.func"="copyout" }
+attributes #0 = { inaccessiblememonly nounwind willreturn }
+attributes #1 = { noinline "fpga.wrapper.func"="wrapper" }
+attributes #2 = { argmemonly noinline willreturn "fpga.wrapper.func"="copyin" }
+attributes #3 = { argmemonly noinline willreturn "fpga.wrapper.func"="onebyonecpy_hls" }
+attributes #4 = { argmemonly noinline willreturn "fpga.wrapper.func"="streamcpy_hls" }
+attributes #5 = { argmemonly noinline willreturn "fpga.wrapper.func"="copyout" }
 attributes #6 = { "fpga.wrapper.func"="stub" }
+attributes #7 = { inaccessiblememonly nounwind willreturn "xlx.port.bitwidth"="144" "xlx.source"="user" }
+attributes #8 = { inaccessiblememonly nounwind willreturn "xlx.port.bitwidth"="96" "xlx.source"="user" }
 
 !llvm.dbg.cu = !{}
 !llvm.ident = !{!0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0}
 !llvm.module.flags = !{!1, !2, !3}
 !blackbox_cfg = !{!4}
-!datalayout.transforms.on.top = !{!5}
 
 !0 = !{!"clang version 7.0.0 "}
 !1 = !{i32 2, !"Dwarf Version", i32 4}
 !2 = !{i32 2, !"Debug Info Version", i32 3}
 !3 = !{i32 1, !"wchar_size", i32 4}
 !4 = !{}
-!5 = !{!6, !8, !10}
-!6 = !{!7}
-!7 = !{!"1.0", [6 x i16]* null}
-!8 = !{!9}
-!9 = !{!"array_partition", !"type=Complete", !"dim=1"}
-!10 = !{!11, !12, !13, !14, !15, !16}
-!11 = !{!"1.0.0", i16* null}
-!12 = !{!"1.0.1", i16* null}
-!13 = !{!"1.0.2", i16* null}
-!14 = !{!"1.0.3", i16* null}
-!15 = !{!"1.0.4", i16* null}
-!16 = !{!"1.0.5", i16* null}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.rotate.disable"}
+!7 = distinct !{!7, !6}

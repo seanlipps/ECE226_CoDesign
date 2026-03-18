@@ -10,10 +10,10 @@ HLSConfig:
     ReuseFactor: 1
     Strategy: Latency
     TraceOutput: false
-IOType: io_parallel
+IOType: io_stream
 InputData: null
 InputShapes:
-  input_1:
+  input_5:
   - 128
   - 9
 KerasModel: !keras_model 'model_1/hls4ml_prj/keras_model.keras'
@@ -24,7 +24,7 @@ OutputShapes:
   - 6
 Part: xcu250-figd2104-2L-e
 ProjectName: myproject
-Stamp: 9f4eb510
+Stamp: 083df197
 Version: 1.0.0
 WriterConfig:
   Namespace: null

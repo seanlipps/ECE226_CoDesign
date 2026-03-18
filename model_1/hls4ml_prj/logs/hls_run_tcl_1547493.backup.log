@@ -1,0 +1,84 @@
+INFO: [vitis-run 82-31] Launching vitis_hls: vitis_hls -nolog -run tcl -f /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/build_prj.tcl -work_dir /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.1 (64-bit)
+  **** SW Build 5069499 on May 21 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Wed Mar 18 12:09:06 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2024.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] For user 'j.lim.473' on host 'waiter' (Linux_x86_64 version 5.15.0-168-generic) on Wed Mar 18 12:09:07 PDT 2026
+INFO: [HLS 200-10] On os Ubuntu 22.04.5 LTS
+INFO: [HLS 200-10] In directory '/home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj'
+Sourcing Tcl script '/home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/build_prj.tcl'
+INFO: [HLS 200-1510] Running: open_project myproject_prj 
+INFO: [HLS 200-10] Creating and opening project '/home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj'.
+INFO: [HLS 200-1510] Running: set_top myproject 
+INFO: [HLS 200-1510] Running: add_files firmware/myproject.cpp -cflags -std=c++0x 
+INFO: [HLS 200-10] Adding design file 'firmware/myproject.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb myproject_test.cpp -cflags -std=c++0x 
+INFO: [HLS 200-10] Adding test bench file 'myproject_test.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb firmware/weights 
+INFO: [HLS 200-10] Adding test bench file 'firmware/weights' to the project
+INFO: [HLS 200-1510] Running: add_files -tb tb_data 
+INFO: [HLS 200-10] Adding test bench file 'tb_data' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/myproject_prj/solution1'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: config_array_partition -complete_threshold 4096 
+INFO: [XFORM 203-102] Size-based automatic array partition enabled: cut-off elements per dimension is 4096.
+INFO: [HLS 200-1510] Running: config_compile -name_max_length 80 
+INFO: [XFORM 203-1161] The maximum of name length is set to 80.
+INFO: [HLS 200-1510] Running: set_part xcu250-figd2104-2L-e 
+INFO: [HLS 200-1611] Setting target device to 'xcu250-figd2104-2L-e'
+INFO: [XFORM 203-1161] The maximum of name length is set to 80.
+INFO: [HLS 200-1510] Running: config_schedule -enable_dsp_full_reg=false 
+INFO: [HLS 200-1510] Running: create_clock -period 5 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1510] Running: set_clock_uncertainty 27% default 
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1.35ns.
+***** C/RTL SYNTHESIS *****
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 322.199 MB.
+INFO: [HLS 200-10] Analyzing design file 'firmware/myproject.cpp' ... 
+WARNING: [HLS 207-5570] unexpected pragma argument 'softmax', expects function/operation (firmware/nnet_utils/nnet_activation.h:402:36)
+WARNING: [HLS 207-5538] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:33:9)
+WARNING: [HLS 207-5538] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:107:9)
+WARNING: [HLS 207-5538] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:189:9)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/myproject.cpp:49:75)
+Resolution: For help on HLS 214-113 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=214-113.html
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/myproject.cpp:49:79)
+Resolution: For help on HLS 214-113 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=214-113.html
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/myproject.cpp:55:70)
+Resolution: For help on HLS 214-113 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=214-113.html
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/myproject.cpp:55:74)
+Resolution: For help on HLS 214-113 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=214-113.html
+WARNING: [HLS 200-471] Dataflow form checks found 4 issue(s) in file firmware/myproject.cpp
+Resolution: For help on HLS 200-471 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-471.html
+WARNING: [HLS 207-5292] unused parameter 'keep' (firmware/nnet_utils/nnet_helpers.h:285:99)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:14:36)
+WARNING: [HLS 207-5292] unused parameter 'buffer' (firmware/nnet_utils/nnet_function_stubs.h:15:36)
+WARNING: [HLS 207-5292] unused parameter 'partition' (firmware/nnet_utils/nnet_function_stubs.h:16:44)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:24:24)
+WARNING: [HLS 207-5292] unused parameter 'buffer' (firmware/nnet_utils/nnet_function_stubs.h:25:24)
+WARNING: [HLS 207-5292] unused parameter 'partition' (firmware/nnet_utils/nnet_function_stubs.h:26:32)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:33:30)
+WARNING: [HLS 207-5292] unused parameter 'res' (firmware/nnet_utils/nnet_function_stubs.h:33:58)
+WARNING: [HLS 207-5292] unused parameter 'weights' (firmware/nnet_utils/nnet_function_stubs.h:34:51)
+WARNING: [HLS 207-5292] unused parameter 'biases' (firmware/nnet_utils/nnet_function_stubs.h:35:49)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:42:30)
+WARNING: [HLS 207-5292] unused parameter 'res' (firmware/nnet_utils/nnet_function_stubs.h:42:58)
+WARNING: [HLS 207-5292] unused parameter 'weights' (firmware/nnet_utils/nnet_function_stubs.h:43:51)
+WARNING: [HLS 207-5292] unused parameter 'biases' (firmware/nnet_utils/nnet_function_stubs.h:44:49)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:51:29)
+WARNING: [HLS 207-5292] unused parameter 'res' (firmware/nnet_utils/nnet_function_stubs.h:51:80)
+WARNING: [HLS 207-5292] unused parameter 'weights' (firmware/nnet_utils/nnet_function_stubs.h:52:50)
+WARNING: [HLS 207-5292] unused parameter 'biases' (firmware/nnet_utils/nnet_function_stubs.h:53:48)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_code_gen.h:16:39)
+WARNING: [HLS 207-5292] unused parameter 'res' (firmware/nnet_utils/nnet_code_gen.h:17:38)
+WARNING: [HLS 207-5292] unused parameter 'weights' (firmware/nnet_utils/nnet_code_gen.h:18:60)
+WARNING: [HLS 207-5292] unused parameter 'biases' (firmware/nnet_utils/nnet_code_gen.h:19:58)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 5.09 seconds. CPU system time: 1.08 seconds. Elapsed time: 6.22 seconds; current allocated memory: 330.449 MB.

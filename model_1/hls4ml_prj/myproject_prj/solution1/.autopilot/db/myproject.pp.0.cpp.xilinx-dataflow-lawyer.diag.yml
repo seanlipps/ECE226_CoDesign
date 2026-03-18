@@ -3,18 +3,18 @@ MainSourceFile:  /home/j.lim.473/ece226/ECE226_CoDesign/model_1/hls4ml_prj/mypro
 Diagnostics:     
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '46:68'
+    FileOffset:      '49:75'
     FilePath:        firmware/myproject.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '46:72'
+    FileOffset:      '49:79'
     FilePath:        firmware/myproject.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '52:70'
+    FileOffset:      '55:70'
     FilePath:        firmware/myproject.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '52:74'
+    FileOffset:      '55:74'
     FilePath:        firmware/myproject.cpp
 ...

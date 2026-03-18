@@ -1,0 +1,185 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date             : Wed Mar 18 14:03:03 2026
+| Host             : waiter running 64-bit Ubuntu 22.04.5 LTS
+| Command          : report_power -file vivado_power.rpt
+| Design           : myproject
+| Device           : xcu250-figd2104-2L-e
+| Design State     : routed
+| Grade            : extended
+| Process          : typical
+| Characterization : Production
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 3.566        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 0.610        |
+| Device Static (W)        | 2.956        |
+| Effective TJA (C/W)      | 0.5          |
+| Max Ambient (C)          | 98.1         |
+| Junction Temperature (C) | 26.9         |
+| Confidence Level         | Low          |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Clocks         |     0.036 |        3 |       --- |             --- |
+| CLB Logic      |     0.163 |    18662 |       --- |             --- |
+|   LUT as Logic |     0.152 |     7722 |   1728000 |            0.45 |
+|   CARRY8       |     0.008 |      790 |    216000 |            0.37 |
+|   Register     |     0.002 |     4864 |   3456000 |            0.14 |
+|   BUFG         |    <0.001 |        2 |       128 |            1.56 |
+|   Others       |     0.000 |     1941 |       --- |             --- |
+| Signals        |     0.191 |    20196 |       --- |             --- |
+| Block RAM      |     0.034 |       12 |      2688 |            0.45 |
+| DSPs           |     0.152 |      467 |     12288 |            3.80 |
+| I/O            |     0.034 |      250 |       676 |           36.98 |
+| Static Power   |     2.956 |          |           |                 |
+| Total          |     3.566 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Source     | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
++------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Vccint     |       0.850 |     1.824 |       0.674 |      1.150 |       NA    | Unspecified | NA         |
+| Vccint_io  |       0.850 |     0.144 |       0.002 |      0.142 |       NA    | Unspecified | NA         |
+| Vccbram    |       0.850 |     0.024 |       0.003 |      0.020 |       NA    | Unspecified | NA         |
+| Vccaux     |       1.800 |     0.886 |       0.000 |      0.886 |       NA    | Unspecified | NA         |
+| Vccaux_io  |       1.800 |     0.121 |       0.016 |      0.104 |       NA    | Unspecified | NA         |
+| Vcco33     |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco25     |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18     |       1.800 |     0.002 |       0.002 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco15     |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco135    |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco12     |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco10     |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccadc     |       1.800 |     0.032 |       0.000 |      0.032 |       NA    | Unspecified | NA         |
+| MGTYAVcc   |       0.900 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTYAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTYVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
++------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                     |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks                 |                                                                                                            |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                           |                                                                                                            |
+|                             |            |                                                        |                                                                                                            |
+| Overall confidence level    | Low        |                                                        |                                                                                                            |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 0.5                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 0.7                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++--------+--------+-----------------+
+| Clock  | Domain | Constraint (ns) |
++--------+--------+-----------------+
+| ap_clk | ap_clk |             5.0 |
++--------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++---------------------------------------------------------------------------------------+-----------+
+| Name                                                                                  | Power (W) |
++---------------------------------------------------------------------------------------+-----------+
+| myproject                                                                             |     0.610 |
+|   conv_1d_cl_array_ap_fixed_9u_array_ap_fixed_16_6_5_3_0_16u_config2_U0               |     0.404 |
+|     grp_compute_output_buffer_1d_array_array_ap_fixed_16_6_5_3_0_16u_config2_s_fu_138 |     0.404 |
+|       grp_dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config2_mult_s_fu_180 |     0.397 |
+|   dense_array_ap_fixed_16u_array_ap_fixed_16_6_5_3_0_6u_config6_U0                    |     0.085 |
+|     grp_dense_latency_wrapper_ap_fixed_ap_fixed_16_6_5_3_0_config6_s_fu_97            |     0.084 |
+|       mul_16s_10s_26_1_1_U449                                                         |     0.002 |
+|       mul_16s_10s_26_1_1_U469                                                         |     0.001 |
+|       mul_16s_10s_26_1_1_U503                                                         |     0.001 |
+|       mul_16s_11ns_26_1_1_U454                                                        |     0.001 |
+|       mul_16s_11ns_26_1_1_U465                                                        |     0.001 |
+|       mul_16s_11ns_26_1_1_U481                                                        |     0.001 |
+|       mul_16s_11ns_26_1_1_U507                                                        |     0.001 |
+|       mul_16s_11s_26_1_1_U459                                                         |     0.001 |
+|       mul_16s_11s_26_1_1_U467                                                         |     0.001 |
+|       mul_16s_11s_26_1_1_U470                                                         |     0.001 |
+|       mul_16s_11s_26_1_1_U482                                                         |     0.001 |
+|       mul_16s_11s_26_1_1_U486                                                         |     0.001 |
+|       mul_16s_11s_26_1_1_U513                                                         |     0.002 |
+|       mul_16s_9ns_25_1_1_U524                                                         |     0.001 |
+|   global_pooling1d_cl_array_array_ap_fixed_16_6_5_3_0_16u_config5_U0                  |     0.010 |
+|     grp_global_pooling1d_cl_array_array_ap_fixed_16u_config5_Pipeline_ReadInput_fu_95 |     0.009 |
+|   layer2_out_U                                                                        |     0.009 |
+|     U_myproject_fifo_w256_d128_A_ram                                                  |     0.009 |
+|   layer4_out_U                                                                        |     0.025 |
+|     U_myproject_fifo_w256_d128_A_ram                                                  |     0.024 |
+|   layer8_out_U                                                                        |     0.025 |
+|     U_myproject_fifo_w144_d130_A_ram                                                  |     0.024 |
+|   softmax_array_array_ap_fixed_16_6_5_3_0_6u_softmax_config7_U0                       |     0.010 |
+|     grp_softmax_stable_array_array_ap_fixed_16_6_5_3_0_6u_softmax_config7_s_fu_26     |     0.007 |
+|       exp_table_U                                                                     |     0.001 |
+|     regslice_both_layer7_out_U                                                        |     0.003 |
+|   zeropad1d_cl_array_ap_fixed_9u_array_ap_fixed_16_6_5_3_0_9u_config8_U0              |     0.004 |
+|     regslice_both_input_5_U                                                           |     0.004 |
++---------------------------------------------------------------------------------------+-----------+
+
+

@@ -242,12 +242,25 @@ class AESL_RUNTIME_BC {
     fstream file_token;
     string mName;
 };
+unsigned int ap_apatb_input_5_cap_bc;
+static AESL_RUNTIME_BC __xlx_input_5_V_size_Reader("../tv/stream_size/stream_size_in_input_5.dat");
+unsigned int ap_apatb_layer7_out_cap_bc;
+static AESL_RUNTIME_BC __xlx_layer7_out_V_size_Reader("../tv/stream_size/stream_size_out_layer7_out.dat");
 using hls::sim::Byte;
-struct __cosim_s2304__ { char data[2560]; };
-struct __cosim_s4096__ { char data[4096]; };
-extern "C" void myproject(volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *, volatile void *);
-extern "C" void apatb_myproject_hw(volatile void * __xlx_apatb_param_input_1, volatile void * __xlx_apatb_param_layer7_out_0, volatile void * __xlx_apatb_param_layer7_out_1, volatile void * __xlx_apatb_param_layer7_out_2, volatile void * __xlx_apatb_param_layer7_out_3, volatile void * __xlx_apatb_param_layer7_out_4, volatile void * __xlx_apatb_param_layer7_out_5) {
+struct __cosim_s18__ { char data[18]; };
+struct __cosim_s12__ { char data[12]; };
+struct __cosim_s32__ { char data[32]; };
+struct __cosim_s16__ { char data[16]; };
+extern "C" void myproject(__cosim_s18__*, __cosim_s12__*);
+extern "C" void apatb_myproject_hw(volatile void * __xlx_apatb_param_input_5, volatile void * __xlx_apatb_param_layer7_out) {
 using hls::sim::createStream;
+auto* sinput_5 = createStream((hls::stream<__cosim_s18__>*)__xlx_apatb_param_input_5);
+  //Create input buffer for layer7_out
+  ap_apatb_layer7_out_cap_bc = __xlx_layer7_out_V_size_Reader.read_size();
+  __cosim_s12__* __xlx_layer7_out_input_buffer= new __cosim_s12__[ap_apatb_layer7_out_cap_bc];
+auto* slayer7_out = createStream((hls::stream<__cosim_s12__>*)__xlx_apatb_param_layer7_out);
   // DUT call
-  myproject(__xlx_apatb_param_input_1, __xlx_apatb_param_layer7_out_0, __xlx_apatb_param_layer7_out_1, __xlx_apatb_param_layer7_out_2, __xlx_apatb_param_layer7_out_3, __xlx_apatb_param_layer7_out_4, __xlx_apatb_param_layer7_out_5);
+  myproject(sinput_5->data<__cosim_s18__>(), slayer7_out->data<__cosim_s12__>());
+sinput_5->transfer((hls::stream<__cosim_s18__>*)__xlx_apatb_param_input_5);
+slayer7_out->transfer((hls::stream<__cosim_s12__>*)__xlx_apatb_param_layer7_out);
 }

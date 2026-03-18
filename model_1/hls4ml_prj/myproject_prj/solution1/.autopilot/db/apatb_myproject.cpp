@@ -19,29 +19,16 @@
 using namespace std;
 
 // wrapc file define:
-#define AUTOTB_TVIN_input_1 "../tv/cdatafile/c.myproject.autotvin_input_1.dat"
-#define AUTOTB_TVOUT_input_1 "../tv/cdatafile/c.myproject.autotvout_input_1.dat"
-#define AUTOTB_TVIN_layer7_out_0 "../tv/cdatafile/c.myproject.autotvin_layer7_out_0.dat"
-#define AUTOTB_TVOUT_layer7_out_0 "../tv/cdatafile/c.myproject.autotvout_layer7_out_0.dat"
-#define AUTOTB_TVIN_layer7_out_1 "../tv/cdatafile/c.myproject.autotvin_layer7_out_1.dat"
-#define AUTOTB_TVOUT_layer7_out_1 "../tv/cdatafile/c.myproject.autotvout_layer7_out_1.dat"
-#define AUTOTB_TVIN_layer7_out_2 "../tv/cdatafile/c.myproject.autotvin_layer7_out_2.dat"
-#define AUTOTB_TVOUT_layer7_out_2 "../tv/cdatafile/c.myproject.autotvout_layer7_out_2.dat"
-#define AUTOTB_TVIN_layer7_out_3 "../tv/cdatafile/c.myproject.autotvin_layer7_out_3.dat"
-#define AUTOTB_TVOUT_layer7_out_3 "../tv/cdatafile/c.myproject.autotvout_layer7_out_3.dat"
-#define AUTOTB_TVIN_layer7_out_4 "../tv/cdatafile/c.myproject.autotvin_layer7_out_4.dat"
-#define AUTOTB_TVOUT_layer7_out_4 "../tv/cdatafile/c.myproject.autotvout_layer7_out_4.dat"
-#define AUTOTB_TVIN_layer7_out_5 "../tv/cdatafile/c.myproject.autotvin_layer7_out_5.dat"
-#define AUTOTB_TVOUT_layer7_out_5 "../tv/cdatafile/c.myproject.autotvout_layer7_out_5.dat"
+#define AUTOTB_TVIN_input_5 "../tv/cdatafile/c.myproject.autotvin_input_5.dat"
+#define WRAPC_STREAM_SIZE_IN_input_5 "../tv/stream_size/stream_size_in_input_5.dat"
+#define WRAPC_STREAM_INGRESS_STATUS_input_5 "../tv/stream_size/stream_ingress_status_input_5.dat"
+#define AUTOTB_TVOUT_layer7_out "../tv/cdatafile/c.myproject.autotvout_layer7_out.dat"
+#define WRAPC_STREAM_SIZE_OUT_layer7_out "../tv/stream_size/stream_size_out_layer7_out.dat"
+#define WRAPC_STREAM_EGRESS_STATUS_layer7_out "../tv/stream_size/stream_egress_status_layer7_out.dat"
 
 
 // tvout file define:
-#define AUTOTB_TVOUT_PC_layer7_out_0 "../tv/rtldatafile/rtl.myproject.autotvout_layer7_out_0.dat"
-#define AUTOTB_TVOUT_PC_layer7_out_1 "../tv/rtldatafile/rtl.myproject.autotvout_layer7_out_1.dat"
-#define AUTOTB_TVOUT_PC_layer7_out_2 "../tv/rtldatafile/rtl.myproject.autotvout_layer7_out_2.dat"
-#define AUTOTB_TVOUT_PC_layer7_out_3 "../tv/rtldatafile/rtl.myproject.autotvout_layer7_out_3.dat"
-#define AUTOTB_TVOUT_PC_layer7_out_4 "../tv/rtldatafile/rtl.myproject.autotvout_layer7_out_4.dat"
-#define AUTOTB_TVOUT_PC_layer7_out_5 "../tv/rtldatafile/rtl.myproject.autotvout_layer7_out_5.dat"
+#define AUTOTB_TVOUT_PC_layer7_out "../tv/rtldatafile/rtl.myproject.autotvout_layer7_out.dat"
 
 
 namespace hls::sim
@@ -1172,129 +1159,58 @@ namespace hls::sim
 
 
 extern "C"
-void myproject_hw_stub_wrapper(void*, void*, void*, void*, void*, void*, void*);
+void myproject_hw_stub_wrapper(void*, void*);
 
 extern "C"
-void apatb_myproject_hw(void* __xlx_apatb_param_input_1, void* __xlx_apatb_param_layer7_out_0, void* __xlx_apatb_param_layer7_out_1, void* __xlx_apatb_param_layer7_out_2, void* __xlx_apatb_param_layer7_out_3, void* __xlx_apatb_param_layer7_out_4, void* __xlx_apatb_param_layer7_out_5)
+void apatb_myproject_hw(void* __xlx_apatb_param_input_5, void* __xlx_apatb_param_layer7_out)
 {
-  static hls::sim::Register port0 {
-    .name = "input_1",
-    .width = 18432,
+  static hls::sim::Stream<hls::sim::Byte<18>> port0 {
+    .width = 144,
+    .name = "input_5",
 #ifdef POST_CHECK
+    .reader = new hls::sim::Reader(WRAPC_STREAM_SIZE_IN_input_5),
 #else
-    .owriter = nullptr,
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_input_1),
+    .writer = new hls::sim::Writer(AUTOTB_TVIN_input_5),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_IN_input_5),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_INGRESS_STATUS_input_5),
 #endif
   };
-  port0.param = __xlx_apatb_param_input_1;
+  port0.param = (hls::stream<hls::sim::Byte<18>>*)__xlx_apatb_param_input_5;
+  port0.hasWrite = false;
 
-  static hls::sim::Register port1 {
-    .name = "layer7_out_0",
-    .width = 16,
+  static hls::sim::Stream<hls::sim::Byte<12>> port1 {
+    .width = 96,
+    .name = "layer7_out",
 #ifdef POST_CHECK
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_layer7_out_0),
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_layer7_out),
 #else
-    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_layer7_out_0),
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_layer7_out_0),
+    .writer = new hls::sim::Writer(AUTOTB_TVOUT_layer7_out),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_OUT_layer7_out),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_EGRESS_STATUS_layer7_out),
 #endif
   };
-  port1.param = __xlx_apatb_param_layer7_out_0;
-
-  static hls::sim::Register port2 {
-    .name = "layer7_out_1",
-    .width = 16,
-#ifdef POST_CHECK
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_layer7_out_1),
-#else
-    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_layer7_out_1),
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_layer7_out_1),
-#endif
-  };
-  port2.param = __xlx_apatb_param_layer7_out_1;
-
-  static hls::sim::Register port3 {
-    .name = "layer7_out_2",
-    .width = 16,
-#ifdef POST_CHECK
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_layer7_out_2),
-#else
-    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_layer7_out_2),
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_layer7_out_2),
-#endif
-  };
-  port3.param = __xlx_apatb_param_layer7_out_2;
-
-  static hls::sim::Register port4 {
-    .name = "layer7_out_3",
-    .width = 16,
-#ifdef POST_CHECK
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_layer7_out_3),
-#else
-    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_layer7_out_3),
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_layer7_out_3),
-#endif
-  };
-  port4.param = __xlx_apatb_param_layer7_out_3;
-
-  static hls::sim::Register port5 {
-    .name = "layer7_out_4",
-    .width = 16,
-#ifdef POST_CHECK
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_layer7_out_4),
-#else
-    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_layer7_out_4),
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_layer7_out_4),
-#endif
-  };
-  port5.param = __xlx_apatb_param_layer7_out_4;
-
-  static hls::sim::Register port6 {
-    .name = "layer7_out_5",
-    .width = 16,
-#ifdef POST_CHECK
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_layer7_out_5),
-#else
-    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_layer7_out_5),
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_layer7_out_5),
-#endif
-  };
-  port6.param = __xlx_apatb_param_layer7_out_5;
+  port1.param = (hls::stream<hls::sim::Byte<12>>*)__xlx_apatb_param_layer7_out;
+  port1.hasWrite = true;
 
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
+    check(port0);
     check(port1);
-    check(port2);
-    check(port3);
-    check(port4);
-    check(port5);
-    check(port6);
 #else
     static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
     CodeState = DUMP_INPUTS;
-    dump(port0, port0.iwriter, tcl.AESL_transaction);
-    dump(port1, port1.iwriter, tcl.AESL_transaction);
-    dump(port2, port2.iwriter, tcl.AESL_transaction);
-    dump(port3, port3.iwriter, tcl.AESL_transaction);
-    dump(port4, port4.iwriter, tcl.AESL_transaction);
-    dump(port5, port5.iwriter, tcl.AESL_transaction);
-    dump(port6, port6.iwriter, tcl.AESL_transaction);
-    port0.doTCL(tcl);
-    port1.doTCL(tcl);
-    port2.doTCL(tcl);
-    port3.doTCL(tcl);
-    port4.doTCL(tcl);
-    port5.doTCL(tcl);
-    port6.doTCL(tcl);
+    port0.markSize();
+    port0.buffer();
+    port1.markSize();
     CodeState = CALL_C_DUT;
-    myproject_hw_stub_wrapper(__xlx_apatb_param_input_1, __xlx_apatb_param_layer7_out_0, __xlx_apatb_param_layer7_out_1, __xlx_apatb_param_layer7_out_2, __xlx_apatb_param_layer7_out_3, __xlx_apatb_param_layer7_out_4, __xlx_apatb_param_layer7_out_5);
+    myproject_hw_stub_wrapper(__xlx_apatb_param_input_5, __xlx_apatb_param_layer7_out);
+    port1.buffer();
+    dump(port0, tcl.AESL_transaction);
+    port0.doTCL(tcl);
     CodeState = DUMP_OUTPUTS;
-    dump(port1, port1.owriter, tcl.AESL_transaction);
-    dump(port2, port2.owriter, tcl.AESL_transaction);
-    dump(port3, port3.owriter, tcl.AESL_transaction);
-    dump(port4, port4.owriter, tcl.AESL_transaction);
-    dump(port5, port5.owriter, tcl.AESL_transaction);
-    dump(port6, port6.owriter, tcl.AESL_transaction);
+    dump(port1, tcl.AESL_transaction);
+    port1.doTCL(tcl);
     tcl.AESL_transaction++;
 #endif
   } catch (const hls::sim::SimException &e) {
