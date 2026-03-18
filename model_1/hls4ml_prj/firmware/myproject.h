@@ -10,8 +10,8 @@
 
 // Prototype of top level function for C-synthesis
 void myproject(
-    input_t input_1[128*9],
-    result_t layer7_out[6]
+    hls::stream<input_t> &input_5,
+    hls::stream<result_t> &layer7_out
 );
 
 // hls-fpga-machine-learning insert emulator-defines

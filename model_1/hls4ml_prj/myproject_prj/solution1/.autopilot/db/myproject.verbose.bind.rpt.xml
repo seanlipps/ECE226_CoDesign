@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'myproject'" level="0">
-<item name = "Date">Wed Mar 11 15:01:55 2026
+<item name = "Date">Wed Mar 18 13:58:00 2026
 </item>
 <item name = "Version">2024.1 (Build 5069499 on May 21 2024)</item>
 <item name = "Project">myproject_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00 ns, 3.635 ns, 1.35 ns</column>
+<column name="ap_clk">5.00 ns, 3.530 ns, 1.35 ns</column>
 </table>
 </item>
 </section>
@@ -24,18 +24,19 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">183, 184, 0.915 us, 0.920 us, 128, 128, dataflow</column>
+<column name="">395, 395, 1.975 us, 1.975 us, 390, 390, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_conv_1d_cl_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config2_s_fu_46">conv_1d_cl_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config2_s, 130, 131, 0.650 us, 0.655 us, 128, 128, loop rewind stp(delay=0 clock cycles(s))</column>
-<column name="call_ret_relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_relu_config4_s_fu_52">relu_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_relu_config4_s, 0, 0, 0 ns, 0 ns, 1, 1, yes</column>
-<column name="grp_global_pooling1d_cl_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config5_s_fu_2104">global_pooling1d_cl_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config5_s, 44, 44, 0.220 us, 0.220 us, 1, 1, yes</column>
-<column name="grp_dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config6_s_fu_4156">dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_16_6_5_3_0_config6_s, 1, 1, 5.000 ns, 5.000 ns, 1, 1, yes</column>
-<column name="grp_softmax_stable_ap_fixed_ap_fixed_16_6_5_3_0_softmax_config7_s_fu_4176">softmax_stable_ap_fixed_ap_fixed_16_6_5_3_0_softmax_config7_s, 4, 4, 20.000 ns, 20.000 ns, 1, 1, yes</column>
+<column name="grp_zeropad1d_cl_array_ap_fixed_9u_array_ap_fixed_16_6_5_3_0_9u_config8_s_fu_142">zeropad1d_cl_array_ap_fixed_9u_array_ap_fixed_16_6_5_3_0_9u_config8_s, 132, 132, 0.660 us, 0.660 us, 132, 132, no</column>
+<column name="grp_conv_1d_cl_array_ap_fixed_9u_array_ap_fixed_16_6_5_3_0_16u_config2_s_fu_149">conv_1d_cl_array_ap_fixed_9u_array_ap_fixed_16_6_5_3_0_16u_config2_s, 393, 393, 1.965 us, 1.965 us, 390, 390, loop auto-rewind stp(delay=0 clock cycles(s))</column>
+<column name="grp_relu_array_ap_fixed_16u_array_ap_fixed_16_6_5_3_0_16u_relu_config4_s_fu_213">relu_array_ap_fixed_16u_array_ap_fixed_16_6_5_3_0_16u_relu_config4_s, 129, 129, 0.645 us, 0.645 us, 128, 128, loop auto-rewind stp(delay=0 clock cycles(s))</column>
+<column name="grp_global_pooling1d_cl_array_array_ap_fixed_16_6_5_3_0_16u_config5_s_fu_219">global_pooling1d_cl_array_array_ap_fixed_16_6_5_3_0_16u_config5_s, 131, 131, 0.655 us, 0.655 us, 131, 131, no</column>
+<column name="grp_dense_array_ap_fixed_16u_array_ap_fixed_16_6_5_3_0_6u_config6_s_fu_225">dense_array_ap_fixed_16u_array_ap_fixed_16_6_5_3_0_6u_config6_s, 2, 2, 10.000 ns, 10.000 ns, 2, 2, no</column>
+<column name="grp_softmax_array_array_ap_fixed_16_6_5_3_0_6u_softmax_config7_s_fu_231">softmax_array_array_ap_fixed_16_6_5_3_0_6u_softmax_config7_s, 8, 8, 40.000 ns, 40.000 ns, 8, 8, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

@@ -5,14 +5,12 @@
 
 
 void myproject(
-    input_t input_1[128*9],
-    result_t layer7_out[6]
+    hls::stream<input_t> &input_5,
+    hls::stream<result_t> &layer7_out
 ) {
 
     // hls-fpga-machine-learning insert IO
-    #pragma HLS ARRAY_RESHAPE variable=input_1 complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=layer7_out complete dim=0
-    #pragma HLS INTERFACE ap_vld port=input_1,layer7_out 
+    #pragma HLS INTERFACE axis port=input_5,layer7_out 
     #pragma HLS DATAFLOW
 
     // hls-fpga-machine-learning insert load weights
@@ -31,27 +29,32 @@ void myproject(
 
     // hls-fpga-machine-learning insert layers
 
-    layer2_t layer2_out[128*16];
-    #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
+    hls::stream<layer8_t> layer8_out("layer8_out");
+    #pragma HLS STREAM variable=layer8_out depth=130
 
-    layer4_t layer4_out[128*16];
-    #pragma HLS ARRAY_PARTITION variable=layer4_out complete dim=0
+    hls::stream<layer2_t> layer2_out("layer2_out");
+    #pragma HLS STREAM variable=layer2_out depth=128
 
-    layer5_t layer5_out[16];
-    #pragma HLS ARRAY_PARTITION variable=layer5_out complete dim=0
+    hls::stream<layer4_t> layer4_out("layer4_out");
+    #pragma HLS STREAM variable=layer4_out depth=128
 
-    layer6_t layer6_out[6];
-    #pragma HLS ARRAY_PARTITION variable=layer6_out complete dim=0
+    hls::stream<layer5_t> layer5_out("layer5_out");
+    #pragma HLS STREAM variable=layer5_out depth=1
 
-    nnet::conv_1d_cl<input_t, layer2_t, config2>(input_1, layer2_out, w2, b2); // conv1d_simple
+    hls::stream<layer6_t> layer6_out("layer6_out");
+    #pragma HLS STREAM variable=layer6_out depth=1
 
-    nnet::relu<layer2_t, layer4_t, relu_config4>(layer2_out, layer4_out); // activation
+    nnet::zeropad1d_cl<input_t, layer8_t, config8>(input_5, layer8_out); // zp1d_conv1
 
-    nnet::global_pooling1d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out); // global_max_pooling1d
+    nnet::conv_1d_cl<layer8_t, layer2_t, config2>(layer8_out, layer2_out, w2, b2); // conv1
 
-    nnet::dense<layer5_t, layer6_t, config6>(layer5_out, layer6_out, w6, b6); // dense
+    nnet::relu<layer2_t, layer4_t, relu_config4>(layer2_out, layer4_out); // activation_4
 
-    nnet::softmax<layer6_t, result_t, softmax_config7>(layer6_out, layer7_out); // dense_softmax
+    nnet::global_pooling1d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out); // global_max_pooling1d_4
+
+    nnet::dense<layer5_t, layer6_t, config6>(layer5_out, layer6_out, w6, b6); // dense_4
+
+    nnet::softmax<layer6_t, result_t, softmax_config7>(layer6_out, layer7_out); // dense_4_softmax
 
 }
 
